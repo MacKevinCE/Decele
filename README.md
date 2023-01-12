@@ -1,6 +1,6 @@
 # Decele
 
-[![CI Status](https://img.shields.io/travis/Hermes Mac Kevin Cabanillas Encarnación/Decele.svg?style=flat)](https://travis-ci.org/Hermes Mac Kevin Cabanillas Encarnación/Decele)
+[![CI Status](https://img.shields.io/travis/MacKevinCE/Decele.svg?style=flat)](https://travis-ci.org/MacKevinCE/Decele)
 [![Version](https://img.shields.io/cocoapods/v/Decele.svg?style=flat)](https://cocoapods.org/pods/Decele)
 [![License](https://img.shields.io/cocoapods/l/Decele.svg?style=flat)](https://cocoapods.org/pods/Decele)
 [![Platform](https://img.shields.io/cocoapods/p/Decele.svg?style=flat)](https://cocoapods.org/pods/Decele)
@@ -22,7 +22,7 @@ pod 'Decele'
 
 ## Author
 
-Hermes Mac Kevin Cabanillas Encarnación, mac.kevin.c.e@gmail.com
+Mac Kevin C. E., mac.kevin.c.e@gmail.com
 
 ## License
 

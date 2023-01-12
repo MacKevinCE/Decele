@@ -1,0 +1,63 @@
+PODS:
+  - Alamofire (5.6.4)
+  - Decele (0.1.0):
+    - Decele/Chuck (= 0.1.0)
+    - Decele/Components (= 0.1.0)
+    - Decele/Crypto (= 0.1.0)
+    - Decele/Persistent (= 0.1.0)
+    - Decele/Repository (= 0.1.0)
+  - Decele/Chuck (0.1.0)
+  - Decele/Components (0.1.0):
+    - Decele/Components/FloatingPanel (= 0.1.0)
+    - Decele/Components/SideMenu (= 0.1.0)
+    - Decele/Components/TextField (= 0.1.0)
+  - Decele/Components/FloatingPanel (0.1.0):
+    - FloatingPanel (~> 2.5.5)
+  - Decele/Components/SideMenu (0.1.0):
+    - SideMenu (~> 6.5.0)
+  - Decele/Components/TextField (0.1.0)
+  - Decele/Crypto (0.1.0)
+  - Decele/Persistent (0.1.0):
+    - SwiftKeychainWrapper (~> 4.0.1)
+  - Decele/Repository (0.1.0):
+    - Alamofire (~> 5.6.4)
+    - PromiseKit (~> 6.18.1)
+  - FloatingPanel (2.5.5)
+  - PromiseKit (6.18.1):
+    - PromiseKit/CorePromise (= 6.18.1)
+    - PromiseKit/Foundation (= 6.18.1)
+    - PromiseKit/UIKit (= 6.18.1)
+  - PromiseKit/CorePromise (6.18.1)
+  - PromiseKit/Foundation (6.18.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.18.1):
+    - PromiseKit/CorePromise
+  - SideMenu (6.5.0)
+  - SwiftKeychainWrapper (4.0.1)
+
+DEPENDENCIES:
+  - Decele (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - FloatingPanel
+    - PromiseKit
+    - SideMenu
+    - SwiftKeychainWrapper
+
+EXTERNAL SOURCES:
+  Decele:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Decele: 5d59ec2fbccc86c35161f88e7237e6d25e147ead
+  FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
+  PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
+
+PODFILE CHECKSUM: ec2306c4dbcd9fc8b888b16b34fdbfb8ebd80825
+
+COCOAPODS: 1.11.3
