@@ -9,6 +9,6 @@ import Foundation
 
 extension UIApplication {
     static var rootViewController: UIViewController? {
-        UIApplication.shared.delegate?.window??.rootViewController
+        UIApplication.shared.windows.first?.rootViewController
     }
 }

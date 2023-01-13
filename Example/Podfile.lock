@@ -1,27 +1,38 @@
 PODS:
   - Alamofire (5.6.4)
-  - Decele (0.1.0):
-    - Decele/Chuck (= 0.1.0)
-    - Decele/Components (= 0.1.0)
-    - Decele/Crypto (= 0.1.0)
-    - Decele/Persistent (= 0.1.0)
-    - Decele/Repository (= 0.1.0)
-  - Decele/Chuck (0.1.0)
-  - Decele/Components (0.1.0):
-    - Decele/Components/FloatingPanel (= 0.1.0)
-    - Decele/Components/SideMenu (= 0.1.0)
-    - Decele/Components/TextField (= 0.1.0)
-  - Decele/Components/FloatingPanel (0.1.0):
+  - Decele (0.1.1):
+    - Decele/Chuck (= 0.1.1)
+    - Decele/Components (= 0.1.1)
+    - Decele/Crypto (= 0.1.1)
+    - Decele/Persistent (= 0.1.1)
+    - Decele/Repository (= 0.1.1)
+  - Decele/Chuck (0.1.1):
+    - Decele/Shared
+  - Decele/Components (0.1.1):
+    - Decele/Components/Button (= 0.1.1)
+    - Decele/Components/FloatingPanel (= 0.1.1)
+    - Decele/Components/SideMenu (= 0.1.1)
+    - Decele/Components/TextField (= 0.1.1)
+  - Decele/Components/Button (0.1.1):
+    - Decele/Shared
+  - Decele/Components/FloatingPanel (0.1.1):
+    - Decele/Shared
     - FloatingPanel (~> 2.5.5)
-  - Decele/Components/SideMenu (0.1.0):
+  - Decele/Components/SideMenu (0.1.1):
+    - Decele/Shared
     - SideMenu (~> 6.5.0)
-  - Decele/Components/TextField (0.1.0)
-  - Decele/Crypto (0.1.0)
-  - Decele/Persistent (0.1.0):
+  - Decele/Components/TextField (0.1.1):
+    - Decele/Shared
+  - Decele/Crypto (0.1.1):
+    - Decele/Shared
+  - Decele/Persistent (0.1.1):
+    - Decele/Shared
     - SwiftKeychainWrapper (~> 4.0.1)
-  - Decele/Repository (0.1.0):
+  - Decele/Repository (0.1.1):
     - Alamofire (~> 5.6.4)
+    - Decele/Shared
     - PromiseKit (~> 6.18.1)
+  - Decele/Shared (0.1.1)
   - FloatingPanel (2.5.5)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
@@ -52,7 +63,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  Decele: 5d59ec2fbccc86c35161f88e7237e6d25e147ead
+  Decele: f350a38bc5a91cd99ecbf16669c3133c2fb4baf5
   FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2

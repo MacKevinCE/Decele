@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Decele'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.'
   s.description      = <<-DESC
   This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.
@@ -9,30 +9,37 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Mac Kevin C. E.' => 'mac.kevin.c.e@gmail.com' }
   s.social_media_url = 'https://twitter.com/MacKevinCE'
-  s.screenshot = ''
+  # s.screenshot = ''
 
   s.ios.deployment_target = '13.0'
 
-  s.swift_version = '5'
+  s.swift_version = ['5.0', '5.1', '5.2', '5.3', '5.4', '5.5']
+  s.source = {
+      :git => "https://github.com/MacKevinCE/#{s.name}.git",
+      :tag => s.version.to_s,
+      :submodules => true
+    }
+  s.default_subspecs = 'Persistent', 'Crypto', 'Chuck', 'Repository', 'Components'
   s.requires_arc = true
-  s.source = { :git => 'https://github.com/MacKevinCE/Decele.git', :tag => s.version.to_s }
-  s.source_files = 'Decele/Classes/**/*'
-  
+
   # Persistent Extensions
   s.subspec 'Persistent' do |sp|
-    sp.source_files  = 'Decele/Classes/Persistent/**/*', 'Decele/Classes/Shared/**/*'
+    sp.source_files  = 'Decele/Classes/Persistent/**/*'
+    sp.dependency 'Decele/Shared'
     sp.dependency 'SwiftKeychainWrapper', '~> 4.0.1'
   end
   
   # Crypto Extensions
   s.subspec 'Crypto' do |sp|
-    sp.source_files  = 'Decele/Classes/Crypto/**/*', 'Decele/Classes/Shared/**/*'
-    sp.frameworks = 'CryptoKit'
+    sp.source_files  = 'Decele/Classes/Crypto/**/*'
+    sp.dependency 'Decele/Shared'
+    sp.ios.frameworks = 'CryptoKit'
   end
   
   # Chuck Extensions
   s.subspec 'Chuck' do |sp|
-    sp.source_files  = 'Decele/Classes/Chuck/**/*', 'Decele/Classes/Shared/**/*'
+    sp.source_files  = 'Decele/Classes/Chuck/**/*'
+    sp.dependency 'Decele/Shared'
     sp.resource_bundles = {
        'Chuck' => ['Decele/Assets/Chuck/*.xcassets']
     }
@@ -40,37 +47,46 @@ Pod::Spec.new do |s|
   
   # Repository Extensions
   s.subspec 'Repository' do |sp|
-    sp.source_files  = 'Decele/Classes/Repository/**/*', 'Decele/Classes/Shared/**/*'
+    sp.source_files  = 'Decele/Classes/Repository/**/*'
+    sp.dependency 'Decele/Shared'
     sp.dependency 'Alamofire', '~> 5.6.4'
     sp.dependency 'PromiseKit', '~> 6.18.1'
   end
   
   # Components Extensions
   s.subspec 'Components' do |sp|
-    sp.source_files  = 'Decele/Classes/Components/**/*', 'Decele/Classes/Shared/**/*'
-    
     # FloatingPanel Extensions
     sp.subspec 'FloatingPanel' do |spp|
-      spp.source_files  = 'Decele/Classes/Components/FloatingPanel/**/*', 'Decele/Classes/Shared/**/*'
+      spp.source_files  = 'Decele/Classes/Components/FloatingPanel/**/*'
+      spp.dependency 'Decele/Shared'
       spp.dependency 'FloatingPanel', '~> 2.5.5'
     end
     
     # SideMenu Extensions
     sp.subspec 'SideMenu' do |spp|
-      spp.source_files  = 'Decele/Classes/Components/SideMenu/**/*', 'Decele/Classes/Shared/**/*'
+      spp.source_files  = 'Decele/Classes/Components/SideMenu/**/*'
+      spp.dependency 'Decele/Shared'
       spp.dependency 'SideMenu', '~> 6.5.0'
     end
     
-    # TextField Extensions
-    sp.subspec 'TextField' do |spp|
-      spp.source_files  = 'Decele/Classes/Components/TextField/**/*', 'Decele/Classes/Shared/**/*'
+    # Button Extensions
+    sp.subspec 'Button' do |spp|
+      spp.source_files  = 'Decele/Classes/Components/Button/**/*'
+      spp.dependency 'Decele/Shared'
     end
     
     # TextField Extensions
     sp.subspec 'TextField' do |spp|
-      spp.source_files  = 'Decele/Classes/Components/TextField/**/*', 'Decele/Classes/Shared/**/*'
+      spp.source_files  = 'Decele/Classes/Components/TextField/**/*'
+      spp.dependency 'Decele/Shared'
     end
   end
 
-  s.frameworks = 'UIKit'
+  # Shared Extensions
+  s.subspec 'Shared' do |sp|
+    sp.source_files  = 'Decele/Classes/Shared/**/*'
+  end
+  
+  s.ios.frameworks = 'UIKit'
+  s.frameworks = 'Foundation'
 end
