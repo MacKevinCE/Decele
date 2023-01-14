@@ -1,38 +1,38 @@
 PODS:
   - Alamofire (5.6.4)
-  - Decele (0.1.1):
-    - Decele/Chuck (= 0.1.1)
-    - Decele/Components (= 0.1.1)
-    - Decele/Crypto (= 0.1.1)
-    - Decele/Persistent (= 0.1.1)
-    - Decele/Repository (= 0.1.1)
-  - Decele/Chuck (0.1.1):
+  - Decele (0.1.2):
+    - Decele/Chuck (= 0.1.2)
+    - Decele/Components (= 0.1.2)
+    - Decele/Crypto (= 0.1.2)
+    - Decele/Persistent (= 0.1.2)
+    - Decele/Repository (= 0.1.2)
+  - Decele/Chuck (0.1.2):
     - Decele/Shared
-  - Decele/Components (0.1.1):
-    - Decele/Components/Button (= 0.1.1)
-    - Decele/Components/FloatingPanel (= 0.1.1)
-    - Decele/Components/SideMenu (= 0.1.1)
-    - Decele/Components/TextField (= 0.1.1)
-  - Decele/Components/Button (0.1.1):
+  - Decele/Components (0.1.2):
+    - Decele/Components/Button (= 0.1.2)
+    - Decele/Components/FloatingPanel (= 0.1.2)
+    - Decele/Components/SideMenu (= 0.1.2)
+    - Decele/Components/TextField (= 0.1.2)
+  - Decele/Components/Button (0.1.2):
     - Decele/Shared
-  - Decele/Components/FloatingPanel (0.1.1):
+  - Decele/Components/FloatingPanel (0.1.2):
     - Decele/Shared
     - FloatingPanel (~> 2.5.5)
-  - Decele/Components/SideMenu (0.1.1):
+  - Decele/Components/SideMenu (0.1.2):
     - Decele/Shared
     - SideMenu (~> 6.5.0)
-  - Decele/Components/TextField (0.1.1):
+  - Decele/Components/TextField (0.1.2):
     - Decele/Shared
-  - Decele/Crypto (0.1.1):
+  - Decele/Crypto (0.1.2):
     - Decele/Shared
-  - Decele/Persistent (0.1.1):
+  - Decele/Persistent (0.1.2):
     - Decele/Shared
     - SwiftKeychainWrapper (~> 4.0.1)
-  - Decele/Repository (0.1.1):
+  - Decele/Repository (0.1.2):
     - Alamofire (~> 5.6.4)
     - Decele/Shared
     - PromiseKit (~> 6.18.1)
-  - Decele/Shared (0.1.1)
+  - Decele/Shared (0.1.2)
   - FloatingPanel (2.5.5)
   - PromiseKit (6.18.1):
     - PromiseKit/CorePromise (= 6.18.1)
@@ -63,12 +63,12 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  Decele: f350a38bc5a91cd99ecbf16669c3133c2fb4baf5
+  Decele: 213d270161daa1538650146633974f0eb30acda0
   FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: ec2306c4dbcd9fc8b888b16b34fdbfb8ebd80825
+PODFILE CHECKSUM: c2b31541df8804ed0b7be7f1a7aa161714fafc65
 
 COCOAPODS: 1.11.3

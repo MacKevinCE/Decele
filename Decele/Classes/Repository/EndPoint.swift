@@ -13,8 +13,12 @@ public enum EndPoint: Hashable, Equatable {
     case custom(baseURL: String, path: String)
 }
 
-public extension EndPoint {
-    var endPoint: URLConvertible {
+extension EndPoint: URLConvertible {
+    public func asURL() throws -> URL {
+        try self.endPoint.asURL()
+    }
+
+    public var endPoint: URLConvertible {
         switch self {
         case let .path(path):
             return Self.custom(baseURL: ConfigRepository.shared.baseURL, path: path).endPoint
