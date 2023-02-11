@@ -1,6 +1,6 @@
 //
 //  OutputClass.swift
-//  Chuck
+//  Decele
 //
 //  Created by Mc Kevin on 15/07/22.
 //

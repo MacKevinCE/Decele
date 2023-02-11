@@ -1,11 +1,9 @@
 //
 //  Bundle.swift
-//  SwiftyChuck
+//  Decele
 //
 //  Created by Mc Kevin on 7/11/22.
 //
-
-import Foundation
 
 extension Bundle {
     class func myResourceBundle(for aClass: AnyClass) -> Bundle? {

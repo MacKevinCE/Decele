@@ -1,12 +1,13 @@
 //
 //  InputService.swift
-//  Chuck
+//  Decele
 //
 //  Created by Mc Kevin on 9/07/22.
 //
 
 import Foundation
 
+// MARK: - InputService
 struct InputService: InputProtocol {
     let file: String
     let function: String
@@ -40,17 +41,17 @@ struct InputService: InputProtocol {
         self.file = file
         self.function = function
         self.line = line
-        self.type = .service
-        self.colorText = getColor(response)
-        self.state = getState(response)
-        self.method = getMethod(request)
-        self.url = getUrl(request)
-        self.endPoint = getEndPoint(request)
+        type = .service
+        colorText = getColor(response)
+        state = getState(response)
+        method = getMethod(request)
+        url = getUrl(request)
+        endPoint = getEndPoint(request)
         self.typeRequest = typeRequest ?? .empty
-        self.headersResquest = getHeadersRequest(request)
+        headersResquest = getHeadersRequest(request)
         self.request = getRequest(request)
         self.typeResponse = typeResponse ?? .empty
-        self.headersResponse = getHeadersResponse(response)
+        headersResponse = getHeadersResponse(response)
         self.response = getResponse(data)
         self.error = getError(error)
     }
@@ -62,61 +63,61 @@ struct InputService: InputProtocol {
     func getPreview() -> PreviewInfo {
         let colorText = self.colorText
         let colorState: UIColor = (colorText == .black) ? .green : colorText
-        let attributed = "\(self.state)"
-            .initAttributeIndentation(indentation: 35)
-            .addAttributeText(color: colorState, font: .semibold16)
+        let attributed = "\(state)"
+            .applying(indentation: 35)
+            .applying(font: .semibold16, color: colorState)
             .printSpacer().printSpacer()
-            .addTextWithAttributeText(text: self.method.uppercased(), color: colorText, font: .semibold14)
+            .addTextApplying(text: method.uppercased(), font: .semibold14, color: colorText)
             .printSpacer().printSpacer()
-            .addTextWithAttributeText(text: self.endPoint.resume(), color: colorText, font: .regular14)
+            .addTextApplying(text: endPoint.truncated(prefixLength: 50, suffixLength: 50), font: .regular14, color: colorText)
             .printEnter().printTab().printTab().printSpacer()
-            .addTextWithAttributeText(text: self.time.toString(), color: .gray, font: .regular12)
+            .addTextApplying(text: time.string(withFormat: .timeMedium), font: .regular12, color: .gray)
         return .attributed(attributed)
     }
 
     func getTabAll() -> NSMutableAttributedString {
         var pares: [String: String] = [:]
-        pares["ID"] = self.id.uuidString
-        pares["Method"] = self.method
-        pares["URL"] = self.url
-        pares["Error"] = self.error
-        pares["Request Headers"] = self.headersResquest.toString()
-        pares["Request Body"] = self.request
-        pares["Response Status"] = self.state
-        pares["Response Headers"] = self.headersResponse.toString()
-        pares["Response Body"] = self.response
-        pares["File"] = Chuck.getPath(self.file)
-        pares["Function"] = self.function
-        pares["Line"] = String(self.line)
-        pares["Time"] = self.time.toString(with: .iso8601)
+        pares["ID"] = id.uuidString
+        pares["Method"] = method
+        pares["URL"] = url
+        pares["Error"] = error
+        pares["Request Headers"] = headersResquest.toString()
+        pares["Request Body"] = request
+        pares["Response Status"] = state
+        pares["Response Headers"] = headersResponse.toString()
+        pares["Response Body"] = response
+        pares["File"] = Chuck.getPath(file)
+        pares["Function"] = function
+        pares["Line"] = String(line)
+        pares["Time"] = time.string(withFormat: .iso8601)
         return pares.toAttributedString()
     }
 
     func getTabResume() -> NSMutableAttributedString {
-        let colorState = (colorText == .black) ? .green : self.colorText
+        let colorState = (colorText == .black) ? .green : colorText
 
-        var attributeText = String.empty.initAttributeText(font: .regular14)
+        var attributeText = NSMutableAttributedString()
             .printTitleChuck("URL")
             .printEnter()
-            .addTextWithAttributeText(text: self.state, color: colorState, font: .semibold14)
+            .addTextApplying(text: state, font: .semibold14, color: colorState)
             .printSpacer().printSpacer()
-            .addAttributeIndentation(indentation: 35)
-            .addTextWithAttributeText(text: self.method.uppercased(), color: self.colorText, font: .semibold14)
+            .applying(indentation: 35)
+            .addTextApplying(text: method.uppercased(), font: .semibold14, color: colorText)
             .printSpacer().printSpacer()
-            .addTextWithAttributeText(text: self.url, color: self.colorText, font: .regular14)
+            .addTextApplying(text: url, font: .regular14, color: colorText)
             .printEnter()
 
-        if let err = self.error.null() {
+        if let err = error.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("ERROR", color: .red)
                 .printEnter()
-                .addTextWithAttributeText(text: err, color: .red, font: .regular14)
+                .addTextApplying(text: err, font: .regular14, color: .red)
                 .printEnter()
         }
 
-        if let typeRequest = self.typeRequest.null(),
-           let typeResponse = self.typeResponse.null()
+        if let typeRequest = typeRequest.nullable,
+           let typeResponse = typeResponse.nullable
         {
             attributeText = attributeText
                 .printEnter()
@@ -128,7 +129,7 @@ struct InputService: InputProtocol {
                 .printEnter()
         }
 
-        if let request = self.request.null() {
+        if let request = request.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("REQUEST")
@@ -136,7 +137,7 @@ struct InputService: InputProtocol {
                 .printJSONForChuck(request)
                 .printEnter()
         }
-        if let response = self.response.null() {
+        if let response = response.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("RESPONSE")
@@ -148,9 +149,9 @@ struct InputService: InputProtocol {
     }
 
     func getTabRequest() -> NSMutableAttributedString {
-        var attributeText = String.empty.initAttributeText(font: .regular14)
+        var attributeText = NSMutableAttributedString()
 
-        if let request = self.request.null() {
+        if let request = request.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("REQUEST BODY")
@@ -158,12 +159,12 @@ struct InputService: InputProtocol {
                 .printJSONForChuck(request)
                 .printEnter()
         }
-        if self.headersResquest.count > 0 {
+        if headersResquest.count > 0 {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("REQUEST HEADER")
                 .printEnter()
-            self.headersResquest.forEach {
+            headersResquest.forEach {
                 attributeText = attributeText
                     .printParStringForChuck($0)
                     .printEnter()
@@ -173,9 +174,9 @@ struct InputService: InputProtocol {
     }
 
     func getTabResponse() -> NSMutableAttributedString {
-        var attributeText = String.empty.initAttributeText(font: .regular14)
+        var attributeText = NSMutableAttributedString()
 
-        if let response = self.response.null() {
+        if let response = response.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("RESPONSE BODY")
@@ -183,12 +184,12 @@ struct InputService: InputProtocol {
                 .printJSONForChuck(response)
                 .printEnter()
         }
-        if self.headersResponse.count > 0 {
+        if headersResponse.count > 0 {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("RESPONSE HEADER")
                 .printEnter()
-            self.headersResponse.forEach {
+            headersResponse.forEach {
                 attributeText = attributeText
                     .printParStringForChuck($0)
                     .printEnter()
@@ -237,9 +238,9 @@ func getHeadersRequest(_ request: URLRequest?) -> [String: String] {
 }
 
 func getResponse(_ data: Data?) -> String {
-    let pretty = data?.prettyPrintedJSONString?.null()
+    let pretty = data?.prettyPrintedJSONString?.nullable
     let normal = data.map { String(decoding: $0, as: UTF8.self) }
-    let final = normal?.replacingOccurrences(of: "&", with: "\n").null()
+    let final = normal?.replacingOccurrences(of: "&", with: "\n").nullable
     return pretty ?? final ?? "None"
 }
 

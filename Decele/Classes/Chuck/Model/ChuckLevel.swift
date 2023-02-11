@@ -1,6 +1,6 @@
 //
-//  ChuckType.swift
-//  Chuck
+//  DeceleType.swift
+//  Decele
 //
 //  Created by Mc Kevin on 15/07/22.
 //

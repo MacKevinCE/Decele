@@ -1,6 +1,6 @@
 //
 //  DataRequest.swift
-//  Alamofire
+//  Decele
 //
 //  Created by Mc Kevin on 3/01/23.
 //
@@ -110,7 +110,7 @@ extension DataRequest {
     }
 
     private func failed<T>(error: Error, response: AFDataResponse<T>) -> Error {
-        if let messageModel = response.data?.decode(MessageModel.self) {
+        if let messageModel: MessageModel = response.data?.decode() {
             return messageModel
         } else if let statusCode = response.response?.statusCode, let getError = ConfigRepository.shared.error.getMessageModel(statusCode: statusCode) {
             return getError

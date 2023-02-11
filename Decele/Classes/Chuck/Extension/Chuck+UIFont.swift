@@ -1,6 +1,6 @@
 //
-//  UIFont.swift
-//  Chuck
+//  Decele+UIFont.swift
+//  Decele
 //
 //  Created by Mc Kevin on 9/07/22.
 //
@@ -14,3 +14,4 @@ extension UIFont {
     static let regular14 = systemFont(ofSize: 14, weight: .regular) // caption3
     static let regular12 = systemFont(ofSize: 12, weight: .regular) // caption1
 }
+

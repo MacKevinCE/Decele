@@ -1,6 +1,6 @@
 //
 //  FloatingPanel.swift
-//  SwiftyComponents
+//  Decele
 //
 //  Created by Mc Kevin on 7/01/23.
 //
@@ -18,7 +18,7 @@ public final class FloatingPanel: FloatingPanelController {
 
     public convenience init(with content: UIView, config: ConfigFloatingPanel = .shared) {
         let view = FloatingPanelViewController()
-        view.view.addSubview(content)
+        view.view = content
         view.config = config
         self.init(delegate: config.delegate ?? view)
 
@@ -35,8 +35,6 @@ public final class FloatingPanel: FloatingPanelController {
 
 public extension NibView {
     func buildFloating() -> FloatingPanel {
-        let viewController = FloatingPanel(with: self)
-        self.viewController = viewController
-        return viewController
+        return FloatingPanel(with: self)
     }
 }

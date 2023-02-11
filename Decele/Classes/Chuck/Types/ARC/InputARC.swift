@@ -1,12 +1,13 @@
 //
 //  InputARC.swift
-//  Chuck
+//  Decele
 //
 //  Created by Mc Kevin on 30/10/22.
 //
 
 import Foundation
 
+// MARK: - InputARC
 struct InputARC: InputProtocol {
     let id: UUID
     let file: String
@@ -27,7 +28,7 @@ struct InputARC: InputProtocol {
         self.function = function
         self.line = line
         self.anyObject = anyObject
-        self.type = .arc
+        type = .arc
     }
 
     func output() -> OutputARC {
@@ -36,18 +37,18 @@ struct InputARC: InputProtocol {
 
     func getPreview() -> PreviewInfo {
         let attributed = "\(classAsArray().first ?? "AnyObject"):"
-            .initAttributeText(color: .systemTeal, font: .semibold16)
+            .applying(font: .semibold16, color: .systemTeal)
             .printSpacer()
-            .addTextWithAttributeText(text: self.getNameClass())
+            .addTextApplying(text: getNameClass())
             .printEnter().printTab().printTab().printSpacer()
-            .addTextWithAttributeText(text: self.time.toString(), color: .gray, font: .regular12)
+            .addTextApplying(text: time.string(withFormat: .timeMedium), font: .regular12, color: .gray)
         return .attributed(attributed)
     }
 
     func getTabResume() -> NSMutableAttributedString {
-        var attributeText = String.empty.initAttributeText(font: .regular14)
+        var attributeText = NSMutableAttributedString()
 
-        if let name = self.getNameClass().null() {
+        if let name = getNameClass().nullable {
             attributeText = attributeText
                 .printTitleChuck("CLASS NAME")
                 .printEnter()
@@ -55,7 +56,7 @@ struct InputARC: InputProtocol {
                 .printEnter()
         }
 
-        if let type = self.classAs().null() {
+        if let type = classAs().nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("CLASS AS")
@@ -64,7 +65,7 @@ struct InputARC: InputProtocol {
                 .printEnter()
         }
 
-        if let describing = self.describingClass().null() {
+        if let describing = describingClass().nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("ALL DESCRIBING CLASS")
@@ -73,7 +74,7 @@ struct InputARC: InputProtocol {
                 .printEnter()
         }
 
-        if let json = self.jsonClass().null() {
+        if let json = jsonClass().nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("JSON")
@@ -87,210 +88,210 @@ struct InputARC: InputProtocol {
 
     func getTabAll() -> NSMutableAttributedString {
         var pares: [String: String] = [:]
-        pares["ID"] = self.id.uuidString
-        pares["Project's Name"] = self.getNameProject()
-        pares["Class Name"] = self.getNameClass()
-        pares["All Describing Class"] = self.describingClass()
-        pares["Encodable Class"] = self.jsonClass()
-        pares["NavigationController Description"] = self.navigationControllerDescription()
-        pares["View Description"] = self.viewDescription()
-        pares["Class As"] = self.classAs()
-        pares["File"] = Chuck.getPath(self.file)
-        pares["Function"] = self.function
-        pares["Line"] = String(self.line)
-        pares["Time"] = self.time.toString(with: .iso8601)
+        pares["ID"] = id.uuidString
+        pares["Project's Name"] = getNameProject()
+        pares["Class Name"] = getNameClass()
+        pares["All Describing Class"] = describingClass()
+        pares["Encodable Class"] = jsonClass()
+        pares["NavigationController Description"] = navigationControllerDescription()
+        pares["View Description"] = viewDescription()
+        pares["Class As"] = classAs()
+        pares["File"] = Chuck.getPath(file)
+        pares["Function"] = function
+        pares["Line"] = String(line)
+        pares["Time"] = time.string(withFormat: .iso8601)
         return pares.toAttributedString()
     }
 
     func classAsArray() -> [String] {
         return [
-            self.inherit(with: AnyKeyPath.self),
-            self.inherit(with: Bundle.self),
-            self.inherit(with: BlockOperation.self),
-            self.inherit(with: ByteCountFormatter.self),
-            self.inherit(with: DateComponentsFormatter.self),
-            self.inherit(with: Dimension.self),
-            self.inherit(with: DispatchData.self),
-            self.inherit(with: UIAccessibilityElement.self),
-            self.inherit(with: UIAccessibilityTraits.self),
-            self.inherit(with: UIActivity.self),
-            self.inherit(with: UIActivityIndicatorView.self),
-            self.inherit(with: UIActivityItemProvider.self),
-            self.inherit(with: UIAlertAction.self),
-            self.inherit(with: UIAlertController.self),
-            self.inherit(with: UIApplication.self),
-            self.inherit(with: UIApplicationShortcutIcon.self),
-            self.inherit(with: UIApplicationShortcutItem.self),
-            self.inherit(with: UIAttachmentBehavior.self),
-            self.inherit(with: UIButton.self),
-            self.inherit(with: UIBarItem.self),
-            self.inherit(with: UIBezierPath.self),
-            self.inherit(with: UIBlurEffect.self),
-            self.inherit(with: UIColor.self),
-            self.inherit(with: UIControl.self),
-            self.inherit(with: UIContextualAction.self),
-            self.inherit(with: UICollisionBehavior.self),
-            self.inherit(with: UIContentSizeCategory.self),
-            self.inherit(with: UICollectionReusableView.self),
-            self.inherit(with: UICollectionView.self),
-            self.inherit(with: UICollectionViewCell.self),
-            self.inherit(with: UICollectionViewController.self),
-            self.inherit(with: UICollectionViewDropProposal.self),
-            self.inherit(with: UICollectionViewDropPlaceholder.self),
-            self.inherit(with: UICollectionViewFlowLayout.self),
-            self.inherit(with: UICollectionViewFlowLayoutInvalidationContext.self),
-            self.inherit(with: UICollectionViewFocusUpdateContext.self),
-            self.inherit(with: UICollectionViewLayout.self),
-            self.inherit(with: UICollectionViewLayoutAttributes.self),
-            self.inherit(with: UICollectionViewLayoutInvalidationContext.self),
-            self.inherit(with: UICollectionViewPlaceholder.self),
-            self.inherit(with: UICollectionViewUpdateItem.self),
-            self.inherit(with: UICollectionViewTransitionLayout.self),
-            self.inherit(with: UIDragPreviewTarget.self),
-            self.inherit(with: UIDevice.self),
-            self.inherit(with: UIDocument.self),
-            self.inherit(with: UIDragItem.self),
-            self.inherit(with: UIDatePicker.self),
-            self.inherit(with: UIDragPreview.self),
-            self.inherit(with: UIDropProposal.self),
-            self.inherit(with: UIDictationPhrase.self),
-            self.inherit(with: UIDragInteraction.self),
-            self.inherit(with: UIDropInteraction.self),
-            self.inherit(with: UIDynamicAnimator.self),
-            self.inherit(with: UIDynamicBehavior.self),
-            self.inherit(with: UIEvent.self),
-            self.inherit(with: UIFont.self),
-            self.inherit(with: UIFocusGuide.self),
-            self.inherit(with: UIFocusSystem.self),
-            self.inherit(with: UIFontMetrics.self),
-            self.inherit(with: UIFieldBehavior.self),
-            self.inherit(with: UIFocusDebugger.self),
-            self.inherit(with: UIFontDescriptor.self),
-            self.inherit(with: UIFeedbackGenerator.self),
-            self.inherit(with: UIFloatRange.self),
-            self.inherit(with: UIFocusUpdateContext.self),
-            self.inherit(with: UIGravityBehavior.self),
-            self.inherit(with: UIGraphicsRenderer.self),
-            self.inherit(with: UIGestureRecognizer.self),
-            self.inherit(with: UIGraphicsPDFRenderer.self),
-            self.inherit(with: UIGraphicsImageRenderer.self),
-            self.inherit(with: UIGraphicsRendererFormat.self),
-            self.inherit(with: UIGraphicsRendererContext.self),
-            self.inherit(with: UIGraphicsPDFRendererFormat.self),
-            self.inherit(with: UIGraphicsPDFRendererContext.self),
-            self.inherit(with: UIGraphicsImageRendererFormat.self),
-            self.inherit(with: UIGraphicsImageRendererContext.self),
-            self.inherit(with: UIImage.self),
-            self.inherit(with: UIImageView.self),
-            self.inherit(with: UIInputView.self),
-            self.inherit(with: UIImageAsset.self),
-            self.inherit(with: UIInputViewController.self),
-            self.inherit(with: UIImagePickerController.self),
-            self.inherit(with: UIImpactFeedbackGenerator.self),
-            self.inherit(with: UIInterpolatingMotionEffect.self),
-            self.inherit(with: UIKeyCommand.self),
-            self.inherit(with: UILabel.self),
-            self.inherit(with: UILexicon.self),
-            self.inherit(with: UILayoutGuide.self),
-            self.inherit(with: UILexiconEntry.self),
-            self.inherit(with: UILayoutPriority.self),
-            self.inherit(with: UILocalizedIndexedCollation.self),
-            self.inherit(with: UILongPressGestureRecognizer.self),
-            self.inherit(with: UIMotionEffect.self),
-            self.inherit(with: UIManagedDocument.self),
-            self.inherit(with: UIMotionEffectGroup.self),
-            self.inherit(with: UIMarkupTextPrintFormatter.self),
-            self.inherit(with: UIMutableApplicationShortcutItem.self),
-            self.inherit(with: UINavigationBar.self),
-            self.inherit(with: UINavigationItem.self),
-            self.inherit(with: UINib.self),
-            self.inherit(with: UINotificationFeedbackGenerator.self),
-            self.inherit(with: UIPress.self),
-            self.inherit(with: UIPrinter.self),
-            self.inherit(with: UIPasteboard.self),
-            self.inherit(with: UIPrintInfo.self),
-            self.inherit(with: UIPickerView.self),
-            self.inherit(with: UIPrintPaper.self),
-            self.inherit(with: UIPageControl.self),
-            self.inherit(with: UIPressesEvent.self),
-            self.inherit(with: UIProgressView.self),
-            self.inherit(with: UIPushBehavior.self),
-            self.inherit(with: UIPreviewAction.self),
-            self.inherit(with: UIPrintFormatter.self),
-            self.inherit(with: UIPasteConfiguration.self),
-            self.inherit(with: UIPreviewInteraction.self),
-            self.inherit(with: UIPresentationController.self),
-            self.inherit(with: UIPrintPageRenderer.self),
-            self.inherit(with: UIPageViewController.self),
-            self.inherit(with: UIPreviewActionGroup.self),
-            self.inherit(with: UIPanGestureRecognizer.self),
-            self.inherit(with: UIRegion.self),
-            self.inherit(with: UIRefreshControl.self),
-            self.inherit(with: UIRotationGestureRecognizer.self),
-            self.inherit(with: UIReferenceLibraryViewController.self),
-            self.inherit(with: UISwitch.self),
-            self.inherit(with: UISlider.self),
-            self.inherit(with: UIScreen.self),
-            self.inherit(with: UIStepper.self),
-            self.inherit(with: UIStoryboard.self),
-            self.inherit(with: UIStackView.self),
-            self.inherit(with: UISearchBar.self),
-            self.inherit(with: UIScrollView.self),
-            self.inherit(with: UIScreenMode.self),
-            self.inherit(with: UISnapBehavior.self),
-            self.inherit(with: UIStoryboardSegue.self),
-            self.inherit(with: UISearchController.self),
-            self.inherit(with: UISegmentedControl.self),
-            self.inherit(with: UITabBar.self),
-            self.inherit(with: UITableView.self),
-            self.inherit(with: UITabBarItem.self),
-            self.inherit(with: UITraitCollection.self),
-            self.inherit(with: UITapGestureRecognizer.self),
-            self.inherit(with: UITargetedDragPreview.self),
-            self.inherit(with: UITableViewPlaceholder.self),
-            self.inherit(with: UITableViewDropProposal.self),
-            self.inherit(with: UITableViewDropPlaceholder.self),
-            self.inherit(with: UITableViewFocusUpdateContext.self),
-            self.inherit(with: UITableViewHeaderFooterView.self),
-            self.inherit(with: UITableViewCell.self),
-            self.inherit(with: UITabBarController.self),
-            self.inherit(with: UITableViewDropProposal.self),
-            self.inherit(with: UITableViewDropPlaceholder.self),
-            self.inherit(with: UITableViewHeaderFooterView.self),
-            self.inherit(with: UITableViewFocusUpdateContext.self),
-            self.inherit(with: UITableViewController.self),
-            self.inherit(with: UITouch.self),
-            self.inherit(with: UIToolbar.self),
-            self.inherit(with: UITextView.self),
-            self.inherit(with: UITextField.self),
-            self.inherit(with: UITextRange.self),
-            self.inherit(with: UITextChecker.self),
-            self.inherit(with: UITextPosition.self),
-            self.inherit(with: UITextInputMode.self),
-            self.inherit(with: UIVisualEffect.self),
-            self.inherit(with: UIVibrancyEffect.self),
-            self.inherit(with: UIVisualEffectView.self),
-            self.inherit(with: UIViewPrintFormatter.self),
-            self.inherit(with: UIViewPropertyAnimator.self),
-            self.inherit(with: UIVideoEditorController.self),
-            self.inherit(with: UIView.self),
-            self.inherit(with: UINavigationController.self),
-            self.inherit(with: UIViewController.self),
-            self.inherit(with: UIResponder.self),
-            self.inherit(with: UIWindow.self),
-            self.inherit(with: Codable.self),
-            self.inherit(with: Decodable.self),
-            self.inherit(with: Encodable.self),
-            self.inherit(with: AnyObject.self),
+            inherit(with: AnyKeyPath.self),
+            inherit(with: Bundle.self),
+            inherit(with: BlockOperation.self),
+            inherit(with: ByteCountFormatter.self),
+            inherit(with: DateComponentsFormatter.self),
+            inherit(with: Dimension.self),
+            inherit(with: DispatchData.self),
+            inherit(with: UIAccessibilityElement.self),
+            inherit(with: UIAccessibilityTraits.self),
+            inherit(with: UIActivity.self),
+            inherit(with: UIActivityIndicatorView.self),
+            inherit(with: UIActivityItemProvider.self),
+            inherit(with: UIAlertAction.self),
+            inherit(with: UIAlertController.self),
+            inherit(with: UIApplication.self),
+            inherit(with: UIApplicationShortcutIcon.self),
+            inherit(with: UIApplicationShortcutItem.self),
+            inherit(with: UIAttachmentBehavior.self),
+            inherit(with: UIButton.self),
+            inherit(with: UIBarItem.self),
+            inherit(with: UIBezierPath.self),
+            inherit(with: UIBlurEffect.self),
+            inherit(with: UIColor.self),
+            inherit(with: UIControl.self),
+            inherit(with: UIContextualAction.self),
+            inherit(with: UICollisionBehavior.self),
+            inherit(with: UIContentSizeCategory.self),
+            inherit(with: UICollectionReusableView.self),
+            inherit(with: UICollectionView.self),
+            inherit(with: UICollectionViewCell.self),
+            inherit(with: UICollectionViewController.self),
+            inherit(with: UICollectionViewDropProposal.self),
+            inherit(with: UICollectionViewDropPlaceholder.self),
+            inherit(with: UICollectionViewFlowLayout.self),
+            inherit(with: UICollectionViewFlowLayoutInvalidationContext.self),
+            inherit(with: UICollectionViewFocusUpdateContext.self),
+            inherit(with: UICollectionViewLayout.self),
+            inherit(with: UICollectionViewLayoutAttributes.self),
+            inherit(with: UICollectionViewLayoutInvalidationContext.self),
+            inherit(with: UICollectionViewPlaceholder.self),
+            inherit(with: UICollectionViewUpdateItem.self),
+            inherit(with: UICollectionViewTransitionLayout.self),
+            inherit(with: UIDragPreviewTarget.self),
+            inherit(with: UIDevice.self),
+            inherit(with: UIDocument.self),
+            inherit(with: UIDragItem.self),
+            inherit(with: UIDatePicker.self),
+            inherit(with: UIDragPreview.self),
+            inherit(with: UIDropProposal.self),
+            inherit(with: UIDictationPhrase.self),
+            inherit(with: UIDragInteraction.self),
+            inherit(with: UIDropInteraction.self),
+            inherit(with: UIDynamicAnimator.self),
+            inherit(with: UIDynamicBehavior.self),
+            inherit(with: UIEvent.self),
+            inherit(with: UIFont.self),
+            inherit(with: UIFocusGuide.self),
+            inherit(with: UIFocusSystem.self),
+            inherit(with: UIFontMetrics.self),
+            inherit(with: UIFieldBehavior.self),
+            inherit(with: UIFocusDebugger.self),
+            inherit(with: UIFontDescriptor.self),
+            inherit(with: UIFeedbackGenerator.self),
+            inherit(with: UIFloatRange.self),
+            inherit(with: UIFocusUpdateContext.self),
+            inherit(with: UIGravityBehavior.self),
+            inherit(with: UIGraphicsRenderer.self),
+            inherit(with: UIGestureRecognizer.self),
+            inherit(with: UIGraphicsPDFRenderer.self),
+            inherit(with: UIGraphicsImageRenderer.self),
+            inherit(with: UIGraphicsRendererFormat.self),
+            inherit(with: UIGraphicsRendererContext.self),
+            inherit(with: UIGraphicsPDFRendererFormat.self),
+            inherit(with: UIGraphicsPDFRendererContext.self),
+            inherit(with: UIGraphicsImageRendererFormat.self),
+            inherit(with: UIGraphicsImageRendererContext.self),
+            inherit(with: UIImage.self),
+            inherit(with: UIImageView.self),
+            inherit(with: UIInputView.self),
+            inherit(with: UIImageAsset.self),
+            inherit(with: UIInputViewController.self),
+            inherit(with: UIImagePickerController.self),
+            inherit(with: UIImpactFeedbackGenerator.self),
+            inherit(with: UIInterpolatingMotionEffect.self),
+            inherit(with: UIKeyCommand.self),
+            inherit(with: UILabel.self),
+            inherit(with: UILexicon.self),
+            inherit(with: UILayoutGuide.self),
+            inherit(with: UILexiconEntry.self),
+            inherit(with: UILayoutPriority.self),
+            inherit(with: UILocalizedIndexedCollation.self),
+            inherit(with: UILongPressGestureRecognizer.self),
+            inherit(with: UIMotionEffect.self),
+            inherit(with: UIManagedDocument.self),
+            inherit(with: UIMotionEffectGroup.self),
+            inherit(with: UIMarkupTextPrintFormatter.self),
+            inherit(with: UIMutableApplicationShortcutItem.self),
+            inherit(with: UINavigationBar.self),
+            inherit(with: UINavigationItem.self),
+            inherit(with: UINib.self),
+            inherit(with: UINotificationFeedbackGenerator.self),
+            inherit(with: UIPress.self),
+            inherit(with: UIPrinter.self),
+            inherit(with: UIPasteboard.self),
+            inherit(with: UIPrintInfo.self),
+            inherit(with: UIPickerView.self),
+            inherit(with: UIPrintPaper.self),
+            inherit(with: UIPageControl.self),
+            inherit(with: UIPressesEvent.self),
+            inherit(with: UIProgressView.self),
+            inherit(with: UIPushBehavior.self),
+            inherit(with: UIPreviewAction.self),
+            inherit(with: UIPrintFormatter.self),
+            inherit(with: UIPasteConfiguration.self),
+            inherit(with: UIPreviewInteraction.self),
+            inherit(with: UIPresentationController.self),
+            inherit(with: UIPrintPageRenderer.self),
+            inherit(with: UIPageViewController.self),
+            inherit(with: UIPreviewActionGroup.self),
+            inherit(with: UIPanGestureRecognizer.self),
+            inherit(with: UIRegion.self),
+            inherit(with: UIRefreshControl.self),
+            inherit(with: UIRotationGestureRecognizer.self),
+            inherit(with: UIReferenceLibraryViewController.self),
+            inherit(with: UISwitch.self),
+            inherit(with: UISlider.self),
+            inherit(with: UIScreen.self),
+            inherit(with: UIStepper.self),
+            inherit(with: UIStoryboard.self),
+            inherit(with: UIStackView.self),
+            inherit(with: UISearchBar.self),
+            inherit(with: UIScrollView.self),
+            inherit(with: UIScreenMode.self),
+            inherit(with: UISnapBehavior.self),
+            inherit(with: UIStoryboardSegue.self),
+            inherit(with: UISearchController.self),
+            inherit(with: UISegmentedControl.self),
+            inherit(with: UITabBar.self),
+            inherit(with: UITableView.self),
+            inherit(with: UITabBarItem.self),
+            inherit(with: UITraitCollection.self),
+            inherit(with: UITapGestureRecognizer.self),
+            inherit(with: UITargetedDragPreview.self),
+            inherit(with: UITableViewPlaceholder.self),
+            inherit(with: UITableViewDropProposal.self),
+            inherit(with: UITableViewDropPlaceholder.self),
+            inherit(with: UITableViewFocusUpdateContext.self),
+            inherit(with: UITableViewHeaderFooterView.self),
+            inherit(with: UITableViewCell.self),
+            inherit(with: UITabBarController.self),
+            inherit(with: UITableViewDropProposal.self),
+            inherit(with: UITableViewDropPlaceholder.self),
+            inherit(with: UITableViewHeaderFooterView.self),
+            inherit(with: UITableViewFocusUpdateContext.self),
+            inherit(with: UITableViewController.self),
+            inherit(with: UITouch.self),
+            inherit(with: UIToolbar.self),
+            inherit(with: UITextView.self),
+            inherit(with: UITextField.self),
+            inherit(with: UITextRange.self),
+            inherit(with: UITextChecker.self),
+            inherit(with: UITextPosition.self),
+            inherit(with: UITextInputMode.self),
+            inherit(with: UIVisualEffect.self),
+            inherit(with: UIVibrancyEffect.self),
+            inherit(with: UIVisualEffectView.self),
+            inherit(with: UIViewPrintFormatter.self),
+            inherit(with: UIViewPropertyAnimator.self),
+            inherit(with: UIVideoEditorController.self),
+            inherit(with: UIView.self),
+            inherit(with: UINavigationController.self),
+            inherit(with: UIViewController.self),
+            inherit(with: UIResponder.self),
+            inherit(with: UIWindow.self),
+            inherit(with: Codable.self),
+            inherit(with: Decodable.self),
+            inherit(with: Encodable.self),
+            inherit(with: AnyObject.self),
         ].compactMap { $0 }
     }
 
     func classAs() -> String {
-        return self.classAsArray().joined(separator: ", ")
+        return classAsArray().joined(separator: ", ")
     }
 
-    func inherit<T>(with type: T.Type) -> String? {
-        if self.anyObject is T {
+    func inherit<T>(with _: T.Type) -> String? {
+        if anyObject is T {
             return String(describing: T.self)
         } else {
             return nil
@@ -312,27 +313,28 @@ struct InputARC: InputProtocol {
     }
 
     func describingClass() -> String {
-        return String(describing: self.anyObject)
+        return String(describing: anyObject)
     }
 
     func getNameComplete() -> String {
-        let describing = self.describingClass()
+        let describing = describingClass()
         return String(describing.split(separator: ":").first ?? "").replacingOccurrences(of: "<", with: "")
     }
 
     func getNameProject() -> String {
-        return String(self.getNameComplete().split(separator: ".").first ?? "")
+        return String(getNameComplete().split(separator: ".").first ?? "")
     }
 
     func getNameClass() -> String {
-        return String(self.getNameComplete().split(separator: ".").last ?? "")
+        return String(getNameComplete().split(separator: ".").last ?? "")
     }
 }
 
+// MARK: - ARC
 open class ARC {
     let idARC = UUID()
     public init() {
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     deinit {
@@ -340,16 +342,17 @@ open class ARC {
     }
 }
 
+// MARK: - ARCViewController
 open class ARCViewController: UIViewController {
     let idARC = UUID()
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     deinit {
@@ -357,16 +360,17 @@ open class ARCViewController: UIViewController {
     }
 }
 
+// MARK: - ARCTableViewCell
 open class ARCTableViewCell: UITableViewCell {
     let idARC = UUID()
     override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     deinit {
@@ -374,16 +378,17 @@ open class ARCTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - ARCCollectionViewCell
 open class ARCCollectionViewCell: UICollectionViewCell {
     let idARC = UUID()
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     deinit {
@@ -391,16 +396,17 @@ open class ARCCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - ARCNavigationController
 open class ARCNavigationController: UINavigationController {
     let idARC = UUID()
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        Chuck.classInit(self.idARC, self)
+        Chuck.classInit(idARC, self)
     }
 
     deinit {

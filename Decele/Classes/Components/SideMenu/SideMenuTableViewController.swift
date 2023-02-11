@@ -1,6 +1,6 @@
 //
 //  SideMenuTableViewController.swift
-//  InglesYa
+//  Decele
 //
 //  Created by Mac Kevin Cabanillas Encarnacion on 7/26/21.
 //
@@ -8,15 +8,17 @@
 import SideMenu
 import UIKit
 
+// MARK: - SideMenuActionDelegate
 public protocol SideMenuActionDelegate: AnyObject {
     func selected(_ sender: SideMenuTableViewController, data: [AttributedStringConvertible], index: Int)
 }
 
+// MARK: - SideMenuTableViewController
 public class SideMenuTableViewController: UITableViewController {
     var config: ConfigSideMenu!
     var data: [AttributedStringConvertible] = []
     weak var delegateAction: SideMenuActionDelegate?
-    
+
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -33,7 +35,7 @@ public class SideMenuTableViewController: UITableViewController {
         tableView.backgroundView = imageView
     }
 
-    override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return data.count
     }
 
@@ -47,7 +49,7 @@ public class SideMenuTableViewController: UITableViewController {
             cell.backgroundColor = backgroundColor
             return cell
         case let .cell(typeCell):
-            let cell = tableView.dequeueReusableCell(with: typeCell, for: indexPath) as! SideMenuTableViewCell
+            let cell = tableView.dequeueReusableCell(withClass: typeCell) as! SideMenuTableViewCell
             cell.seputCell(text: elem.asMutableAttributedString())
             return cell
         }

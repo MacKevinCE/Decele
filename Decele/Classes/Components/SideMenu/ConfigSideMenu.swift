@@ -1,6 +1,6 @@
 //
 //  ConfigSideMenu.swift
-//  SwiftyComponents
+//  Decele
 //
 //  Created by Mc Kevin on 9/01/23.
 //

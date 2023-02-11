@@ -1,6 +1,6 @@
 //
 //  ConfigFloatingPanel.swift
-//  SwiftyComponents
+//  Decele
 //
 //  Created by Mc Kevin on 6/01/23.
 //

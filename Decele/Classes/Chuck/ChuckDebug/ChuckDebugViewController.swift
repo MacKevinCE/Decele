@@ -1,6 +1,6 @@
 //
-//  ChuckViewController.swift
-//  Chuck
+//  DeceleViewController.swift
+//  Decele
 //
 //  Created by Mc Kevin on 9/07/22.
 //
@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - ChuckDebugViewController
 class ChuckDebugViewController: UIViewController {
     @IBOutlet private var enverimomentButton: UIButton!
     @IBOutlet private var resultLabel: UILabel! {
@@ -56,10 +57,10 @@ class ChuckDebugViewController: UIViewController {
         configView()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.semibold16
+            NSAttributedString.Key.font: UIFont.semibold16,
         ]
     }
 
@@ -79,7 +80,7 @@ class ChuckDebugViewController: UIViewController {
         } else {
             let close = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closeButtonTapped))
             close.setTitleTextAttributes([
-                NSAttributedString.Key.font: UIFont.semibold12
+                NSAttributedString.Key.font: UIFont.semibold12,
             ], for: [.normal, .highlighted])
             leftBarButtonItems.append(close)
         }
@@ -115,7 +116,7 @@ class ChuckDebugViewController: UIViewController {
         if isEditing {
             let edit = UIBarButtonItem(barButtonSystemItem: isEdit ? .done : .edit, target: self, action: #selector(editButtonTapped))
             edit.setTitleTextAttributes([
-                NSAttributedString.Key.font: UIFont.semibold12
+                NSAttributedString.Key.font: UIFont.semibold12,
             ], for: [.normal, .highlighted])
             rightBarButtonItems.append(edit)
         }
@@ -186,9 +187,9 @@ class ChuckDebugViewController: UIViewController {
     private func dataFinal(type: ChuckLevel) -> [OutputClass] {
         var data = Chuck.dataChuck.filter { $0.type == type }
         let countInicial = data.count
-        if let textFilter = searchBar.text?.null() {
+        if let textFilter = searchBar.text?.nullable {
             data = data.filter {
-                $0.preview.getSearchText.lowercased().unaccent().contains(textFilter.lowercased().unaccent())
+                $0.preview.getSearchText.lowercased().unaccent.contains(textFilter.lowercased().unaccent)
             }
             resultLabel.text = "\(data.count) of \(countInicial)"
         } else {
@@ -214,7 +215,7 @@ class ChuckDebugViewController: UIViewController {
         rightBarButtonItem()
     }
 
-    @IBAction private func enverimomentButtonTapped(_ sender: UIButton) {
+    @IBAction private func enverimomentButtonTapped(_: UIButton) {
         // falta
     }
 
@@ -250,8 +251,9 @@ class ChuckDebugViewController: UIViewController {
     }
 }
 
+// MARK: UISearchBarDelegate
 extension ChuckDebugViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_: UISearchBar, textDidChange searchText: String) {
         Chuck.searchText = searchText
         tableView.reloadData()
     }
@@ -261,8 +263,9 @@ extension ChuckDebugViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: UITableViewDataSource
 extension ChuckDebugViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         if let chuckType = getCurrentLevels[safe: segmentedControl.selectedSegmentIndex] {
             data = dataFinal(type: chuckType)
             rightBarButtonItem()
@@ -276,7 +279,7 @@ extension ChuckDebugViewController: UITableViewDataSource {
         let dato = data[indexPath.row]
         let isSelect = Chuck.selectChuck.contains(dato)
         switch dato.preview {
-        case .attributed(let attributedString, let numberOfLines):
+        case let .attributed(attributedString, numberOfLines):
             let cell = tableView.dequeueReusableCell(withIdentifier: "ChuckDebugCell", for: indexPath)
             cell.textLabel?.numberOfLines = numberOfLines
             cell.textLabel?.font = .regular14
@@ -286,8 +289,9 @@ extension ChuckDebugViewController: UITableViewDataSource {
             cell.contentView.isUserInteractionEnabled = !isEdit
             return cell
 
-        case .cell(let typeCell, _):
-            let cell = tableView.dequeueReusableCell(with: typeCell, for: indexPath) as! PreviewTableViewCell
+        case let .cell(typeCell, _):
+            let cell = tableView.dequeueReusableCell(withClass: typeCell) as! PreviewTableViewCell
+
             cell.seputCell(output: dato)
             cell.select(is: isSelect)
             if let type = getCurrentLevels[safe: segmentedControl.selectedSegmentIndex], type.isEditing, isAllEdit {
@@ -326,7 +330,7 @@ extension ChuckDebugViewController: UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: rowActions)
     }
 
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         var rowActions: [UIContextualAction] = []
 
         let dato = data[indexPath.row]
@@ -344,6 +348,7 @@ extension ChuckDebugViewController: UITableViewDataSource {
     }
 }
 
+// MARK: UITableViewDelegate
 extension ChuckDebugViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isAllEdit {
@@ -361,7 +366,7 @@ extension ChuckDebugViewController: UITableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_: UITableView, didDeselectRowAt _: IndexPath) {
         if isAllEdit {
             rightBarButtonItem()
         }

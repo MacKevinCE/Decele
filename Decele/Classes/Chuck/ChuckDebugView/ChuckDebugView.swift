@@ -1,10 +1,11 @@
 //
-//  ChuckDebugView.swift
-//  Chuck
+//  DeceleDebugView.swift
+//  Decele
 //
 //  Created by Mc Kevin on 7/11/22.
 //
 
+import SnapKit
 import UIKit
 
 class ChuckDebugView: UIView {
@@ -43,33 +44,36 @@ class ChuckDebugView: UIView {
         switch Chuck.iconCircle {
         case let .character(character, backgroundImage):
             if character.isASCII {
-                button.setImage(button.getImagenWithText(text: character.description), backgroundImage ?? button.getImagenWithText(text: "🟡"))
+                button.setImageForAllStates(button.getImagenWithText(text: character.description))
+                button.setBackgroundImageForAllStates(backgroundImage ?? button.getImagenWithText(text: "🟡"))
             } else {
-                button.setImage(button.getImagenWithText(text: character.description), backgroundImage)
+                button.setImageForAllStates(button.getImagenWithText(text: character.description))
+                button.setBackgroundImageForAllStates(backgroundImage)
             }
         case let .icon(image):
-            button.setBackgroundImage(image)
+            button.setBackgroundImageForAllStates(image)
         }
 
         addSubview(button)
-        button.makeConstraintsEdgesToSuperview()
+        button.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
 
         backgroundButton = button
     }
 
     private func setupCloseButton() {
         let button = UIButton(frame: .init(origin: .zero, size: CGSize(width: radiusClose, height: radiusClose)))
-        button.setBackgroundImage(closeImage)
+        button.setBackgroundImageForAllStates(closeImage)
         button.layer.cornerRadius = radiusClose / 2
 
         button.addTarget(self, action: #selector(closeButtonTouchUpInside), for: .touchUpInside)
 
         addSubview(button)
-        button.makeConstraintsTopEqualToSuperview()
-        button.makeConstraintsRightEqualToSuperview()
-        button.makeConstraintsWidthEqualTo(constant: 25)
-        button.makeConstraintsHeightEqualTo(constant: 25)
-
+        button.snp.makeConstraints { make in
+            make.top.right.equalToSuperview()
+            make.width.height.equalTo(25)
+        }
         closeButton = button
     }
 
@@ -79,7 +83,7 @@ class ChuckDebugView: UIView {
         afterOpacity()
     }
 
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    override func hitTest(_ point: CGPoint, with _: UIEvent?) -> UIView? {
         let closePF = closeButton.frame
         let backgroundPF = backgroundButton.frame
 
@@ -113,8 +117,9 @@ class ChuckDebugView: UIView {
 
         newLocation(origin)
 
-        makeConstraintsWidthEqualTo(constant: radius)
-        makeConstraintsHeightEqualTo(constant: radius)
+        snp.makeConstraints { make in
+            make.width.height.equalTo(radius)
+        }
         owner.view.layoutIfNeeded()
     }
 
@@ -176,16 +181,16 @@ class ChuckDebugView: UIView {
         }
     }
 
-    @objc private func backgroundButtonTouchDown(_ sender: Any) {
+    @objc private func backgroundButtonTouchDown(_: Any) {
         layer.opacity = 1
     }
 
-    @objc private func backgroundButtonTouchUpInside(_ sender: Any) {
+    @objc private func backgroundButtonTouchUpInside(_: Any) {
         Chuck.openChuckDebug()
         afterOpacity()
     }
 
-    @objc private func closeButtonTouchUpInside(_ sender: Any) {
+    @objc private func closeButtonTouchUpInside(_: Any) {
         removeFromSuperview()
     }
 }

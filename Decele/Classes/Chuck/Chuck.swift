@@ -7,13 +7,14 @@
 //  Some rights reserved: http://opensource.org/licenses/MIT
 //
 //
-//  Chuck.swift
-//  Chuck
+//  Decele.swift
+//  Decele
 //
 //  Update by Mc Kevin on 14/07/22.
 //
 
 import Foundation
+import SwifterSwift
 
 public class Chuck {
     private(set) static var dataChuck: [OutputClass] = []
@@ -89,17 +90,17 @@ public class Chuck {
 
     open class func setEnableType(_ enableType: [ChuckLevel]) {
         self.enableType = enableType.isEmpty ? ChuckLevel.allCases : enableType
-        self.enableType.uniqued()
+        self.enableType.removeDuplicates()
     }
 
     open class func addEnableType(_ enableType: ChuckLevel) {
         self.enableType.append(enableType)
-        self.enableType.uniqued()
+        self.enableType.removeDuplicates()
     }
 
     open class func addEnableType(_ enableTypes: [ChuckLevel]) {
         enableType.append(contentsOf: enableTypes)
-        enableType.uniqued()
+        enableType.removeDuplicates()
     }
 
     // MARK: Method Handling
@@ -241,14 +242,14 @@ public class Chuck {
     }
 
     class func getChuckDebugView() -> ChuckDebugView? {
-        guard let owner = UIApplication.rootViewController else { return nil }
-        let presented = owner.presentedViewController?.view.subviews.first(with: ChuckDebugView.self)
-        let direct = owner.view.subviews.first(with: ChuckDebugView.self)
-        return presented ?? direct
+        guard let owner = UIApplication.shared.rootViewController else { return nil }
+        let presented = owner.presentedViewController?.view.subviews
+        let direct = owner.view.subviews
+        return presented?.first() ?? direct.first()
     }
 
     class func getDebugNavController() -> DebugNavController? {
-        guard let owner = UIApplication.rootViewController else { return nil }
+        guard let owner = UIApplication.shared.rootViewController else { return nil }
         let presented = owner.presentedViewController?.presentedViewController as? DebugNavController
         let direct = owner.presentedViewController as? DebugNavController
         return presented ?? direct
@@ -256,7 +257,7 @@ public class Chuck {
 
     class func openChuckDebugView() {
         DispatchQueue.main.async {
-            guard let owner = UIApplication.rootViewController else { return }
+            guard let owner = UIApplication.shared.rootViewController else { return }
             if let chuckNav = getDebugNavController() {
                 if let chuckController = chuckNav.getChuckDebugViewController(), chuckController.isViewLoaded {
                     chuckController.reloadData()
@@ -274,7 +275,7 @@ public class Chuck {
     }
 
     class func openChuckDebug() {
-        guard let owner = UIApplication.rootViewController else { return }
+        guard let owner = UIApplication.shared.rootViewController else { return }
         let final = owner.presentedViewController ?? owner
         final.present(debugNavController(), animated: true, completion: nil)
     }

@@ -1,6 +1,6 @@
 //
 //  DebugNavController.swift
-//  Chuck
+//  Decele
 //
 //  Created by Mc Kevin on 7/11/22.
 //
@@ -9,10 +9,10 @@ import UIKit
 
 class DebugNavController: UINavigationController {
     func getChuckDebugViewController() -> ChuckDebugViewController? {
-        return viewControllers.first(with: ChuckDebugViewController.self)
+        return viewControllers.first()
     }
 
     func getChuckDebugDetailViewController() -> ChuckDebugDetailViewController? {
-        return viewControllers.first(with: ChuckDebugDetailViewController.self)
+        return viewControllers.first()
     }
 }

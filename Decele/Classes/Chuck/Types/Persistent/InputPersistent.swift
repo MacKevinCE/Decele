@@ -1,6 +1,6 @@
 //
 //  InputPersistent.swift
-//  Chuck
+//  Decele
 //
 //  Created by Mc Kevin on 9/11/22.
 //
@@ -27,7 +27,7 @@ struct InputPersistent: InputProtocol {
         self.file = file
         self.function = function
         self.line = line
-        self.type = .persistent
+        type = .persistent
         self.namespace = namespace
         self.key = key
         self.value = value
@@ -38,17 +38,17 @@ struct InputPersistent: InputProtocol {
     }
 
     func getPreview() -> PreviewInfo {
-        let attributed = "\(self.key):"
-            .initAttributeText(color: .systemBlue, font: .semibold16)
+        let attributed = "\(key):"
+            .applying(font: .semibold16, color: .systemBlue)
             .printSpacer()
-            .addTextWithAttributeText(text: self.getValueOneLine())
+            .addTextApplying(text: getValueOneLine())
         return .attributed(attributed, numberOfLines: 2)
     }
 
     func getTabResume() -> NSMutableAttributedString {
-        var attributeText = String.empty.initAttributeText(font: .regular14)
+        var attributeText = NSMutableAttributedString()
 
-        if let namespace = self.namespace.null() {
+        if let namespace = namespace.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("NAMESPACE")
@@ -57,7 +57,7 @@ struct InputPersistent: InputProtocol {
                 .printEnter()
         }
 
-        if let key = self.key.null() {
+        if let key = key.nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("KEY")
@@ -66,7 +66,7 @@ struct InputPersistent: InputProtocol {
                 .printEnter()
         }
 
-        if let type = self.getType().null() {
+        if let type = getType().nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("TYPE")
@@ -75,7 +75,7 @@ struct InputPersistent: InputProtocol {
                 .printEnter()
         }
 
-        if let value = self.getValue().null() {
+        if let value = getValue().nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("VALUE")
@@ -89,46 +89,46 @@ struct InputPersistent: InputProtocol {
 
     func getTabAll() -> NSMutableAttributedString {
         var pares: [String: String] = [:]
-        pares["ID"] = self.id.uuidString
-        pares["Namespace"] = self.namespace
-        pares["Key"] = self.key
-        pares["Value"] = self.getValue()
-        pares["Type As"] = self.getType()
-        pares["JSON value"] = Self.jsonClass(of: self.value)
-        pares["File"] = Chuck.getPath(self.file)
-        pares["Function"] = self.function
-        pares["Line"] = String(self.line)
-        pares["Time"] = self.time.toString(with: .iso8601)
+        pares["ID"] = id.uuidString
+        pares["Namespace"] = namespace
+        pares["Key"] = key
+        pares["Value"] = getValue()
+        pares["Type As"] = getType()
+        pares["JSON value"] = Self.jsonClass(of: value)
+        pares["File"] = Chuck.getPath(file)
+        pares["Function"] = function
+        pares["Line"] = String(line)
+        pares["Time"] = time.string(withFormat: .iso8601)
         return pares.toAttributedString()
     }
 
     func getType() -> String {
         return [
-            self.type(with: [Any].self),
-            self.type(with: [String].self),
-            self.type(with: [Int].self),
-            self.type(with: Bool.self),
-            self.type(with: Character.self),
-            self.type(with: [String: Any].self),
-            self.type(with: Date.self),
-            self.type(with: Data.self),
-            self.type(with: Double.self),
-            self.type(with: DispatchTime.self),
-            self.type(with: Float.self),
-            self.type(with: Int.self),
-            self.type(with: IndexPath.self),
-            self.type(with: Locale.self),
-            self.type(with: Notification.self),
-            self.type(with: String.self),
-            self.type(with: Timer.self),
-            self.type(with: URL.self),
-            self.type(with: URLRequest.self),
-            self.type(with: URLSession.self),
+            type(with: [Any].self),
+            type(with: [String].self),
+            type(with: [Int].self),
+            type(with: Bool.self),
+            type(with: Character.self),
+            type(with: [String: Any].self),
+            type(with: Date.self),
+            type(with: Data.self),
+            type(with: Double.self),
+            type(with: DispatchTime.self),
+            type(with: Float.self),
+            type(with: Int.self),
+            type(with: IndexPath.self),
+            type(with: Locale.self),
+            type(with: Notification.self),
+            type(with: String.self),
+            type(with: Timer.self),
+            type(with: URL.self),
+            type(with: URLRequest.self),
+            type(with: URLSession.self),
         ].compactMap { $0 }.joined(separator: ", ")
     }
 
-    func type<T>(with type: T.Type) -> String? {
-        if let value = self.value, value is T {
+    func type<T>(with _: T.Type) -> String? {
+        if let value = value, value is T {
             return String(describing: T.self)
         } else {
             return nil
@@ -136,7 +136,7 @@ struct InputPersistent: InputProtocol {
     }
 
     func getValueOneLine() -> String {
-        let value = self.getValue()
+        let value = getValue()
         return value.split(separator: "\n").map { $0.trimmingCharacters(in: .whitespaces) }.joined(separator: "")
     }
 

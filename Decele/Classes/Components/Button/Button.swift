@@ -1,20 +1,24 @@
 //
 //  Button.swift
-//  SwiftyComponents
+//  Decele
 //
 //  Created by Mac Kevin Cabanillas Encarnacion on 7/16/21.
 //
 
+import SnapKit
+import SwifterSwift
 import UIKit
 
+// MARK: - ButtonDelegate
 public protocol ButtonDelegate {
     func button(_ button: Button, changeStateWith currentState: Int?, lastState: Int?)
 }
 
+// MARK: - Button
 public class Button: UIButton {
     private var _rotate: CGFloat = .zero
 
-    @IBInspectable var rotate: CGFloat {
+    var rotate: CGFloat {
         get { return _rotate }
         set {
             _rotate = newValue
@@ -120,7 +124,9 @@ public class Button: UIButton {
         _activityIndicator?.hidesWhenStopped = true
         _activityIndicator?.isUserInteractionEnabled = false
         addSubview(_activityIndicator!)
-        _activityIndicator?.makeConstraintsEdgesToSuperview()
+        _activityIndicator?.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
     public var hasActivityIndicator: Bool = false {

@@ -1,12 +1,13 @@
 //
 //  Crypto.swift
-//  InglesYa
+//  Decele
 //
 //  Created by Mac Kevin Cabanillas Encarnacion on 7/22/21.
 //
 
 import CryptoKit
 import Foundation
+import SwifterSwift
 
 public enum Crypto {
     public static func getSymmetricKey(pass: String?) -> SymmetricKey? {
@@ -16,7 +17,7 @@ public enum Crypto {
 
     public static func signatureHMAC<T: Encodable>(_ value: T, pass: String?) -> String? {
         guard let key = getSymmetricKey(pass: pass) else { return nil }
-        guard let data = value.encode() else { return nil }
+        guard let data = value.encode else { return nil }
         return Data(HMAC<SHA512>.authenticationCode(for: data, using: key)).base64EncodedString().urlEncoded
     }
 
@@ -36,12 +37,12 @@ public enum Crypto {
     }
 
     public static func createSealedBox<T: Encodable>(_ value: T, pass: String?) -> Data? {
-        guard let data = value.encode() else { return nil }
+        guard let data = value.encode else { return nil }
         return createSealedBox(data: data, pass: pass)
     }
 
     public static func createSealedBox<T: Encodable>(_ value: T, pass: String?) -> String? {
-        guard let data = value.encode() else { return nil }
+        guard let data = value.encode else { return nil }
         return createSealedBox(data: data, pass: pass)
     }
 

@@ -1,12 +1,13 @@
 //
 //  InputLog.swift
-//  Chuck
+//  Decele
 //
 //  Created by Mc Kevin on 9/07/22.
 //
 
 import Foundation
 
+// MARK: - InputLog
 struct InputLog: InputProtocol {
     let file: String
     let function: String
@@ -30,9 +31,9 @@ struct InputLog: InputProtocol {
         self.file = file
         self.function = function
         self.line = line
-        self.type = .log
+        type = .log
         self.level = level
-        self.colorText = getColor(level)
+        colorText = getColor(level)
         self.items = items.map { "\($0)" }
         self.separator = separator
         self.terminator = terminator
@@ -43,23 +44,23 @@ struct InputLog: InputProtocol {
     }
 
     func getTitle() -> String {
-        return "\(self.items.joined(separator: self.separator.visible()))\(self.terminator.visibleUltra())"
+        return "\(items.joined(separator: separator.visible()))\(terminator.visibleUltra())"
     }
 
     func getPreview() -> PreviewInfo {
-        let attributed = "\(self.level.text):"
-            .initAttributeText(color: self.colorText, font: .semibold16)
+        let attributed = "\(level.text):"
+            .applying(font: .semibold16, color: colorText)
             .printSpacer()
-            .addTextWithAttributeText(text: self.getTitle())
+            .addTextApplying(text: getTitle())
             .printEnter().printTab().printTab().printSpacer()
-            .addTextWithAttributeText(text: self.time.toString(), color: .gray, font: .regular12)
+            .addTextApplying(text: time.string(withFormat: .timeMedium), font: .regular12, color: .gray)
         return .attributed(attributed)
     }
 
     func getTabResume() -> NSMutableAttributedString {
-        var attributeText = String.empty.initAttributeText(font: .regular14)
+        var attributeText = NSMutableAttributedString()
 
-        if let text = self.getText().null() {
+        if let text = getText().nullable {
             attributeText = attributeText
                 .printTitleChuck("TEXT")
                 .printEnter()
@@ -67,7 +68,7 @@ struct InputLog: InputProtocol {
                 .printEnter()
         }
 
-        if let file = Chuck.getPath(self.file).null() {
+        if let file = Chuck.getPath(file).nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("FILE")
@@ -76,7 +77,7 @@ struct InputLog: InputProtocol {
                 .printEnter()
         }
 
-        if let line = String(self.line).null() {
+        if let line = String(line).nullable {
             attributeText = attributeText
                 .printEnter()
                 .printTitleChuck("LINE")
@@ -90,24 +91,24 @@ struct InputLog: InputProtocol {
 
     func getTabAll() -> NSMutableAttributedString {
         var pares: [String: String] = [:]
-        pares["ID"] = self.id.uuidString
-        pares["Text"] = self.getText()
-        pares["Items"] = self.getItems()
-        pares["Separator"] = self.separator.visibleUltra()
-        pares["Terminator"] = self.terminator.visibleUltra()
-        pares["File"] = Chuck.getPath(self.file)
-        pares["Function"] = self.function
-        pares["Line"] = String(self.line)
-        pares["Time"] = self.time.toString(with: .iso8601)
+        pares["ID"] = id.uuidString
+        pares["Text"] = getText()
+        pares["Items"] = getItems()
+        pares["Separator"] = separator.visibleUltra()
+        pares["Terminator"] = terminator.visibleUltra()
+        pares["File"] = Chuck.getPath(file)
+        pares["Function"] = function
+        pares["Line"] = String(line)
+        pares["Time"] = time.string(withFormat: .iso8601)
         return pares.toAttributedString()
     }
 
     func getText() -> String {
-        return self.items.joined(separator: self.separator) + self.terminator
+        return items.joined(separator: separator) + terminator
     }
 
     func getItems() -> String {
-        return "[" + self.items.map { $0.visibleUltra() }.joined(separator: ", ") + "]"
+        return "[" + items.map { $0.visibleUltra() }.joined(separator: ", ") + "]"
     }
 }
 
@@ -121,6 +122,7 @@ func getColor(_ type: LogLevel) -> UIColor {
     }
 }
 
+// MARK: - LogLevel
 enum LogLevel: CaseIterable {
     case print
     case debug

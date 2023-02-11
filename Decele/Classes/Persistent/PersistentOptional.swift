@@ -1,6 +1,6 @@
 //
-//  PersistentOptional.swift
-//  Persistent
+//  DeceleOptional.swift
+//  Decele
 //
 //  Created by Mc Kevin on 31/12/22.
 //
@@ -17,7 +17,7 @@ public extension Persistent {
 
         public var value: V? {
             set {
-                guard let data = newValue.encode() else {
+                guard let data = newValue.encode else {
                     key.removeObject()
                     return
                 }

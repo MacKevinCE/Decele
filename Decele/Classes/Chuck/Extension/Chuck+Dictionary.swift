@@ -1,6 +1,6 @@
 //
-//  Dictionary.swift
-//  Alamofire
+//  Decele+Dictionary.swift
+//  Decele
 //
 //  Created by Mc Kevin on 11/01/23.
 //
@@ -13,7 +13,7 @@ extension Dictionary where Key == String, Value == String {
     }
 
     func toAttributedString() -> NSMutableAttributedString {
-        reduce(String.empty.initAttributeText(font: .regular14)) {
+        reduce(NSMutableAttributedString()) {
             ($1.value != .empty) ? $0.printParStringForChuck($1).printEnter() : $0
         }
     }

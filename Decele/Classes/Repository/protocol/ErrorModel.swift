@@ -1,6 +1,6 @@
 //
 //  ErrorModel.swift
-//  Repository
+//  Decele
 //
 //  Created by Mc Kevin on 8/01/23.
 //
