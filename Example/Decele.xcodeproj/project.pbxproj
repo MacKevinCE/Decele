@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BA35B5745FE70290BC4142B /* Pods_Decele_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48011E41CACD754B1EF6E644 /* Pods_Decele_Tests.framework */; };
-		38D764244FBBD7CED0477C73 /* Pods_Decele_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7665306A0512913F26FB675 /* Pods_Decele_Example.framework */; };
+		0CDC0A2A0E887F43307D2C92 /* Pods_Decele_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08778131729856A25FEA3427 /* Pods_Decele_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -16,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		64E0FF262988080A003B74BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E0FF252988080A003B74BD /* SceneDelegate.swift */; };
+		6810F0D379886FAB1AFE244D /* Pods_Decele_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB42A3C7A39DEA2D2F5F6523 /* Pods_Decele_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,9 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		131907C9D7F20784F0B5DA26 /* Pods-Decele_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Tests.release.xcconfig"; path = "Target Support Files/Pods-Decele_Tests/Pods-Decele_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		48011E41CACD754B1EF6E644 /* Pods_Decele_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decele_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5764536C8CBBB58121813B62 /* Pods-Decele_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Example.release.xcconfig"; path = "Target Support Files/Pods-Decele_Example/Pods-Decele_Example.release.xcconfig"; sourceTree = "<group>"; };
+		08585079FA2982CA7DC6A5BB /* Pods-Decele_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Example.debug.xcconfig"; path = "Target Support Files/Pods-Decele_Example/Pods-Decele_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		08778131729856A25FEA3427 /* Pods_Decele_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decele_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* Decele_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decele_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +42,13 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		64E0FF252988080A003B74BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A047322503EDB0A847E381B2 /* Pods-Decele_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Decele_Tests/Pods-Decele_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C7E0D280F96A92B83EDCA1A /* Pods-Decele_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Example.release.xcconfig"; path = "Target Support Files/Pods-Decele_Example/Pods-Decele_Example.release.xcconfig"; sourceTree = "<group>"; };
+		92691EACAB4D735EC1DEFB45 /* Pods-Decele_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Decele_Tests/Pods-Decele_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9537DE54423A0F7FE030F1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		D7665306A0512913F26FB675 /* Pods_Decele_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decele_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E23D11A9DE2542C9A34A843A /* Decele.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Decele.podspec; path = ../Decele.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E93C9B3BDA84C3A3E8C9303F /* Pods-Decele_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Example.debug.xcconfig"; path = "Target Support Files/Pods-Decele_Example/Pods-Decele_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E9E19142D64C50970FFEB78B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		EB42A3C7A39DEA2D2F5F6523 /* Pods_Decele_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decele_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F134A24BC9458863ABE4703D /* Pods-Decele_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decele_Tests.release.xcconfig"; path = "Target Support Files/Pods-Decele_Tests/Pods-Decele_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38D764244FBBD7CED0477C73 /* Pods_Decele_Example.framework in Frameworks */,
+				0CDC0A2A0E887F43307D2C92 /* Pods_Decele_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,13 +64,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BA35B5745FE70290BC4142B /* Pods_Decele_Tests.framework in Frameworks */,
+				6810F0D379886FAB1AFE244D /* Pods_Decele_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2108EF485DBD7236C8B7AFE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08778131729856A25FEA3427 /* Pods_Decele_Example.framework */,
+				EB42A3C7A39DEA2D2F5F6523 /* Pods_Decele_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +88,7 @@
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				AA4C5935EE8FF697FA013AF4 /* Pods */,
-				EF6DF323A79DF36AB91C51E7 /* Frameworks */,
+				2108EF485DBD7236C8B7AFE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -145,21 +154,12 @@
 		AA4C5935EE8FF697FA013AF4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E93C9B3BDA84C3A3E8C9303F /* Pods-Decele_Example.debug.xcconfig */,
-				5764536C8CBBB58121813B62 /* Pods-Decele_Example.release.xcconfig */,
-				A047322503EDB0A847E381B2 /* Pods-Decele_Tests.debug.xcconfig */,
-				131907C9D7F20784F0B5DA26 /* Pods-Decele_Tests.release.xcconfig */,
+				08585079FA2982CA7DC6A5BB /* Pods-Decele_Example.debug.xcconfig */,
+				6C7E0D280F96A92B83EDCA1A /* Pods-Decele_Example.release.xcconfig */,
+				92691EACAB4D735EC1DEFB45 /* Pods-Decele_Tests.debug.xcconfig */,
+				F134A24BC9458863ABE4703D /* Pods-Decele_Tests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		EF6DF323A79DF36AB91C51E7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D7665306A0512913F26FB675 /* Pods_Decele_Example.framework */,
-				48011E41CACD754B1EF6E644 /* Pods_Decele_Tests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,11 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Decele_Example" */;
 			buildPhases = (
-				25875E6B54E8D18BE4637F27 /* [CP] Check Pods Manifest.lock */,
+				93962F5F54EFB67E16452804 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				729FDA3D6792678FE871DC29 /* [CP] Embed Pods Frameworks */,
+				8BC8158B3206363D9886DBE0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,7 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Decele_Tests" */;
 			buildPhases = (
-				72C0BFD713280BCE538D4C11 /* [CP] Check Pods Manifest.lock */,
+				D52B3D10E65C81F9D04EC8F1 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -265,29 +265,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25875E6B54E8D18BE4637F27 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Decele_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		729FDA3D6792678FE871DC29 /* [CP] Embed Pods Frameworks */ = {
+		8BC8158B3206363D9886DBE0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,7 +297,29 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decele_Example/Pods-Decele_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		72C0BFD713280BCE538D4C11 /* [CP] Check Pods Manifest.lock */ = {
+		93962F5F54EFB67E16452804 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Decele_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D52B3D10E65C81F9D04EC8F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -493,7 +493,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E93C9B3BDA84C3A3E8C9303F /* Pods-Decele_Example.debug.xcconfig */;
+			baseConfigurationReference = 08585079FA2982CA7DC6A5BB /* Pods-Decele_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -514,7 +514,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5764536C8CBBB58121813B62 /* Pods-Decele_Example.release.xcconfig */;
+			baseConfigurationReference = 6C7E0D280F96A92B83EDCA1A /* Pods-Decele_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -535,7 +535,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A047322503EDB0A847E381B2 /* Pods-Decele_Tests.debug.xcconfig */;
+			baseConfigurationReference = 92691EACAB4D735EC1DEFB45 /* Pods-Decele_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -558,7 +558,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 131907C9D7F20784F0B5DA26 /* Pods-Decele_Tests.release.xcconfig */;
+			baseConfigurationReference = F134A24BC9458863ABE4703D /* Pods-Decele_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
