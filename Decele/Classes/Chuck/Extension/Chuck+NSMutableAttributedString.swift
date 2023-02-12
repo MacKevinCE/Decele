@@ -14,15 +14,15 @@ extension NSMutableAttributedString {
     }
 
     func printEnter() -> NSMutableAttributedString {
-        addTextApplying(text: .enter)
+        addTextApplying(text: "\n")
     }
 
     func printSpacer() -> NSMutableAttributedString {
-        addTextApplying(text: .space)
+        addTextApplying(text: " ")
     }
 
     func printTab() -> NSMutableAttributedString {
-        addTextApplying(text: .tab)
+        addTextApplying(text: "\t")
     }
 
     func printJSONForChuck(_ json: String) -> NSMutableAttributedString {

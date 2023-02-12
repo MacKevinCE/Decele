@@ -1,55 +1,53 @@
 PODS:
   - Alamofire (5.6.4)
-  - Decele (0.2.2):
-    - Decele/Chuck (= 0.2.2)
-    - Decele/Components (= 0.2.2)
-    - Decele/Contacts (= 0.2.2)
-    - Decele/Crypto (= 0.2.2)
-    - Decele/Persistent (= 0.2.2)
-    - Decele/Repository (= 0.2.2)
-  - Decele/Chuck (0.2.2):
+  - Decele (0.2.3):
+    - Decele/Chuck (= 0.2.3)
+    - Decele/Components (= 0.2.3)
+    - Decele/Contacts (= 0.2.3)
+    - Decele/Crypto (= 0.2.3)
+    - Decele/Persistent (= 0.2.3)
+    - Decele/Repository (= 0.2.3)
+  - Decele/Chuck (0.2.3):
     - Decele/Shared
     - SnapKit (~> 5.0.1)
-  - Decele/Components (0.2.2):
-    - Decele/Components/Button (= 0.2.2)
-    - Decele/Components/FloatingPanel (= 0.2.2)
-    - Decele/Components/NibView (= 0.2.2)
-    - Decele/Components/SideMenu (= 0.2.2)
-  - Decele/Components/Button (0.2.2):
+  - Decele/Components (0.2.3):
+    - Decele/Components/Button (= 0.2.3)
+    - Decele/Components/FloatingPanel (= 0.2.3)
+    - Decele/Components/NameClass (= 0.2.3)
+    - Decele/Components/NibView (= 0.2.3)
+    - Decele/Components/SideMenu (= 0.2.3)
+  - Decele/Components/Button (0.2.3):
     - Decele/Shared/UIKit
     - SnapKit (~> 5.0.1)
-  - Decele/Components/FloatingPanel (0.2.2):
+  - Decele/Components/FloatingPanel (0.2.3):
     - Decele/Components/NibView
     - FloatingPanel (~> 2.5.5)
-  - Decele/Components/NibView (0.2.2):
+  - Decele/Components/NameClass (0.2.3)
+  - Decele/Components/NibView (0.2.3):
     - Decele/Shared/Foundation
     - SnapKit (~> 5.0.1)
-  - Decele/Components/SideMenu (0.2.2):
+  - Decele/Components/SideMenu (0.2.3):
     - Decele/Shared/UIKit
     - SideMenu (~> 6.5.0)
-  - Decele/Contacts (0.2.2)
-  - Decele/Crypto (0.2.2):
+  - Decele/Contacts (0.2.3)
+  - Decele/Crypto (0.2.3):
     - Decele/Shared/Foundation
-  - Decele/Persistent (0.2.2):
+  - Decele/Persistent (0.2.3):
     - Decele/Shared/Foundation
     - SwiftKeychainWrapper (~> 4.0.1)
-  - Decele/Repository (0.2.2):
+  - Decele/Repository (0.2.3):
     - Alamofire (~> 5.6.4)
     - Decele/Shared/Foundation
     - PromiseKit (~> 6.18.1)
-  - Decele/Shared (0.2.2):
-    - Decele/Shared/Foundation (= 0.2.2)
-    - Decele/Shared/Private (= 0.2.2)
-    - Decele/Shared/UIKit (= 0.2.2)
-  - Decele/Shared/Foundation (0.2.2):
-    - Decele/Shared/Private
+  - Decele/Shared (0.2.3):
+    - Decele/Shared/Foundation (= 0.2.3)
+    - Decele/Shared/UIKit (= 0.2.3)
+  - Decele/Shared/Foundation (0.2.3):
     - SwifterSwift/Dispatch
-    - SwifterSwift/SwiftStdlib
-  - Decele/Shared/Private (0.2.2):
     - SwifterSwift/Foundation
-  - Decele/Shared/UIKit (0.2.2):
-    - Decele/Shared/Private
-    - SnapKit (~> 5.0.1)
+    - SwifterSwift/SwiftStdlib
+  - Decele/Shared/UIKit (0.2.3):
+    - Decele/Components/NameClass
     - SwifterSwift/UIKit
   - FloatingPanel (2.5.5)
   - PromiseKit (6.18.1):
@@ -88,7 +86,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  Decele: 546079012bb52bd7ab20d1360759958406e3899f
+  Decele: ec8c004d132c8cc59fbe3dfa93b0b909e045f40c
   FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
   PromiseKit: 49d70c53d5d20e346beaea4b276b5dd2ab446bb4
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2

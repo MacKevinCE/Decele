@@ -7,7 +7,7 @@
 
 import SwifterSwift
 
-extension UIColor {
+public extension UIColor {
     func setAlpha(_ alpha: CGFloat) -> UIColor {
         let components = cgFloatComponents
         return UIColor(red: components.red, green: components.green, blue: components.blue, alpha: alpha)

@@ -8,7 +8,6 @@
 import UIKit
 
 public extension UIButton {
-    @IBInspectable
     var backgroundImageForDisabled: UIImage? {
         get {
             return backgroundImage(for: .disabled)
@@ -18,7 +17,6 @@ public extension UIButton {
         }
     }
 
-    @IBInspectable
     var backgroundImageForHighlighted: UIImage? {
         get {
             return backgroundImage(for: .highlighted)
@@ -28,7 +26,6 @@ public extension UIButton {
         }
     }
 
-    @IBInspectable
     var backgroundImageForNormal: UIImage? {
         get {
             return backgroundImage(for: .normal)
@@ -38,7 +35,6 @@ public extension UIButton {
         }
     }
 
-    @IBInspectable
     var backgroundImageForSelected: UIImage? {
         get {
             return backgroundImage(for: .selected)

@@ -23,4 +23,8 @@ public extension Encodable {
             return nil
         }
     }
+
+    func toPrettyPrintedJSONString() -> String {
+        return self.encode?.prettyPrintedJSONString.nonEmpty ?? .empty
+    }
 }

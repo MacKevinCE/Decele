@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwifterSwift
 
 public extension Persistent {
     struct PersistentData<V: Codable> {
@@ -19,32 +20,32 @@ public extension Persistent {
 
         public init(_ key: TypeKey) where V: RangeReplaceableCollection {
             self.key = key
-            self.defaultValue = V()
+            defaultValue = V()
         }
 
         public init(_ key: TypeKey) where V: SetAlgebra {
             self.key = key
-            self.defaultValue = V()
+            defaultValue = V()
         }
 
         public init(_ key: TypeKey) where V: BinaryInteger {
             self.key = key
-            self.defaultValue = V()
+            defaultValue = V()
         }
 
         public init(_ key: TypeKey) where V == String {
             self.key = key
-            self.defaultValue = V()
+            defaultValue = V()
         }
 
         public init(_ key: TypeKey) where V == Bool {
             self.key = key
-            self.defaultValue = V()
+            defaultValue = V()
         }
 
         public init<Key: Hashable, Value>(_ key: TypeKey) where V == [Key: Value] {
             self.key = key
-            self.defaultValue = V()
+            defaultValue = V()
         }
 
         public var value: V {
@@ -69,12 +70,14 @@ public extension Persistent {
     }
 }
 
+// MARK: - Persistent.PersistentData + IteratorProtocol
 extension Persistent.PersistentData: IteratorProtocol where V: IteratorProtocol {
     public mutating func next() -> V.Element? {
         return value.next()
     }
 }
 
+// MARK: - Persistent.PersistentData + Equatable
 extension Persistent.PersistentData: Equatable where V: Equatable {
     public static func == (lhs: Persistent.PersistentData<V>, rhs: Persistent.PersistentData<V>) -> Bool {
         return lhs.value == rhs.value
@@ -101,18 +104,21 @@ extension Persistent.PersistentData: Equatable where V: Equatable {
     }
 }
 
+// MARK: - Persistent.PersistentData + Hashable
 extension Persistent.PersistentData: Hashable where V: Hashable {
     public func hash(into hasher: inout Hasher) {
         value.hash(into: &hasher)
     }
 }
 
+// MARK: - Persistent.PersistentData + CustomStringConvertible
 extension Persistent.PersistentData: CustomStringConvertible where V: CustomStringConvertible {
     public var description: String {
         return value.description
     }
 }
 
+// MARK: - Persistent.PersistentData + CustomDebugStringConvertible
 extension Persistent.PersistentData: CustomDebugStringConvertible where V: CustomDebugStringConvertible {
     public var debugDescription: String {
         return value.debugDescription

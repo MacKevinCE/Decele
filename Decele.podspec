@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name             = 'Decele'
-	s.version          = '0.2.2'
+	s.version          = '0.2.3'
 	s.summary          = 'The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.'
 	s.description      = <<-DESC
 	This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.
@@ -61,13 +61,18 @@ Pod::Spec.new do |s|
 
 	# Components
 	s.subspec 'Components' do |sp|
-
-		# NibView
-		sp.subspec 'NibView' do |spp|
+        
+        # NameClass
+        sp.subspec 'NameClass' do |spp|
+            spp.source_files  = 'Decele/Classes/Components/NameClass/NameClass.swift'
+        end
+        
+        # NibView
+        sp.subspec 'NibView' do |spp|
             spp.source_files  = 'Decele/Classes/Components/NibView/NibView.swift'
             spp.dependency 'Decele/Shared/Foundation'
             spp.dependency 'SnapKit', '~> 5.0.1'
-		end
+        end
 
 		# FloatingPanel
 		sp.subspec 'FloatingPanel' do |spp|
@@ -96,7 +101,7 @@ Pod::Spec.new do |s|
         # Foundation
         sp.subspec 'Foundation' do |spp|
             spp.source_files  = 'Decele/Classes/Shared/Foundation/**/*'
-            spp.dependency 'Decele/Shared/Private'
+            spp.dependency 'SwifterSwift/Foundation'
             spp.dependency 'SwifterSwift/SwiftStdlib'
             spp.dependency 'SwifterSwift/Dispatch'
         end
@@ -104,15 +109,8 @@ Pod::Spec.new do |s|
         # UIKit
         sp.subspec 'UIKit' do |spp|
             spp.source_files  = 'Decele/Classes/Shared/UIKit/**/*'
-            spp.dependency 'Decele/Shared/Private'
+            spp.dependency 'Decele/Components/NameClass'
             spp.dependency 'SwifterSwift/UIKit'
-            spp.dependency 'SnapKit', '~> 5.0.1'
-        end
-        
-        # Private
-        sp.subspec 'Private' do |spp|
-            spp.source_files  = 'Decele/Classes/Shared/Private/**/*'
-            spp.dependency 'SwifterSwift/Foundation'
         end
 	end
 
