@@ -13,12 +13,6 @@ public extension NSMutableAttributedString {
     }
 
     @discardableResult
-    func applying(attributes: [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
-        let range = (string as NSString).range(of: string)
-        return applying(attributes: attributes, range: range)
-    }
-
-    @discardableResult
     func colored(with color: UIColor, range: NSRange) -> NSMutableAttributedString {
         return applying(attributes: [.foregroundColor: color], range: range)
     }
@@ -51,16 +45,6 @@ public extension NSMutableAttributedString {
         paragraphStyle.defaultTabInterval = indentation
         paragraphStyle.headIndent = indentation
         return applying(attributes: [.paragraphStyle: paragraphStyle], range: range)
-    }
-
-    @discardableResult
-    func indented(with indentation: CGFloat) -> NSMutableAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        let nonOptions = [NSTextTab.OptionKey: Any]()
-        paragraphStyle.tabStops = [NSTextTab(textAlignment: .left, location: indentation, options: nonOptions)]
-        paragraphStyle.defaultTabInterval = indentation
-        paragraphStyle.headIndent = indentation
-        return applying(attributes: [.paragraphStyle: paragraphStyle])
     }
 
     @discardableResult

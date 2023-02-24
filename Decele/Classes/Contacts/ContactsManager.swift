@@ -7,51 +7,21 @@
 
 import Contacts
 
-// MARK: - LocalContacts
-struct LocalContacts: Encodable {
-    let givenName: String
-    let familyName: String
-    let phoneNumber: [String]
-}
-
 // MARK: - ContactsManager
-class ContactsManager {
-    static let shared = ContactsManager()
+open class ContactsManager<C> {
+    internal var properties: [Property]
+
+    public init(properties: [Property]) {
+        self.properties = properties
+    }
+
     private var retry = false
     private let queue = DispatchQueue(label: "ContactsManager", qos: .background)
     private var store = CNContactStore()
     private var status: CNAuthorizationStatus { type(of: store).authorizationStatus(for: .contacts) }
-    private var localContact: [LocalContacts] = []
-}
+    private var localContact: [C] = []
 
-// MARK: - Property
-extension ContactsManager {
-    private enum Property: CaseIterable {
-        case givenName
-        case familyName
-        case phoneNumber
-
-        var asDescriptor: CNKeyDescriptor {
-            switch self {
-            case .givenName: return CNContactGivenNameKey as CNKeyDescriptor
-            case .familyName: return CNContactFamilyNameKey as CNKeyDescriptor
-            case .phoneNumber: return CNContactPhoneNumbersKey as CNKeyDescriptor
-            }
-        }
-    }
-}
-
-// MARK: - ContactsError
-extension ContactsManager {
-    private enum ContactsError: LocalizedError {
-        case denied
-        case fail
-    }
-}
-
-// MARK: - loadLocal
-extension ContactsManager {
-    private func request(completion: @escaping (Result<[LocalContacts], Error>) -> Void) {
+    private func request(completion: @escaping (Result<[C], Error>) -> Void) {
         store.requestAccess(for: .contacts) { [weak self] authorized, error in
             guard let self = self else { return }
             if error != nil || !authorized || self.retry {
@@ -63,8 +33,8 @@ extension ContactsManager {
         }
     }
 
-    private func fetchRequest(completion: @escaping (Result<[LocalContacts], Error>) -> Void) {
-        let request = CNContactFetchRequest(keysToFetch: Property.allCases.map(\.asDescriptor))
+    private func fetchRequest(completion: @escaping (Result<[C], Error>) -> Void) {
+        let request = CNContactFetchRequest(keysToFetch: properties.map(\.asDescriptor))
         queue.async { [weak self] in
             guard let self = self else { return }
             var contacts: [CNContact] = []
@@ -80,18 +50,11 @@ extension ContactsManager {
         }
     }
 
-    private func transform(contacts: [CNContact]) -> [LocalContacts] {
-        return contacts.map {
-            guard $0.areKeysAvailable(Property.allCases.map(\.asDescriptor)) else { return nil }
-            return LocalContacts(
-                givenName: $0.givenName,
-                familyName: $0.familyName,
-                phoneNumber: $0.phoneNumbers.lazy.map { $0.value.stringValue }
-            )
-        }.compactMap { $0 }
+    open func transform(contacts _: [CNContact]) -> [C] {
+        return []
     }
 
-    func loadLocal(completion: @escaping (Result<[LocalContacts], Error>) -> Void) {
+    public func loadLocal(completion: @escaping (Result<[C], Error>) -> Void) {
         if localContact.isEmpty {
             switch status {
             case .denied, .restricted:
@@ -106,5 +69,13 @@ extension ContactsManager {
         } else {
             completion(.success(localContact))
         }
+    }
+}
+
+// MARK: - ContactsError
+extension ContactsManager {
+    private enum ContactsError: LocalizedError {
+        case denied
+        case fail
     }
 }

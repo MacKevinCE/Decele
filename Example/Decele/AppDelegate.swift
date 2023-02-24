@@ -6,7 +6,6 @@
 //  Copyright (c) 2023 Hermes Mac Kevin Cabanillas Encarnación. All rights reserved.
 //
 
-import Decele
 import UIKit
 
 @UIApplicationMain

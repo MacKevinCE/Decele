@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name             = 'Decele'
-	s.version          = '0.2.3'
+	s.version          = '0.3.1'
 	s.summary          = 'The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.'
 	s.description      = <<-DESC
 	This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.
@@ -91,9 +91,16 @@ Pod::Spec.new do |s|
 		# Button
 		sp.subspec 'Button' do |spp|
 			spp.source_files  = 'Decele/Classes/Components/Button/**/*'
-			spp.dependency 'Decele/Shared/UIKit'
             spp.dependency 'SnapKit', '~> 5.0.1'
 		end
+        
+        # TextField
+        sp.subspec 'TextField' do |spp|
+            spp.source_files  = 'Decele/Classes/Components/TextField/**/*'
+            spp.dependency 'Decele/Components/Button'
+            spp.dependency 'Decele/Shared'
+            spp.dependency 'SnapKit', '~> 5.0.1'
+        end
 	end
 
 	# Shared

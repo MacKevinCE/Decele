@@ -3,10 +3,74 @@ inhibit_all_warnings!
 
 platform :ios, '13.0'
 
-target 'Decele_Example' do
-  pod 'Decele', :path => '../'
+target 'ContactsDecele' do
+  pod 'Decele/Contacts', :path => '../'
+end
 
-  target 'Decele_Tests' do
+target 'Persistent' do
+  pod 'Decele/Persistent', :path => '../'
+end
+
+target 'Crypto' do
+  pod 'Decele/Crypto', :path => '../'
+end
+
+target 'Chuck' do
+  pod 'Decele/Chuck', :path => '../'
+end
+
+target 'Repository' do
+  pod 'Decele/Repository', :path => '../'
+end
+
+target 'Components' do
+  pod 'Decele/Components', :path => '../'
+end
+
+target 'NameClass' do
+  pod 'Decele/Components/NameClass', :path => '../'
+end
+
+target 'NibView' do
+  pod 'Decele/Components/NibView', :path => '../'
+end
+
+target 'FloatingPanelDecele' do
+  pod 'Decele/Components/FloatingPanel', :path => '../'
+end
+
+target 'SideMenuDecele' do
+  pod 'Decele/Components/SideMenu', :path => '../'
+end
+
+target 'Button' do
+  pod 'Decele/Components/Button', :path => '../'
+end
+
+target 'TextField' do
+  pod 'Decele/Components/TextField', :path => '../'
+end
+
+target 'Shared' do
+  pod 'Decele/Shared', :path => '../'
+end
+
+target 'FoundationDecele' do
+  pod 'Decele/Shared/Foundation', :path => '../'
+end
+
+target 'UIKitDecele' do
+  pod 'Decele/Shared/UIKit', :path => '../'
+end
+
+target 'All' do
+  pod 'Decele', :path => '../'
+  pod 'SwifterSwift/UIKit', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
+  pod 'SwifterSwift/Foundation', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
+  pod 'SwifterSwift/SwiftStdlib', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
+  pod 'SwifterSwift/Dispatch', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
+
+  target 'Tests' do
     inherit! :search_paths
 
   end

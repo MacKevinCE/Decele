@@ -66,7 +66,7 @@ public extension UITableView {
                 return dequeueReusableCell(with: T.self, isRegistered: true)
             }
         }
-        if let view: T = cell.contentView.subviews.first() {
+        if let view: T = cell.contentView.subviews.firstType() {
             return (view, cell)
         } else {
             let view = T()

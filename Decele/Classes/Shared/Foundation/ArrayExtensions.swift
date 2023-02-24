@@ -6,7 +6,7 @@
 //
 
 public extension Array {
-    func first<T>() -> T? {
+    func firstType<T>() -> T? {
         first(where: { ($0 as? T) != nil }) as? T
     }
 }

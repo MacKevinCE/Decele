@@ -245,7 +245,7 @@ public class Chuck {
         guard let owner = UIApplication.shared.rootViewController else { return nil }
         let presented = owner.presentedViewController?.view.subviews
         let direct = owner.view.subviews
-        return presented?.first() ?? direct.first()
+        return presented?.firstType() ?? direct.firstType()
     }
 
     class func getDebugNavController() -> DebugNavController? {
