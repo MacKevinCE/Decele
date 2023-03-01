@@ -195,11 +195,11 @@ public class Chuck {
     }
 
     open class func classInit(_ id: UUID, _ anyObject: AnyObject, file: String = #file, function: String = #function, line: Int = #line) {
-        return custom(InputARC(id, anyObject, file, function, line))
+        custom(InputARC(id, anyObject, file, function, line))
     }
 
     open class func persistent(namespace: String, key: String, value: Any?, file: String = #file, function: String = #function, line: Int = #line) {
-        return custom(InputPersistent(namespace, key, value, file, function, line))
+        custom(InputPersistent(namespace, key, value, file, function, line))
     }
 
     open class func persistent(namespace: String, key: String, callback: (String) -> Any?, file: String = #file, function: String = #function, line: Int = #line) {
@@ -220,7 +220,7 @@ public class Chuck {
     }
 
     class func dispatchWorkItem(_ chuck: any InputProtocol, thread: String) -> DispatchWorkItem {
-        return DispatchWorkItem {
+        DispatchWorkItem {
             let output = destination.send(chuck, thread: thread)
             if isDetecting {
                 dataChuck.append(output)

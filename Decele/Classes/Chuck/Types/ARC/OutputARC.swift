@@ -15,7 +15,7 @@ class OutputARC: OutputClass {
         DispatchQueue.main.async {
             self.detailTabs = [
                 DetailTabs(name: "RESUME", attributed: input.getTabResume()),
-                DetailTabs(name: "ALL", attributed: input.getTabAll())
+                DetailTabs(name: "ALL", attributed: input.getTabAll()),
             ]
         }
     }

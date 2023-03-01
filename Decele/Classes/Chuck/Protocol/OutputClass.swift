@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - OutputClass
 open class OutputClass: Equatable {
     public var id: UUID
     public var type: ChuckLevel
@@ -33,12 +34,12 @@ open class OutputClass: Equatable {
     }
 
     func rightBarButtonItems(_ output: OutputClass) -> [UIBarButtonItem] {
-        return []
+        []
     }
 }
 
 public extension OutputClass {
     static func == (lhs: OutputClass, rhs: OutputClass) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
 }

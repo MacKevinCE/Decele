@@ -5,8 +5,8 @@
 //  Created by Mc Kevin on 4/02/23.
 //
 
-import UIKit
 import SwifterSwift
+import UIKit
 
 public extension UITableView {
     func register<T: UITableViewCell>(nibWithCellClass name: T.Type, at bundleClass: AnyClass? = nil) {
@@ -47,7 +47,7 @@ public extension UITableView {
     }
 
     func dequeueReusableCell<T: UITableViewCell>(isRegistered: Bool = false) -> T {
-        return dequeueReusableCell(withClass: T.self, isRegistered: isRegistered)
+        dequeueReusableCell(withClass: T.self, isRegistered: isRegistered)
     }
 
     func reloadRowsVisiblesCell(with animation: UITableView.RowAnimation = .automatic) {

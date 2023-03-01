@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import UIKit
 import SwifterSwift
+import UIKit
 
 // MARK: - ChuckDebugDetailViewController
 class ChuckDebugDetailViewController: UIViewController {
@@ -108,7 +108,7 @@ class ChuckDebugDetailViewController: UIViewController {
     }
 
     private func selectAttributed(_ select: Int) -> NSMutableAttributedString? {
-        return chuck?.detailTabs[safe: select]?.attributed
+        chuck?.detailTabs[safe: select]?.attributed
     }
 
     private func printAttributed(_ ranges: [NSRange], _ attributed: NSMutableAttributedString?) {

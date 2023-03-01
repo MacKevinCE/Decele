@@ -7,6 +7,7 @@
 
 import FloatingPanel
 
+// MARK: - StateFloatingPanel
 public enum StateFloatingPanel: String, CaseIterable {
     case full, half, tip, hidden
 

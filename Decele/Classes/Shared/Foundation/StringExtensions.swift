@@ -6,7 +6,7 @@
 //
 
 public extension String {
-    var nullable: String? { return isEmpty ? nil : self }
+    var nullable: String? { isEmpty ? nil : self }
 
     var unaccent: String {
         let parts = components(separatedBy: "ñ").map { p in p.folding(options: .diacriticInsensitive, locale: .current) }
@@ -41,27 +41,27 @@ public extension String {
 
 public extension String {
     func applying(attributes: [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
-        return NSMutableAttributedString(string: self, attributes: attributes)
+        NSMutableAttributedString(string: self, attributes: attributes)
     }
 
     func colored(with color: UIColor) -> NSMutableAttributedString {
-        return applying(attributes: [.foregroundColor: color])
+        applying(attributes: [.foregroundColor: color])
     }
 
     func backgroundColored(with backgroundColor: UIColor) -> NSMutableAttributedString {
-        return applying(attributes: [.backgroundColor: backgroundColor])
+        applying(attributes: [.backgroundColor: backgroundColor])
     }
 
     func fonted(with font: UIFont) -> NSMutableAttributedString {
-        return applying(attributes: [.font: font])
+        applying(attributes: [.font: font])
     }
 
     func underlined() -> NSMutableAttributedString {
-        return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
 
     func struckthrough() -> NSMutableAttributedString {
-        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
+        applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
 
     func indented(with indentation: CGFloat) -> NSMutableAttributedString {
@@ -74,6 +74,6 @@ public extension String {
     }
 
     func applying(font: UIFont? = nil, color: UIColor? = nil, backgroundColor: UIColor? = nil, indentation: CGFloat? = nil, isUnderline: Bool = false, isStruckthrough: Bool = false) -> NSMutableAttributedString {
-        return NSMutableAttributedString(string: self).applying(font: font, color: color, backgroundColor: backgroundColor, indentation: indentation, isUnderline: isUnderline, isStruckthrough: isStruckthrough)
+        NSMutableAttributedString(string: self).applying(font: font, color: color, backgroundColor: backgroundColor, indentation: indentation, isUnderline: isUnderline, isStruckthrough: isStruckthrough)
     }
 }

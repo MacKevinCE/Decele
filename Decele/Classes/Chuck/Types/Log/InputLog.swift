@@ -40,11 +40,11 @@ struct InputLog: InputProtocol {
     }
 
     func output() -> OutputLog {
-        return OutputLog(self)
+        OutputLog(self)
     }
 
     func getTitle() -> String {
-        return "\(items.joined(separator: separator.visible()))\(terminator.visibleUltra())"
+        "\(items.joined(separator: separator.visible()))\(terminator.visibleUltra())"
     }
 
     func getPreview() -> PreviewInfo {
@@ -104,11 +104,11 @@ struct InputLog: InputProtocol {
     }
 
     func getText() -> String {
-        return items.joined(separator: separator) + terminator
+        items.joined(separator: separator) + terminator
     }
 
     func getItems() -> String {
-        return "[" + items.map { $0.visibleUltra() }.joined(separator: ", ") + "]"
+        "[" + items.map { $0.visibleUltra() }.joined(separator: ", ") + "]"
     }
 }
 

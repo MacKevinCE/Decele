@@ -14,7 +14,7 @@ protocol NameClass: AnyObject {}
 
 extension NameClass {
     static var nameClass: String {
-        return String(describing: self)
+        String(describing: self)
     }
 }
 

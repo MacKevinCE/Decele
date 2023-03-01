@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - ChuckDebugAssembly
 class ChuckDebugAssembly {
     static func build() -> ChuckDebugViewController {
         let bundle = Bundle(for: ChuckDebugViewController.self)
@@ -17,7 +18,8 @@ class ChuckDebugAssembly {
     }
 }
 
-class ChuckDebugDetailAssembly {
+// MARK: - ChuckDebugDetailAssembly
+enum ChuckDebugDetailAssembly {
     static func build(chuck: OutputClass) -> ChuckDebugDetailViewController {
         let bundle = Bundle(for: ChuckDebugDetailViewController.self)
         let storyboard = UIStoryboard(name: "ChuckDebug", bundle: bundle)

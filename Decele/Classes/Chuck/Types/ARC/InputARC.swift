@@ -32,7 +32,7 @@ struct InputARC: InputProtocol {
     }
 
     func output() -> OutputARC {
-        return OutputARC(self)
+        OutputARC(self)
     }
 
     func getPreview() -> PreviewInfo {
@@ -104,7 +104,7 @@ struct InputARC: InputProtocol {
     }
 
     func classAsArray() -> [String] {
-        return [
+        [
             inherit(with: AnyKeyPath.self),
             inherit(with: Bundle.self),
             inherit(with: BlockOperation.self),
@@ -287,7 +287,7 @@ struct InputARC: InputProtocol {
     }
 
     func classAs() -> String {
-        return classAsArray().joined(separator: ", ")
+        classAsArray().joined(separator: ", ")
     }
 
     func inherit<T>(with _: T.Type) -> String? {
@@ -299,7 +299,7 @@ struct InputARC: InputProtocol {
     }
 
     func jsonClass() -> String {
-        return (anyObject as? Encodable)?.toPrettyPrintedJSONString() ?? .empty
+        (anyObject as? Encodable)?.toPrettyPrintedJSONString() ?? .empty
     }
 
     func navigationControllerDescription() -> String {
@@ -313,7 +313,7 @@ struct InputARC: InputProtocol {
     }
 
     func describingClass() -> String {
-        return String(describing: anyObject)
+        String(describing: anyObject)
     }
 
     func getNameComplete() -> String {
@@ -322,11 +322,11 @@ struct InputARC: InputProtocol {
     }
 
     func getNameProject() -> String {
-        return String(getNameComplete().split(separator: ".").first ?? "")
+        String(getNameComplete().split(separator: ".").first ?? "")
     }
 
     func getNameClass() -> String {
-        return String(getNameComplete().split(separator: ".").last ?? "")
+        String(getNameComplete().split(separator: ".").last ?? "")
     }
 }
 

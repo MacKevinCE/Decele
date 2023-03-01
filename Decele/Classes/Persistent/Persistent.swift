@@ -8,10 +8,14 @@
 import Foundation
 import SwiftKeychainWrapper
 
+// MARK: - Persistent
 public enum Persistent {
-    static let _user_Defauts_Keys_name = "_user_Defauts_Keys_"
-    static var _user_Defauts_Keys_crypt: Typecrypt = { data, _ in data }
-    static var _user_Defauts_Keys_ = PersistentData<Set<String>>(
+    public static var encryptMethodUserDefaults: EncryptMethod = .init()
+    public static var encryptMethodKeychain: EncryptMethod = .init()
+
+    public static let _user_Defauts_Keys_name = "_user_Defauts_Keys_"
+    public static var _user_Defauts_Keys_crypt: Typecrypt = { data, _ in data }
+    public static var _user_Defauts_Keys_ = PersistentData<Set<String>>(
         .userDefaults(
             key: _user_Defauts_Keys_name,
             encrypt: _user_Defauts_Keys_crypt,
@@ -43,5 +47,21 @@ public enum Persistent {
     public static func removeAllKeys() {
         removeAllKeysUserDefaults()
         removeAllKeysKeychainWrapper()
+    }
+
+    // MARK: - EncryptMethod
+    public struct EncryptMethod {
+        public typealias Typecrypt = (Data, String) -> Data?
+
+        public var encrypt: Typecrypt
+        public var decrypt: Typecrypt
+
+        public init(
+            encrypt: @escaping Typecrypt = { data, _ in data },
+            decrypt: @escaping Typecrypt = { data, _ in data }
+        ) {
+            self.encrypt = encrypt
+            self.decrypt = decrypt
+        }
     }
 }

@@ -7,6 +7,7 @@
 
 import FloatingPanel
 
+// MARK: - FloatingPanel
 public final class FloatingPanel: FloatingPanelController {
     public convenience init(with content: NibView) {
         self.init(with: content, config: ConfigFloatingPanel(absoluteInset: content.view.frame.height))
@@ -35,6 +36,6 @@ public final class FloatingPanel: FloatingPanelController {
 
 public extension NibView {
     func buildFloating() -> FloatingPanel {
-        return FloatingPanel(with: self)
+        FloatingPanel(with: self)
     }
 }

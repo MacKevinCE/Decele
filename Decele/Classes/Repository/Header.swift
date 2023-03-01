@@ -8,6 +8,7 @@
 import Alamofire
 import Foundation
 
+// MARK: - Headers
 public enum Headers {
     case custom(headers: [HTTPHeader])
     case basic

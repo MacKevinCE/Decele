@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - InputProtocol
 public protocol InputProtocol: Equatable {
     associatedtype Output: OutputClass
 
@@ -19,14 +20,14 @@ public protocol InputProtocol: Equatable {
 
 public extension InputProtocol {
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
 
     var id: UUID {
-        return UUID()
+        UUID()
     }
 
     var time: Date {
-        return Date()
+        Date()
     }
 }

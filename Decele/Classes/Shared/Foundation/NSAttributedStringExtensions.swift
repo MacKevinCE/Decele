@@ -14,27 +14,27 @@ public extension NSMutableAttributedString {
 
     @discardableResult
     func colored(with color: UIColor, range: NSRange) -> NSMutableAttributedString {
-        return applying(attributes: [.foregroundColor: color], range: range)
+        applying(attributes: [.foregroundColor: color], range: range)
     }
 
     @discardableResult
     func backgroundColored(with backgroundColor: UIColor, range: NSRange) -> NSMutableAttributedString {
-        return applying(attributes: [.backgroundColor: backgroundColor], range: range)
+        applying(attributes: [.backgroundColor: backgroundColor], range: range)
     }
 
     @discardableResult
     func fonted(with font: UIFont, range: NSRange) -> NSMutableAttributedString {
-        return applying(attributes: [.font: font], range: range)
+        applying(attributes: [.font: font], range: range)
     }
 
     @discardableResult
     func underlined(range: NSRange) -> NSMutableAttributedString {
-        return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue], range: range)
+        applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue], range: range)
     }
 
     @discardableResult
     func struckthrough(range: NSRange) -> NSMutableAttributedString {
-        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)], range: range)
+        applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)], range: range)
     }
 
     @discardableResult
@@ -130,7 +130,7 @@ public extension NSAttributedString {
     }
 
     static func + (lhs: NSAttributedString, rhs: String) -> NSAttributedString {
-        return lhs + NSAttributedString(string: rhs)
+        lhs + NSAttributedString(string: rhs)
     }
 }
 

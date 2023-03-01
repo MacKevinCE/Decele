@@ -14,16 +14,18 @@ public class ConfigRepository {
     public var dispatchQueueLabel: String
     public var successStatusCode: Int
     public var closureSignature: (Encodable) -> String
+    public var closureFailed: (Error) -> Bool
     public var tokenInterceptor: TokenInterceptor
     public var progress: ProgressProtocol
     public var debug: DebugProtocol
     public var error: ErrorModelProtocol
 
-    public init(baseURL: String, dispatchQueueLabel: String = "Repository.queue", successStatusCode: Int = 200, closureSignature: @escaping (Encodable) -> String, tokenInterceptor: TokenInterceptor, progress: ProgressProtocol, debug: DebugProtocol, error: ErrorModelProtocol) {
+    public init(baseURL: String, dispatchQueueLabel: String = "Repository.queue", successStatusCode: Int = 200, closureSignature: @escaping (Encodable) -> String, closureFailed: @escaping (Error) -> Bool, tokenInterceptor: TokenInterceptor, progress: ProgressProtocol, debug: DebugProtocol, error: ErrorModelProtocol) {
         self.baseURL = baseURL
         self.dispatchQueueLabel = dispatchQueueLabel
         self.successStatusCode = successStatusCode
         self.closureSignature = closureSignature
+        self.closureFailed = closureFailed
         self.tokenInterceptor = tokenInterceptor
         self.progress = progress
         self.debug = debug
@@ -35,6 +37,7 @@ public class ConfigRepository {
         self.dispatchQueueLabel = "Repository.queue"
         self.successStatusCode = 200
         self.closureSignature = { _ in "" }
+        self.closureFailed = { _ in true }
         self.tokenInterceptor = TokenInterceptor()
         self.progress = Progress()
         self.debug = Debug()
@@ -42,6 +45,6 @@ public class ConfigRepository {
     }
 
     public var queue: DispatchQueue {
-        return DispatchQueue(label: ConfigRepository.shared.dispatchQueueLabel, qos: .utility)
+        DispatchQueue(label: ConfigRepository.shared.dispatchQueueLabel, qos: .utility)
     }
 }

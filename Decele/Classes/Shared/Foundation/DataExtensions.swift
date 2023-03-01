@@ -18,6 +18,6 @@ public extension Data {
     }
 
     func decode<T: Decodable>() -> T? {
-        return T(from: self)
+        T(from: self)
     }
 }

@@ -20,6 +20,6 @@ open class BaseDestination {
     }
 
     func send(_ chuck: any InputProtocol, thread _: String) -> OutputClass {
-        return chuck.output()
+        chuck.output()
     }
 }

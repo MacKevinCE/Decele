@@ -7,35 +7,17 @@
 
 import Alamofire
 
-public class TokenInterceptor: RequestInterceptor {
-    let tokenExpiredStatusCode: Int
-    let refreshToken: (String?) -> TokenResponse?
-    var token: TokenResponse?
-
-    static var shared = ConfigRepository.shared.tokenInterceptor
-
-    init() {
-        self.tokenExpiredStatusCode = 401
-        self.refreshToken = { _ in nil }
-    }
-
-    public init(sessionExpired statusCode: Int = 401, refreshToken closure: @escaping (String?) -> TokenResponse) {
-        self.tokenExpiredStatusCode = statusCode
-        self.refreshToken = closure
-    }
-
-    public func setToken(token: TokenResponse) {
-        self.token = token
-    }
-
+// MARK: - TokenInterceptor
+open class TokenInterceptor: RequestInterceptor {
     private var isRefreshing = false
     private let lock = NSLock()
 
     public func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
         var adaptedRequest = urlRequest
-        if let token = token?.accessToken {
-            let header: HTTPHeader = .authorization(bearerToken: token)
-            adaptedRequest.addValue(header.value, forHTTPHeaderField: header.name)
+        if let token = getToken() {
+            createHeader(token: token).forEach { header in
+                adaptedRequest.addValue(header.value, forHTTPHeaderField: header.name)
+            }
         }
         completion(.success(adaptedRequest))
     }
@@ -44,7 +26,7 @@ public class TokenInterceptor: RequestInterceptor {
         lock.lock(); defer { lock.unlock() }
         if isRefreshing {
             isRefreshing = false
-            if let response = request.task?.response as? HTTPURLResponse, response.statusCode == tokenExpiredStatusCode {
+            if conditionToRefresh(request, for: session, dueTo: error, token: getToken()) {
                 refreshToken(completion)
             } else {
                 completion(.doNotRetry)
@@ -56,11 +38,30 @@ public class TokenInterceptor: RequestInterceptor {
     }
 
     private func refreshToken(_ completion: @escaping (RetryResult) -> Void) {
-        if let token = refreshToken(token?.refreshToken) {
-            self.token = token
-            completion(.retry)
-        } else {
-            completion(.doNotRetry)
+        refreshToken { [weak self] result in
+            switch result {
+            case let .success(success):
+                self?.saveToken(success)
+                completion(.retry)
+            case .failure:
+                completion(.doNotRetry)
+            }
         }
+    }
+
+    open func refreshToken(_ completion: @escaping (Result<TokenProtocol, Error>) -> Void) {}
+
+    open func saveToken(_ token: TokenProtocol) {}
+
+    open func getToken() -> TokenProtocol? {
+        nil
+    }
+
+    open func conditionToRefresh(_ request: Request, for session: Session, dueTo error: Error, token: TokenProtocol?) -> Bool {
+        false
+    }
+
+    open func createHeader(token: TokenProtocol) -> [HTTPHeader] {
+        [.authorization(bearerToken: token.accessToken)]
     }
 }

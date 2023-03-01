@@ -9,13 +9,13 @@ import Foundation
 
 extension String {
     func visible() -> String {
-        return replacingOccurrences(of: "\r", with: "\\r")
+        replacingOccurrences(of: "\r", with: "\\r")
             .replacingOccurrences(of: "\n", with: "\\n")
             .replacingOccurrences(of: "\t", with: "\\t")
     }
 
     func visibleUltra() -> String {
-        return visible()
+        visible()
             .replacingOccurrences(of: " ", with: "(space)")
     }
 }

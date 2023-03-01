@@ -12,8 +12,8 @@ public extension Persistent {
     typealias Typecrypt = (Data, String) -> Data?
 
     enum TypeKey {
-        case userDefaults(key: String, encrypt: Typecrypt = ConfigPersistent.shared.configUserDefaults.encrypt, decrypt: Typecrypt = ConfigPersistent.shared.configUserDefaults.decrypt)
-        case keychain(key: String, encrypt: Typecrypt = ConfigPersistent.shared.configKeychain.encrypt, decrypt: Typecrypt = ConfigPersistent.shared.configKeychain.decrypt)
+        case userDefaults(key: String, encrypt: Typecrypt = Persistent.encryptMethodUserDefaults.encrypt, decrypt: Typecrypt = Persistent.encryptMethodUserDefaults.decrypt)
+        case keychain(key: String, encrypt: Typecrypt = Persistent.encryptMethodKeychain.encrypt, decrypt: Typecrypt = Persistent.encryptMethodKeychain.decrypt)
 
         func getKey() -> String {
             switch self {

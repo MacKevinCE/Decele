@@ -9,6 +9,6 @@ import UIKit
 
 public extension UIApplication {
     var rootViewController: UIViewController? {
-        return windows.last?.rootViewController
+        windows.last?.rootViewController
     }
 }

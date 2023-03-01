@@ -14,7 +14,7 @@ public struct SwipeActions: Equatable {
     let execute: (OutputClass?, IndexPath) -> Void
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
 
     public init(name: String, color: UIColor, execute: @escaping (OutputClass?, IndexPath) -> Void) {

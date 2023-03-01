@@ -10,7 +10,7 @@ import UIKit
 public extension UIButton {
     var backgroundImageForDisabled: UIImage? {
         get {
-            return backgroundImage(for: .disabled)
+            backgroundImage(for: .disabled)
         }
         set {
             setBackgroundImage(newValue, for: .disabled)
@@ -19,7 +19,7 @@ public extension UIButton {
 
     var backgroundImageForHighlighted: UIImage? {
         get {
-            return backgroundImage(for: .highlighted)
+            backgroundImage(for: .highlighted)
         }
         set {
             setBackgroundImage(newValue, for: .highlighted)
@@ -28,7 +28,7 @@ public extension UIButton {
 
     var backgroundImageForNormal: UIImage? {
         get {
-            return backgroundImage(for: .normal)
+            backgroundImage(for: .normal)
         }
         set {
             setBackgroundImage(newValue, for: .normal)
@@ -37,7 +37,7 @@ public extension UIButton {
 
     var backgroundImageForSelected: UIImage? {
         get {
-            return backgroundImage(for: .selected)
+            backgroundImage(for: .selected)
         }
         set {
             setBackgroundImage(newValue, for: .selected)
@@ -45,7 +45,7 @@ public extension UIButton {
     }
 
     private var states: [UIControl.State] {
-        return [.normal, .selected, .highlighted, .disabled]
+        [.normal, .selected, .highlighted, .disabled]
     }
 
     func setBackgroundImageForAllStates(_ image: UIImage?) {

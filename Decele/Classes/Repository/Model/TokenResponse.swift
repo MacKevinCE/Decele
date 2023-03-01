@@ -7,9 +7,16 @@
 
 import Foundation
 
-public struct TokenResponse: Decodable {
-    var accessToken: String
-    var refreshToken: String
+// MARK: - TokenProtocol
+public protocol TokenProtocol: Decodable {
+    var accessToken: String { get set }
+    var refreshToken: String { get set }
+}
+
+// MARK: - TokenResponse
+public struct TokenResponse: TokenProtocol {
+    public var accessToken: String
+    public var refreshToken: String
 
     public init(accessToken: String, refreshToken: String) {
         self.accessToken = accessToken

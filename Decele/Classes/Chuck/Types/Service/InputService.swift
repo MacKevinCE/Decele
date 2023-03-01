@@ -57,7 +57,7 @@ struct InputService: InputProtocol {
     }
 
     func output() -> OutputService {
-        return OutputService(self)
+        OutputService(self)
     }
 
     func getPreview() -> PreviewInfo {
@@ -230,7 +230,7 @@ func getEndPoint(_ request: URLRequest?) -> String {
 }
 
 func getRequest(_ request: URLRequest?) -> String {
-    return getResponse(request?.httpBody)
+    getResponse(request?.httpBody)
 }
 
 func getHeadersRequest(_ request: URLRequest?) -> [String: String] {

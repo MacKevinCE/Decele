@@ -34,7 +34,7 @@ struct InputPersistent: InputProtocol {
     }
 
     func output() -> OutputPersistent {
-        return OutputPersistent(self)
+        OutputPersistent(self)
     }
 
     func getPreview() -> PreviewInfo {
@@ -103,7 +103,7 @@ struct InputPersistent: InputProtocol {
     }
 
     func getType() -> String {
-        return [
+        [
             type(with: [Any].self),
             type(with: [String].self),
             type(with: [Int].self),
@@ -151,6 +151,6 @@ struct InputPersistent: InputProtocol {
     }
 
     static func jsonClass(of value: Any?) -> String {
-        return (value as? Encodable)?.toPrettyPrintedJSONString() ?? .empty
+        (value as? Encodable)?.toPrettyPrintedJSONString() ?? .empty
     }
 }

@@ -44,7 +44,7 @@ open class NibView: UIView {
     }
 
     public func buildViewController() -> UIViewController {
-        return buildViewController(with: UIViewController())
+        buildViewController(with: UIViewController())
     }
 
     private func loadNib() -> UIView {

@@ -13,9 +13,9 @@ public enum PreviewInfo {
 
     var getSearchText: String {
         switch self {
-        case .attributed(let attributedString, _):
+        case let .attributed(attributedString, _):
             return attributedString.string
-        case .cell(_, let searchText):
+        case let .cell(_, searchText):
             return searchText
         }
     }

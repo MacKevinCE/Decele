@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - OutputPersistent
 class OutputPersistent: OutputClass {
     init(_ input: InputPersistent) {
         super.init(input)
@@ -14,7 +15,7 @@ class OutputPersistent: OutputClass {
         self.colorTitle = .systemTeal
         self.detailTabs = [
             DetailTabs(name: "RESUME", attributed: input.getTabResume()),
-            DetailTabs(name: "ALL", attributed: input.getTabAll())
+            DetailTabs(name: "ALL", attributed: input.getTabAll()),
         ]
     }
 }

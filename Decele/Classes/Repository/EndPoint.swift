@@ -7,12 +7,14 @@
 
 import Alamofire
 
+// MARK: - EndPoint
 public enum EndPoint: Hashable, Equatable {
     case path(_ path: String)
     case literal(string: String)
     case custom(baseURL: String, path: String)
 }
 
+// MARK: URLConvertible
 extension EndPoint: URLConvertible {
     public func asURL() throws -> URL {
         try self.endPoint.asURL()

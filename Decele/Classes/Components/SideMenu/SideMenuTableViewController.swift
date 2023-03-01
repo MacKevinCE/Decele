@@ -36,7 +36,7 @@ public class SideMenuTableViewController: UITableViewController {
     }
 
     override public func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return data.count
+        data.count
     }
 
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

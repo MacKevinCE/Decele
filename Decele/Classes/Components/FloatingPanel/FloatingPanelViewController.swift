@@ -8,6 +8,7 @@
 import FloatingPanel
 import UIKit
 
+// MARK: - FloatingPanelViewController
 class FloatingPanelViewController: UIViewController {
     // MARK: - VARIABLES
 
@@ -63,23 +64,25 @@ class FloatingPanelViewController: UIViewController {
     }
 }
 
+// MARK: FloatingPanelLayout
 extension FloatingPanelViewController: FloatingPanelLayout {
     var position: FloatingPanelPosition { config.position }
 
     var initialState: FloatingPanelState { config.initialState }
 
     var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
-        return config.anchors
+        config.anchors
     }
 
     func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
-        return 0.5
+        0.5
     }
 }
 
+// MARK: FloatingPanelControllerDelegate
 extension FloatingPanelViewController: FloatingPanelControllerDelegate {
     func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
-        return self
+        self
     }
 
     func floatingPanelDidMove(_ fpc: FloatingPanelController) {

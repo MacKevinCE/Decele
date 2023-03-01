@@ -7,8 +7,8 @@
 
 import Contacts
 
-// MARK: - TotalContact
-public struct TotalContact {
+// MARK: - AllContact
+public struct AllContact {
     var identifier: String = ""
     var namePrefix: String = ""
     var givenName: String = ""
@@ -41,13 +41,13 @@ public struct TotalContact {
     var instantMessageAddresse: [CNInstantMessageAddress] = []
 }
 
-// MARK: - TotalContactManager
-public class TotalContactManager: ContactsManager<TotalContact> {
-    public static let shared = TotalContactManager(properties: Property.allCases)
+// MARK: - AllContactManager
+public class AllContactManager: ContactsManager<AllContact> {
+    public static let shared = AllContactManager(properties: Property.allCases)
 
-    override public func transform(contacts: [CNContact]) -> [TotalContact] {
-        return contacts.map { contact in
-            var localContacts = TotalContact()
+    override public func transform(contacts: [CNContact]) -> [AllContact] {
+        contacts.map { contact in
+            var localContacts = AllContact()
 
             for property in properties {
                 guard contact.areKeysAvailable([property.asDescriptor]) else { continue }
@@ -74,14 +74,14 @@ public class TotalContactManager: ContactsManager<TotalContact> {
                 case .thumbnailImageData: localContacts.thumbnailImageData = contact.thumbnailImageData
                 case .imageDataAvailable: localContacts.imageDataAvailable = contact.imageDataAvailable
                 case .type: localContacts.type = contact.contactType
-                case .phoneNumbers: localContacts.phoneNumbers = contact.phoneNumbers.lazy.map { $0.value }
-                case .emailAddresses: localContacts.emailAddresses = contact.emailAddresses.lazy.map { $0.value }
-                case .postalAddresses: localContacts.postalAddresses = contact.postalAddresses.lazy.map { $0.value }
-                case .dates: localContacts.dates = contact.dates.lazy.map { $0.value }
-                case .urlAddresses: localContacts.urlAddresses = contact.urlAddresses.lazy.map { $0.value }
-                case .relations: localContacts.relations = contact.contactRelations.lazy.map { $0.value }
-                case .socialProfiles: localContacts.socialProfiles = contact.socialProfiles.lazy.map { $0.value }
-                case .instantMessageAddresse: localContacts.instantMessageAddresse = contact.instantMessageAddresses.lazy.map { $0.value }
+                case .phoneNumbers: localContacts.phoneNumbers = contact.phoneNumbers.lazy.map(\.value)
+                case .emailAddresses: localContacts.emailAddresses = contact.emailAddresses.lazy.map(\.value)
+                case .postalAddresses: localContacts.postalAddresses = contact.postalAddresses.lazy.map(\.value)
+                case .dates: localContacts.dates = contact.dates.lazy.map(\.value)
+                case .urlAddresses: localContacts.urlAddresses = contact.urlAddresses.lazy.map(\.value)
+                case .relations: localContacts.relations = contact.contactRelations.lazy.map(\.value)
+                case .socialProfiles: localContacts.socialProfiles = contact.socialProfiles.lazy.map(\.value)
+                case .instantMessageAddresse: localContacts.instantMessageAddresse = contact.instantMessageAddresses.lazy.map(\.value)
                 }
             }
             return localContacts

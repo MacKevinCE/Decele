@@ -14,7 +14,7 @@ class OutputLog: OutputClass {
         self.colorTitle = input.colorText
         self.detailTabs = [
             DetailTabs(name: "RESUME", attributed: input.getTabResume()),
-            DetailTabs(name: "ALL", attributed: input.getTabAll())
+            DetailTabs(name: "ALL", attributed: input.getTabAll()),
         ]
     }
 }

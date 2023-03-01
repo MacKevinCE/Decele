@@ -15,11 +15,11 @@ import UIKit
 }
 
 // MARK: - Button
-public class Button: UIButton {
+open class Button: UIButton {
     private var activityIndicator: UIActivityIndicatorView?
 
     public var getActivityIndicator: UIActivityIndicatorView? {
-        return activityIndicator
+        activityIndicator
     }
 
     public var delegateButton: ButtonDelegate? {
@@ -30,7 +30,7 @@ public class Button: UIButton {
 
     public var numberStates: Int {
         get {
-            return _numberStates
+            _numberStates
         }
         set {
             _numberStates = max(0, newValue)
@@ -44,7 +44,7 @@ public class Button: UIButton {
     }
 
     public var getCurrentState: Int {
-        return currentState
+        currentState
     }
 
     private var currentState: Int = 0 {
