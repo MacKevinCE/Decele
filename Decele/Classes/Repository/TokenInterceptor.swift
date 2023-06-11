@@ -9,6 +9,8 @@ import Alamofire
 
 // MARK: - TokenInterceptor
 open class TokenInterceptor: RequestInterceptor {
+    public init() {}
+
     private var isRefreshing = false
     private let lock = NSLock()
 

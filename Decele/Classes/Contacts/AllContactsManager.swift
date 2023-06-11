@@ -24,11 +24,11 @@ public struct AllContact {
     var phoneticMiddleName: String = ""
     var phoneticFamilyName: String = ""
     var phoneticOrganizationName: String = ""
-    var birthday: DateComponents? = nil
-    var nonGregorianBirthday: DateComponents? = nil
+    var birthday: DateComponents?
+    var nonGregorianBirthday: DateComponents?
     var note: String = ""
-    var imageData: Data? = nil
-    var thumbnailImageData: Data? = nil
+    var imageData: Data?
+    var thumbnailImageData: Data?
     var imageDataAvailable: Bool = false
     var type: CNContactType = .person
     var phoneNumbers: [CNPhoneNumber] = []

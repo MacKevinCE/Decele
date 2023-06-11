@@ -18,11 +18,11 @@ public class BasicContactsManager: ContactsManager<BasicContact> {
     public static let shared = BasicContactsManager(properties: [.givenName, .phoneNumbers])
 
     override public func transform(contacts: [CNContact]) -> [BasicContact] {
-        return contacts.map { contact in
+        contacts.map { contact in
             guard contact.areKeysAvailable(properties.map(\.asDescriptor)) else { return nil }
             return BasicContact(
                 givenName: contact.givenName,
-                phoneNumber: contact.phoneNumbers.lazy.map { $0.value.stringValue }
+                phoneNumber: contact.phoneNumbers.lazy.map(\.value.stringValue)
             )
         }.compactMap { $0 }
     }

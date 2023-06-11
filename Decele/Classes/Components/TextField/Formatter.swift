@@ -18,7 +18,7 @@ open class Formatter {
     }
 
     open func format(text: String) -> String {
-        return next?.format(text: text) ?? text
+        next?.format(text: text) ?? text
     }
 
     // MARK: - static/
@@ -45,7 +45,7 @@ open class MaxLengthFormatter: Formatter {
     }
 
     override open func format(text: String) -> String {
-        return text.prefix(length).description
+        text.prefix(length).description
     }
 }
 
@@ -59,7 +59,7 @@ open class CharacterFormatter: Formatter {
     }
 
     override open func format(text: String) -> String {
-        return text.components(separatedBy: allowedCharacterSet.inverted).joined()
+        text.components(separatedBy: allowedCharacterSet.inverted).joined()
     }
 }
 

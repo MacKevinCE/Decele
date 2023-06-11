@@ -14,7 +14,6 @@
 //
 
 import Foundation
-import SwifterSwift
 
 public class Chuck {
     private(set) static var dataChuck: [OutputClass] = []

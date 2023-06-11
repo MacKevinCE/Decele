@@ -1,0 +1,115 @@
+{
+  "configurations" : [
+    {
+      "id" : "7DCD4315-F068-4DAF-B9F3-5A52689D40AC",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "64DB9F2E2A37FE5C00D0F41D",
+        "name" : "AllTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "6480CE962A37E0F0007C19F0",
+        "name" : "CoreDeceleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649267192A388BF8003D49EF",
+        "name" : "ButtonTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266C52A388BB3003D49EF",
+        "name" : "ChuckTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266DD2A388BCE003D49EF",
+        "name" : "ComponentsTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266A12A388B74003D49EF",
+        "name" : "ContactsDeceleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266B92A388BA3003D49EF",
+        "name" : "CryptoTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649267012A388BE7003D49EF",
+        "name" : "FloatingPanelDeceleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266E92A388BD5003D49EF",
+        "name" : "NameClassTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266F52A388BDF003D49EF",
+        "name" : "NibViewTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266AD2A388B96003D49EF",
+        "name" : "PersistentTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649266D12A388BC5003D49EF",
+        "name" : "RepositoryTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "6492670D2A388BF1003D49EF",
+        "name" : "SideMenuDeceleTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "649267252A388BFF003D49EF",
+        "name" : "TextFieldTests"
+      }
+    }
+  ],
+  "version" : 1
+}

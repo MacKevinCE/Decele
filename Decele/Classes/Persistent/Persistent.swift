@@ -10,38 +10,25 @@ import SwiftKeychainWrapper
 
 // MARK: - Persistent
 public enum Persistent {
-    public static var encryptMethodUserDefaults: EncryptMethod = .init()
-    public static var encryptMethodKeychain: EncryptMethod = .init()
+    public static var cryptUserDefaults: Crypt = .init()
+    public static var cryptKeychain: Crypt = .init()
 
-    public static let _user_Defauts_Keys_name = "_user_Defauts_Keys_"
-    public static var _user_Defauts_Keys_crypt: Typecrypt = { data, _ in data }
-    public static var _user_Defauts_Keys_ = PersistentData<Set<String>>(
-        .userDefaults(
-            key: _user_Defauts_Keys_name,
-            encrypt: _user_Defauts_Keys_crypt,
-            decrypt: _user_Defauts_Keys_crypt
-        )
-    )
-
-    static func _save_key_user_Defauts(_ key: TypeKey) {
-        if case let .userDefaults(key, _, _) = key, key != _user_Defauts_Keys_name {
-            Persistent._user_Defauts_Keys_.value.insert(key)
-        }
-    }
-
-    static func _remove_key_user_Defauts(_ key: TypeKey) {
-        if case let .userDefaults(key, _, _) = key, key != _user_Defauts_Keys_name {
-            Persistent._user_Defauts_Keys_.value.remove(key)
-        }
-    }
+    public static var prefix = Bundle.main.bundleIdentifier ?? .empty
 
     public static func removeAllKeysUserDefaults() {
-        Persistent._user_Defauts_Keys_.value.forEach { UserDefaults.standard.removeObject(forKey: $0) }
-        Persistent._user_Defauts_Keys_.value = []
+        for (key, _) in UserDefaults.standard.dictionaryRepresentation() {
+            if key.hasPrefix(prefix) {
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+        }
     }
 
     public static func removeAllKeysKeychainWrapper() {
-        KeychainWrapper.standard.removeAllKeys()
+        for key in KeychainWrapper.standard.allKeys() {
+            if key.hasPrefix(prefix) {
+                KeychainWrapper.standard.removeObject(forKey: key)
+            }
+        }
     }
 
     public static func removeAllKeys() {
@@ -50,15 +37,13 @@ public enum Persistent {
     }
 
     // MARK: - EncryptMethod
-    public struct EncryptMethod {
-        public typealias Typecrypt = (Data, String) -> Data?
-
-        public var encrypt: Typecrypt
-        public var decrypt: Typecrypt
+    public struct Crypt {
+        public var encrypt: CryptType
+        public var decrypt: CryptType
 
         public init(
-            encrypt: @escaping Typecrypt = { data, _ in data },
-            decrypt: @escaping Typecrypt = { data, _ in data }
+            encrypt: @escaping CryptType = { data, _ in data },
+            decrypt: @escaping CryptType = { data, _ in data }
         ) {
             self.encrypt = encrypt
             self.decrypt = decrypt

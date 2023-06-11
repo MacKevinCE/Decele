@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwifterSwift
 
 open class AkiraTextField: TextField {
     // MARK: - public var
@@ -107,6 +106,6 @@ open class AkiraTextField: TextField {
     }
 
     private var placeholderHeight: CGFloat {
-        return placeholderInsetsY + (placeholderFont(fontScale: placeholderFontScale)?.lineHeight ?? .zero)
+        placeholderInsetsY + (placeholderFont(fontScale: placeholderFontScale)?.lineHeight ?? .zero)
     }
 }

@@ -26,7 +26,7 @@ open class TextField: UITextField {
     // MARK: maxLength
     private var _maxLength: Int?
     public var maxLength: Int? {
-        get { return _maxLength }
+        get { _maxLength }
         set {
             if let length = newValue {
                 let newLength = max(0, length)
@@ -51,7 +51,7 @@ open class TextField: UITextField {
     // MARK: ascendingCounter
     private var _ascendingCounter: Bool?
     public var ascendingCounter: Bool? {
-        get { return _ascendingCounter }
+        get { _ascendingCounter }
         set {
             if let ascending = newValue {
                 _ascendingCounter = ascending
@@ -85,7 +85,7 @@ open class TextField: UITextField {
     // MARK: formatter
     private var _formatter: Formatter?
     public var formatter: Formatter? {
-        get { return _formatter }
+        get { _formatter }
         set {
             if let value = newValue {
                 _formatter = value
@@ -110,7 +110,7 @@ open class TextField: UITextField {
     // MARK: validator
     private var _validator: Validator?
     public var validator: Validator? {
-        get { return _validator }
+        get { _validator }
         set {
             if let value = newValue {
                 _validator = value
@@ -132,7 +132,7 @@ open class TextField: UITextField {
     }
 
     public var fail: String? {
-        return validator?.validate(text ?? "")
+        validator?.validate(text ?? "")
     }
 
     // MARK: effects

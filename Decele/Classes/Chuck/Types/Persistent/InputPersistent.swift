@@ -151,6 +151,6 @@ struct InputPersistent: InputProtocol {
     }
 
     static func jsonClass(of value: Any?) -> String {
-        (value as? Encodable)?.toPrettyPrintedJSONString() ?? .empty
+        (value as? Encodable)?.encode?.prettyPrintedJSONString.nonEmpty ?? .empty
     }
 }

@@ -9,7 +9,7 @@ import SideMenu
 import UIKit
 
 public final class SideMenu: SideMenuNavigationController {
-    public var config: ConfigSideMenu = .shared {
+    public var config: SideMenuSetting = .shared {
         willSet {
             if let viewController = topViewController as? SideMenuTableViewController {
                 viewController.config = newValue
@@ -33,7 +33,7 @@ public final class SideMenu: SideMenuNavigationController {
         }
     }
 
-    public convenience init(delegateAction: SideMenuActionDelegate? = nil, data: [AttributedStringConvertible], settings: SideMenuSettings = SideMenuSettings(), config: ConfigSideMenu = .shared, sideMenuDelegate: SideMenuNavigationControllerDelegate? = nil) {
+    public convenience init(delegateAction: SideMenuActionDelegate? = nil, data: [AttributedStringConvertible], settings: SideMenuSettings = SideMenuSettings(), config: SideMenuSetting = .shared, sideMenuDelegate: SideMenuNavigationControllerDelegate? = nil) {
         let view = SideMenuTableViewController()
         view.tableView.bounces = false
         view.delegateAction = delegateAction
@@ -47,7 +47,7 @@ public final class SideMenu: SideMenuNavigationController {
         self.sideMenuDelegate = sideMenuDelegate
     }
 
-    public convenience init(delegateAction: SideMenuActionDelegate? = nil, data: [AttributedStringConvertible], presentationStyle: SideMenuPresentationStyle, config: ConfigSideMenu = .shared, sideMenuDelegate: SideMenuNavigationControllerDelegate? = nil) {
+    public convenience init(delegateAction: SideMenuActionDelegate? = nil, data: [AttributedStringConvertible], presentationStyle: SideMenuPresentationStyle, config: SideMenuSetting = .shared, sideMenuDelegate: SideMenuNavigationControllerDelegate? = nil) {
         var settings = SideMenuSettings()
         settings.presentationStyle = presentationStyle
         self.init(delegateAction: delegateAction, data: data, settings: settings, config: config, sideMenuDelegate: sideMenuDelegate)

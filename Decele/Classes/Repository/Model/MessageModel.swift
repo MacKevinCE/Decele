@@ -8,7 +8,7 @@
 import Foundation
 
 public struct MessageModel: Error, Decodable {
-    let statusCode: Int
-    let title: String
-    let message: String
+    public let code: Int
+    public let title: String
+    public let message: String
 }

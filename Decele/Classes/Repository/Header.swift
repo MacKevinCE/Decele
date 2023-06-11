@@ -8,43 +8,41 @@
 import Alamofire
 import Foundation
 
-// MARK: - Headers
-public enum Headers {
-    case custom(headers: [HTTPHeader])
-    case basic
-    case authorization(username: String, password: String)
-    case token(token: String)
-    case signature(sign: String)
-
-    var getHeader: HTTPHeaders {
-        switch self {
-        case let .custom(headers):
-            return HTTPHeaders(headers)
-        case .basic:
-            return [
-                .contentType("application/json"),
-            ]
-        case let .authorization(username, password):
-            return [
-                .contentType("application/json"),
-                .authorization(username: username, password: password),
-            ]
-        case let .token(token):
-            return [
-                .contentType("application/json"),
-                .authorization(bearerToken: token),
-            ]
-        case let .signature(sign):
-            return [
-                .contentType("application/json"),
-                .signature(sign),
-            ]
-        }
-    }
-}
-
 public extension HTTPHeader {
     static func signature(_ value: String) -> HTTPHeader {
         HTTPHeader(name: "Signature", value: value)
+    }
+}
+
+public extension HTTPHeaders {
+    static func custom(_ headers: [HTTPHeader]) -> HTTPHeaders {
+        HTTPHeaders(headers)
+    }
+
+    static func basic() -> HTTPHeaders {
+        [
+            .contentType("application/json"),
+        ]
+    }
+
+    static func authorization(username: String, password: String) -> HTTPHeaders {
+        [
+            .contentType("application/json"),
+            .authorization(username: username, password: password),
+        ]
+    }
+
+    static func token(_ token: String) -> HTTPHeaders {
+        [
+            .contentType("application/json"),
+            .authorization(bearerToken: token),
+        ]
+    }
+
+    static func signature(_ sign: String) -> HTTPHeaders {
+        [
+            .contentType("application/json"),
+            .signature(sign),
+        ]
     }
 }

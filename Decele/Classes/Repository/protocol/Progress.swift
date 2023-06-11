@@ -6,15 +6,28 @@
 //
 
 import Alamofire
+import Combine
 
+// MARK: - ProgressProtocol
 public protocol ProgressProtocol {
-    func showProgress(_ request: DataRequest)
+    func showProgress(_ request: DataRequest, _ cancellable: AnyCancellable)
     func dismisssProgress(_ request: DataRequest)
-    func showError(_ error: Error)
+    func showError(_ show: Bool, _ error: MessageModel)
 }
 
-struct Progress: ProgressProtocol {
-    func showProgress(_ request: Alamofire.DataRequest) {}
-    func dismisssProgress(_ request: Alamofire.DataRequest) {}
-    func showError(_ error: Error) {}
+// MARK: - Progress
+public struct Progress: ProgressProtocol {
+    public init() {}
+
+    public func showProgress(_ request: DataRequest, _ cancellable: AnyCancellable) {
+        print("showProgress")
+    }
+
+    public func dismisssProgress(_ request: DataRequest) {
+        print("dismisssProgress")
+    }
+
+    public func showError(_ show: Bool, _ error: MessageModel) {
+        print("showError")
+    }
 }

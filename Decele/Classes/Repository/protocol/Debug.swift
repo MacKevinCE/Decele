@@ -7,15 +7,19 @@
 
 import Alamofire
 
+// MARK: - DebugProtocol
 public protocol DebugProtocol {
     func printResponse<Success>(_ response: DataResponse<Success, AFError>)
     func printError(_ error: Error)
 }
 
-struct Debug: DebugProtocol {
-    func printResponse<Success>(_ response: DataResponse<Success, AFError>) {}
+// MARK: - Debug
+public struct Debug: DebugProtocol {
+    public init() {}
 
-    func printError(_ error: Error) {
+    public func printResponse<Success>(_ response: DataResponse<Success, AFError>) {}
+
+    public func printError(_ error: Error) {
         if let err = error as? DecodingError {
             switch err {
             case let .typeMismatch(type, context):
@@ -37,7 +41,7 @@ struct Debug: DebugProtocol {
                 debugPrint("[EncodingError] unkonwn Error: \(err.localizedDescription)")
             }
         } else if let err = error as? MessageModel {
-            debugPrint("[MessageModel \(err.statusCode)] \(err.title): \(err.message)")
+            debugPrint("[MessageModel \(err.code)] \(err.title): \(err.message)")
         } else if let err = error as? AFError {
             debugPrint("[AFError] \(err.errorDescription ?? err.localizedDescription)")
         } else {

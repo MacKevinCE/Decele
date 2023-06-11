@@ -51,7 +51,7 @@ open class ContactsManager<C> {
     }
 
     open func transform(contacts _: [CNContact]) -> [C] {
-        return []
+        []
     }
 
     public func loadLocal(completion: @escaping (Result<[C], Error>) -> Void) {

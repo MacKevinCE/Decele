@@ -12,7 +12,7 @@ import UIKit
 class FloatingPanelViewController: UIViewController {
     // MARK: - VARIABLES
 
-    var config: ConfigFloatingPanel!
+    var config: FloatingPanelSetting!
 
     // MARK: - METHODS
 

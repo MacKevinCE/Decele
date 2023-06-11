@@ -15,7 +15,7 @@ public protocol SideMenuActionDelegate: AnyObject {
 
 // MARK: - SideMenuTableViewController
 public class SideMenuTableViewController: UITableViewController {
-    var config: ConfigSideMenu!
+    var config: SideMenuSetting!
     var data: [AttributedStringConvertible] = []
     weak var delegateAction: SideMenuActionDelegate?
 

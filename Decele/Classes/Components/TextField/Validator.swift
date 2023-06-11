@@ -20,11 +20,11 @@ open class Validator {
     }
 
     public func failed() -> String? {
-        return failText
+        failText
     }
 
     open func validate(_ text: String) -> String? {
-        return next?.validate(text)
+        next?.validate(text)
     }
 
     // MARK: - static

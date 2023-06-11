@@ -1,80 +1,115 @@
 use_frameworks!
+install! 'cocoapods', :warn_for_unused_master_specs_repo => false
 inhibit_all_warnings!
 
 platform :ios, '13.0'
 
-target 'ContactsDecele' do
-  pod 'Decele/Contacts', :path => '../'
-end
+abstract_target 'SharedPods' do
+  pod 'R.swift', :git => 'https://github.com/MacKevinCE/R.swift.git', :commit => '0e51165'
 
-target 'Persistent' do
-  pod 'Decele/Persistent', :path => '../'
-end
+  target 'ContactsDecele' do
+    pod 'Decele/Contacts', :path => '../'
 
-target 'Crypto' do
-  pod 'Decele/Crypto', :path => '../'
-end
+    target 'ContactsDeceleTests' do
+    end
+  end
 
-target 'Chuck' do
-  pod 'Decele/Chuck', :path => '../'
-end
+  target 'Persistent' do
+    pod 'Decele/Persistent', :path => '../'
+    
+    target 'PersistentTests' do
+    end
+  end
 
-target 'Repository' do
-  pod 'Decele/Repository', :path => '../'
-end
-
-target 'Components' do
-  pod 'Decele/Components', :path => '../'
-end
-
-target 'NameClass' do
-  pod 'Decele/Components/NameClass', :path => '../'
-end
-
-target 'NibView' do
-  pod 'Decele/Components/NibView', :path => '../'
-end
-
-target 'FloatingPanelDecele' do
-  pod 'Decele/Components/FloatingPanel', :path => '../'
-end
-
-target 'SideMenuDecele' do
-  pod 'Decele/Components/SideMenu', :path => '../'
-end
-
-target 'Button' do
-  pod 'Decele/Components/Button', :path => '../'
-end
-
-target 'TextField' do
-  pod 'Decele/Components/TextField', :path => '../'
-end
-
-target 'Shared' do
-  pod 'Decele/Shared', :path => '../'
-end
-
-target 'FoundationDecele' do
-  pod 'Decele/Shared/Foundation', :path => '../'
-end
-
-target 'UIKitDecele' do
-  pod 'Decele/Shared/UIKit', :path => '../'
-end
-
-target 'All' do
-  pod 'Decele', :path => '../'
-  pod 'SwifterSwift/UIKit', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
-  pod 'SwifterSwift/Foundation', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
-  pod 'SwifterSwift/SwiftStdlib', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
-  pod 'SwifterSwift/Dispatch', :git => 'https://github.com/MacKevinCE/SwifterSwift.git', :commit => '764ba3b638ecf8bf0fe5f2110260482ca53c572c'
-
-  target 'Tests' do
-    inherit! :search_paths
-
+  target 'Crypto' do
+    pod 'Decele/Crypto', :path => '../'
+    
+    target 'CryptoTests' do
+    end
   end
   
+  target 'Chuck' do
+    pod 'Decele/Chuck', :path => '../'
+    
+    target 'ChuckTests' do
+    end
+  end
+  
+  target 'Repository' do
+    pod 'Decele/Repository', :path => '../'
+    
+    target 'RepositoryTests' do
+    end
+  end
+
+  target 'Components' do
+    pod 'Decele/Components', :path => '../'
+    
+    target 'ComponentsTests' do
+    end
+  end
+
+  target 'NameClass' do
+    pod 'Decele/Components/NameClass', :path => '../'
+    
+    target 'NameClassTests' do
+    end
+  end
+
+  target 'NibView' do
+    pod 'Decele/Components/NibView', :path => '../'
+    
+    target 'NibViewTests' do
+    end
+  end
+
+  target 'FloatingPanelDecele' do
+    pod 'Decele/Components/FloatingPanel', :path => '../'
+    
+    target 'FloatingPanelDeceleTests' do
+    end
+  end
+
+  target 'SideMenuDecele' do
+    pod 'Decele/Components/SideMenu', :path => '../'
+    
+    target 'SideMenuDeceleTests' do
+    end
+  end
+
+  target 'Button' do
+    pod 'Decele/Components/Button', :path => '../'
+    
+    target 'ButtonTests' do
+    end
+  end
+
+  target 'TextField' do
+    pod 'Decele/Components/TextField', :path => '../'
+    
+    target 'TextFieldTests' do
+    end
+  end
+
+  target 'CoreDecele' do
+    pod 'Decele/Repository', :path => '../'
+    pod 'Mocker', '~> 2.5.5'
+
+    target 'CoreDeceleTests' do
+    end
+  end
+
+  target 'All' do
+    pod 'Decele', :path => '../'
+    pod 'Decele/Chuck', :path => '../'
+    pod 'Decele/Components', :path => '../'
+    pod 'Decele/Repository', :path => '../'
+    pod 'Decele/SwifterSwift', :path => '../'
+
+    target 'AllTests' do
+    end
+  end
+
   post_install do |installer|
       installer.pods_project.targets.each do |target|
           target.build_configurations.each do |config|

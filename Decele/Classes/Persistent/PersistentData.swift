@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwifterSwift
 
 public extension Persistent {
     struct PersistentData<V: Codable> {
@@ -73,34 +72,34 @@ public extension Persistent {
 // MARK: - Persistent.PersistentData + IteratorProtocol
 extension Persistent.PersistentData: IteratorProtocol where V: IteratorProtocol {
     public mutating func next() -> V.Element? {
-        return value.next()
+        value.next()
     }
 }
 
 // MARK: - Persistent.PersistentData + Equatable
 extension Persistent.PersistentData: Equatable where V: Equatable {
     public static func == (lhs: Persistent.PersistentData<V>, rhs: Persistent.PersistentData<V>) -> Bool {
-        return lhs.value == rhs.value
+        lhs.value == rhs.value
     }
 
     public static func == (lhs: V, rhs: Persistent.PersistentData<V>) -> Bool {
-        return lhs == rhs.value
+        lhs == rhs.value
     }
 
     public static func == (lhs: Persistent.PersistentData<V>, rhs: V) -> Bool {
-        return lhs.value == rhs
+        lhs.value == rhs
     }
 
     public static func != (lhs: Persistent.PersistentData<V>, rhs: Persistent.PersistentData<V>) -> Bool {
-        return lhs.value != rhs.value
+        lhs.value != rhs.value
     }
 
     public static func != (lhs: V, rhs: Persistent.PersistentData<V>) -> Bool {
-        return lhs != rhs.value
+        lhs != rhs.value
     }
 
     public static func != (lhs: Persistent.PersistentData<V>, rhs: V) -> Bool {
-        return lhs.value != rhs
+        lhs.value != rhs
     }
 }
 
@@ -114,13 +113,13 @@ extension Persistent.PersistentData: Hashable where V: Hashable {
 // MARK: - Persistent.PersistentData + CustomStringConvertible
 extension Persistent.PersistentData: CustomStringConvertible where V: CustomStringConvertible {
     public var description: String {
-        return value.description
+        value.description
     }
 }
 
 // MARK: - Persistent.PersistentData + CustomDebugStringConvertible
 extension Persistent.PersistentData: CustomDebugStringConvertible where V: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return value.debugDescription
+        value.debugDescription
     }
 }

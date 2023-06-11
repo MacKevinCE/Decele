@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwifterSwift
 
 // MARK: - AttributedStringConvertible
 public protocol AttributedStringConvertible {

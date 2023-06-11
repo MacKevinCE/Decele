@@ -37,52 +37,57 @@ public extension Persistent {
     }
 }
 
+// MARK: - Persistent.PersistentOptional + IteratorProtocol
 extension Persistent.PersistentOptional: IteratorProtocol where V: IteratorProtocol {
     public mutating func next() -> V.Element? {
-        return value?.next()
+        value?.next()
     }
 }
 
+// MARK: - Persistent.PersistentOptional + Equatable
 extension Persistent.PersistentOptional: Equatable where V: Equatable {
     public static func == (lhs: Persistent.PersistentOptional<V>, rhs: Persistent.PersistentOptional<V>) -> Bool {
-        return lhs.value == rhs.value
+        lhs.value == rhs.value
     }
 
     public static func == (lhs: V, rhs: Persistent.PersistentOptional<V>) -> Bool {
-        return lhs == rhs.value
+        lhs == rhs.value
     }
 
     public static func == (lhs: Persistent.PersistentOptional<V>, rhs: V) -> Bool {
-        return lhs.value == rhs
+        lhs.value == rhs
     }
 
     public static func != (lhs: Persistent.PersistentOptional<V>, rhs: Persistent.PersistentOptional<V>) -> Bool {
-        return lhs.value != rhs.value
+        lhs.value != rhs.value
     }
 
     public static func != (lhs: V, rhs: Persistent.PersistentOptional<V>) -> Bool {
-        return lhs != rhs.value
+        lhs != rhs.value
     }
 
     public static func != (lhs: Persistent.PersistentOptional<V>, rhs: V) -> Bool {
-        return lhs.value != rhs
+        lhs.value != rhs
     }
 }
 
+// MARK: - Persistent.PersistentOptional + Hashable
 extension Persistent.PersistentOptional: Hashable where V: Hashable {
     public func hash(into hasher: inout Hasher) {
         value?.hash(into: &hasher)
     }
 }
 
+// MARK: - Persistent.PersistentOptional + CustomStringConvertible
 extension Persistent.PersistentOptional: CustomStringConvertible where V: CustomStringConvertible {
     public var description: String {
-        return value?.description ?? "nil"
+        value?.description ?? "nil"
     }
 }
 
+// MARK: - Persistent.PersistentOptional + CustomDebugStringConvertible
 extension Persistent.PersistentOptional: CustomDebugStringConvertible where V: CustomDebugStringConvertible {
     public var debugDescription: String {
-        return value?.debugDescription ?? "nil"
+        value?.debugDescription ?? "nil"
     }
 }

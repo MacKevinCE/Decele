@@ -299,7 +299,7 @@ struct InputARC: InputProtocol {
     }
 
     func jsonClass() -> String {
-        (anyObject as? Encodable)?.toPrettyPrintedJSONString() ?? .empty
+        (anyObject as? Encodable)?.encode?.prettyPrintedJSONString.nonEmpty ?? .empty
     }
 
     func navigationControllerDescription() -> String {

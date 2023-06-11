@@ -5,24 +5,26 @@
 //  Created by Mc Kevin on 8/01/23.
 //
 
-import Alamofire
-
+// MARK: - ErrorModelProtocol
 public protocol ErrorModelProtocol {
-    var messageModelNil: MessageModel { get }
+    var messageModelGeneric: MessageModel { get }
     func getMessageModel(statusCode: Int) -> MessageModel?
-    func getMessageModel(error: AFError) -> MessageModel?
+    func getMessageModel(error: Error) -> MessageModel?
 }
 
-struct ErrorModel: ErrorModelProtocol {
-    var messageModelNil: MessageModel {
-        return MessageModel(statusCode: Int.max, title: "messageModelNil", message: "messageModelNil")
+// MARK: - ErrorModel
+public struct ErrorModel: ErrorModelProtocol {
+    public init() {}
+
+    public var messageModelGeneric: MessageModel {
+        MessageModel(code: .zero, title: "messageModelGeneric", message: "messageModelGeneric")
     }
 
-    func getMessageModel(statusCode: Int) -> MessageModel? {
-        return nil
+    public func getMessageModel(statusCode: Int) -> MessageModel? {
+        nil
     }
 
-    func getMessageModel(error: AFError) -> MessageModel? {
-        return nil
+    public func getMessageModel(error: Error) -> MessageModel? {
+        nil
     }
 }

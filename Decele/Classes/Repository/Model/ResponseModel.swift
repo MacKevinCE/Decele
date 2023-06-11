@@ -8,6 +8,6 @@
 import Foundation
 
 public struct ResponseModel<T: Decodable>: Decodable {
-    let message: MessageModel?
-    let payload: T?
+    public let message: MessageModel?
+    public let payload: T?
 }

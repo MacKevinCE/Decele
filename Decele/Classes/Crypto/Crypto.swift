@@ -7,7 +7,6 @@
 
 import CryptoKit
 import Foundation
-import SwifterSwift
 
 public enum Crypto {
     public static func getSymmetricKey(pass: String?) -> SymmetricKey? {
@@ -33,7 +32,7 @@ public enum Crypto {
     }
 
     public static func createSealedBox(data: Data, pass: String?) -> String? {
-        return createSealedBox(data: data, pass: pass)?.base64EncodedString().urlEncoded
+        createSealedBox(data: data, pass: pass)?.base64EncodedString().urlEncoded
     }
 
     public static func createSealedBox<T: Encodable>(_ value: T, pass: String?) -> Data? {

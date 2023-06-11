@@ -10,14 +10,14 @@ import FloatingPanel
 // MARK: - FloatingPanel
 public final class FloatingPanel: FloatingPanelController {
     public convenience init(with content: NibView) {
-        self.init(with: content, config: ConfigFloatingPanel(absoluteInset: content.view.frame.height))
+        self.init(with: content, config: FloatingPanelSetting(absoluteInset: content.view.frame.height))
     }
 
     public convenience init(with content: UIViewController) {
-        self.init(with: content.view, config: ConfigFloatingPanel(absoluteInset: content.view.frame.height))
+        self.init(with: content.view, config: FloatingPanelSetting(absoluteInset: content.view.frame.height))
     }
 
-    public convenience init(with content: UIView, config: ConfigFloatingPanel = .shared) {
+    public convenience init(with content: UIView, config: FloatingPanelSetting = .shared) {
         let view = FloatingPanelViewController()
         view.view = content
         view.config = config
