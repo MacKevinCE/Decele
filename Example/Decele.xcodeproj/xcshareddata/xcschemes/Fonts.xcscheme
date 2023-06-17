@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1430"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -10,15 +10,17 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "649266D12A388BC5003D49EF"
-               BuildableName = "RepositoryTests.xctest"
-               BlueprintName = "RepositoryTests"
+               BlueprintIdentifier = "643C805D2A4ABA8E0059858C"
+               BuildableName = "FontsTests.xctest"
+               BlueprintName = "FontsTests"
                ReferencedContainer = "container:Decele.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -38,34 +40,25 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "64C349A02A3867C700AC817C"
-            BuildableName = "Repository.app"
-            BlueprintName = "Repository"
+            BlueprintIdentifier = "643C803D2A4AB6B40059858C"
+            BuildableName = "Fonts.app"
+            BlueprintName = "Fonts"
             ReferencedContainer = "container:Decele.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "64C349A02A3867C700AC817C"
-            BuildableName = "Repository.app"
-            BlueprintName = "Repository"
-            ReferencedContainer = "container:Decele.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

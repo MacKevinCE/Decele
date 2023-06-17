@@ -1,3 +1,12 @@
 [submodule "SwifterSwift"]
 	path = SwifterSwift
 	url = https://github.com/MacKevinCE/SwifterSwift.git
+[submodule "FontLibraries/FontawesomeFree"]
+	path = FontLibraries/FontawesomeFree
+	url = https://github.com/FortAwesome/Font-Awesome.git
+[submodule "FontLibraries/BootstrapIcons"]
+	path = FontLibraries/BootstrapIcons
+	url = https://github.com/twbs/icons.git
+[submodule "FontLibraries/MaterialIcons"]
+	path = FontLibraries/MaterialIcons
+	url = https://github.com/marella/material-icons.git

@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 // MARK: - NameClass
-protocol NameClass: AnyObject {}
+public protocol NameClass: AnyObject {
+    static var nameClass: String { get }
+}
 
-extension NameClass {
+public extension NameClass {
     static var nameClass: String {
         String(describing: self)
     }

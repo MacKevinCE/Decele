@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Decele'
-    s.version          = '0.4.0'
+    s.version          = '0.5.0'
     s.summary          = 'The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.'
     s.description      = <<-DESC
     This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
         :submodules => true
     }
 
-    s.default_subspecs = 'Contacts', 'Persistent', 'Crypto'#, 'Chuck', 'Repository', 'Components'
+    #s.default_subspecs = 'Contacts', 'Persistent', 'Crypto', 'Chuck', 'Repository', 'Components'
     s.requires_arc = true
 
     # Contacts
@@ -90,6 +90,7 @@ Pod::Spec.new do |s|
         # NibView
         sp.subspec 'NibView' do |spp|
             spp.source_files = 'Decele/Classes/Components/NibView/NibView.swift'
+            spp.dependency 'Decele/Components/NameClass'
             spp.dependency 'Decele/SwifterSwift/SwiftStdlib/Array'
             spp.dependency 'SnapKit', '~> 5.6.0'
         end
@@ -128,6 +129,53 @@ Pod::Spec.new do |s|
             spp.dependency 'Decele/SwifterSwift/SwiftStdlib/SignedNumeric'
             spp.dependency 'Decele/SwifterSwift/UIKit/UIView'
             spp.dependency 'SnapKit', '~> 5.6.0'
+        end
+    end
+
+    # Fonts
+    s.subspec 'Fonts' do |sp|
+
+        # Tools
+        sp.subspec 'Tools' do |spp|
+            spp.source_files = 'Decele/Classes/Fonts/*.swift'
+            spp.dependency 'Decele/SwifterSwift/SwiftStdlib/String'
+            spp.preserve_paths = "Decele/Classes/Fonts/FontsTools"
+        end
+
+        # BootstrapIcons
+        sp.subspec 'BootstrapIcons' do |spp|
+            spp.source_files = 'Decele/Classes/Fonts/styles/BootstrapIconsStyle.swift', 'Decele/Classes/Fonts/enums/BootstrapIcons.swift'
+            spp.dependency 'Decele/Fonts/Tools'
+            spp.resource_bundles = {
+                'BootstrapIcons' => ['FontLibraries/BootstrapIcons/font/fonts/*.woff']
+            }
+        end
+
+        # FontawesomeBrands
+        sp.subspec 'FontawesomeBrands' do |spp|
+            spp.source_files = 'Decele/Classes/Fonts/styles/FontawesomeBrandsStyle.swift', 'Decele/Classes/Fonts/enums/FontawesomeBrands.swift'
+            spp.dependency 'Decele/Fonts/Tools'
+            spp.resource_bundles = {
+                'FontawesomeBrands' => ['FontLibraries/FontawesomeFree/otfs/Font Awesome 6 Brands-Regular-400.otf']
+            }
+        end
+
+        # FontawesomeFree
+        sp.subspec 'FontawesomeFree' do |spp|
+            spp.source_files = 'Decele/Classes/Fonts/styles/FontawesomeFreeStyle.swift', 'Decele/Classes/Fonts/enums/FontawesomeFree.swift'
+            spp.dependency 'Decele/Fonts/Tools'
+            spp.resource_bundles = {
+                'FontawesomeFree' => ['FontLibraries/FontawesomeFree/otfs/Font Awesome 6 Free-Regular-400.otf', 'FontLibraries/FontawesomeFree/otfs/Font Awesome 6 Free-Solid-900.otf']
+            }
+        end
+
+        # MaterialIcons
+        sp.subspec 'MaterialIcons' do |spp|
+            spp.source_files = 'Decele/Classes/Fonts/styles/MaterialIconsStyle.swift', 'Decele/Classes/Fonts/enums/MaterialIcons.swift'
+            spp.dependency 'Decele/Fonts/Tools'
+            spp.resource_bundles = {
+                'MaterialIcons' => ['FontLibraries/MaterialIcons/iconfont/*.woff']
+            }
         end
     end
 
@@ -528,6 +576,7 @@ Pod::Spec.new do |s|
             # UIView
             spp.subspec 'UIView' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/UIKit/UIViewExtensions.swift'
+                spp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # UIWindow
@@ -557,69 +606,61 @@ Pod::Spec.new do |s|
 
         # CoreGraphics Extensions
         sp.subspec 'CoreGraphics' do |spp|
+            spp.dependency 'Decele/SwifterSwift/Shared/Color'
 
             # CGAffineTransform
             spp.subspec 'CGAffineTransform' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGAffineTransformExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CGColor
             spp.subspec 'CGColor' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGColorExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CGFloat
             spp.subspec 'CGFloat' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGFloatExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CGPoint
             spp.subspec 'CGPoint' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGPointExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CGRect
             spp.subspec 'CGRect' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGRectExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CGSize
             spp.subspec 'CGSize' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGSizeExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CGVector
             spp.subspec 'CGVector' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreGraphics/CGVectorExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
         end
 
         # CoreLocation Extensions
         sp.subspec 'CoreLocation' do |spp|
+            spp.dependency 'Decele/SwifterSwift/Shared/Color'
 
             # CLLocationArray
             spp.subspec 'CLLocationArray' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreLocation/CLLocationArrayExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CLLocation
             spp.subspec 'CLLocation' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
 
             # CLVisit
             spp.subspec 'CLVisit' do |sppp|
                 sppp.source_files = 'SwifterSwift/Sources/SwifterSwift/CoreLocation/CLVisitExtensions.swift'
-                sppp.dependency 'Decele/SwifterSwift/Shared/Color'
             end
         end
 
@@ -641,7 +682,6 @@ Pod::Spec.new do |s|
         # CryptoKit Extensions
         sp.subspec 'CryptoKit' do |spp|
             spp.source_files = 'SwifterSwift/Sources/SwifterSwift/CryptoKit/*.swift'
-            spp.dependency 'Decele/SwifterSwift/Shared'
         end
 
         # MapKit Extensions

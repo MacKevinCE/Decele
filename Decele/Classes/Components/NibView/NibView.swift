@@ -24,7 +24,7 @@ open class NibView: UIView {
         viewDidLoad()
     }
 
-    public func viewDidLoad() {}
+    open func viewDidLoad() {}
 
     private func xibSetup() {
         backgroundColor = UIColor.clear
@@ -57,7 +57,7 @@ open class NibView: UIView {
 
 public extension UITableView {
     func dequeueReusableCell<T: NibView>(with _: T.Type, isRegistered: Bool = false) -> (view: T, cell: UITableViewCell) {
-        let identifier = "\(String(describing: T.self))+\(String(describing: NibView.self))"
+        let identifier = "\(T.nameClass)+\(NibView.nameClass)"
         guard let cell = dequeueReusableCell(withIdentifier: identifier) else {
             if isRegistered {
                 fatalError("Couldn't find UITableViewCell with identifier \(identifier), make sure the cell is registered with table view")

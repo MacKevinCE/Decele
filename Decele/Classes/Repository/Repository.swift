@@ -15,12 +15,6 @@ public protocol Repository {
     associatedtype Failure: Error
 
     var dataRequest: DataRequest { get }
-
-    func resolve(
-        showError: Bool,
-        receiveCompletion: @escaping ((Subscribers.Completion<Failure>) -> Void),
-        receiveValue: @escaping ((Result) -> Void)
-    ) -> AnyCancellable
 }
 
 public extension Repository where Failure == MessageModel {
@@ -218,17 +212,26 @@ public protocol RepositoryResponse: Repository where Response == ResponseModel<P
 
 public extension RepositoryResponse {
     func resolve(
+        inParallel: Bool = false,
         showError: Bool = RepositorySetting.shared.showError,
         receiveCompletion: @escaping ((Subscribers.Completion<Failure>) -> Void) = { _ in },
         receiveValue: @escaping ((Result) -> Void)
     ) -> AnyCancellable {
         let subject = PassthroughSubject<Result, Failure>()
 
+        guard let urlRequest = dataRequest.convertible.urlRequest, !globalURLRequest.contains(urlRequest), inParallel else {
+            return subject.eraseToAnyPublisher().sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
+        }
+
+        var replied = false
         let request = dataRequest.validate().responseDecodable(
             queue: RepositorySetting.shared.queue,
             completionHandler: { (response: AFDataResponse<Response>) in
+                replied = true
+
                 RepositorySetting.shared.progress.dismisssProgress(dataRequest)
                 RepositorySetting.shared.debug.printResponse(response)
+
                 switch response.result {
                 case let .failure(error):
                     RepositorySetting.shared.debug.printError(error)
@@ -238,7 +241,6 @@ public extension RepositoryResponse {
                 case let .success(rpta):
                     if let resp = rpta.payload, RepositorySetting.shared.isSuccessStatusCode(rpta.message?.code) {
                         subject.send((payload: resp, message: rpta.message))
-                        subject.send(completion: .finished)
                     } else {
                         let messageModel = rpta.message ?? RepositorySetting.shared.error.messageModelGeneric
                         RepositorySetting.shared.debug.printError(messageModel)
@@ -246,6 +248,7 @@ public extension RepositoryResponse {
                         subject.send(completion: .failure(messageModel))
                     }
                 }
+                subject.send(completion: .finished)
             }
         )
 
@@ -254,8 +257,12 @@ public extension RepositoryResponse {
             RepositorySetting.shared.progress.dismisssProgress(dataRequest)
         }).eraseToAnyPublisher().sink(receiveCompletion: receiveCompletion, receiveValue: receiveValue)
 
-        RepositorySetting.shared.progress.showProgress(dataRequest, cancellable)
+        if !replied {
+            RepositorySetting.shared.progress.showProgress(dataRequest, cancellable)
+        }
 
         return cancellable
     }
 }
+
+private var globalURLRequest: [URLRequest] = []

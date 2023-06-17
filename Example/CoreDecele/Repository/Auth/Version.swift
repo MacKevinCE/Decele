@@ -8,7 +8,6 @@
 
 import Alamofire
 import Decele
-import Mocker
 
 // MARK: - VersionResponse
 public struct VersionResponse: Decodable {

@@ -109,6 +109,13 @@
         "identifier" : "649267252A388BFF003D49EF",
         "name" : "TextFieldTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Decele.xcodeproj",
+        "identifier" : "643C805D2A4ABA8E0059858C",
+        "name" : "FontsTests"
+      }
     }
   ],
   "version" : 1

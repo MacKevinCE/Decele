@@ -5,7 +5,7 @@ inhibit_all_warnings!
 platform :ios, '13.0'
 
 abstract_target 'SharedPods' do
-  pod 'R.swift', :git => 'https://github.com/MacKevinCE/R.swift.git', :commit => '0e51165'
+  pod 'R.swift', :git => 'https://github.com/MacKevinCE/R.swift.git', :commit => '1701d96'
 
   target 'ContactsDecele' do
     pod 'Decele/Contacts', :path => '../'
@@ -91,6 +91,14 @@ abstract_target 'SharedPods' do
     end
   end
 
+  target 'Fonts' do
+    pod 'Decele/Fonts', :path => '../'
+    pod 'Decele/SwifterSwift/UIKit/UIView', :path => '../'
+    
+    target 'FontsTests' do
+    end
+  end
+
   target 'CoreDecele' do
     pod 'Decele/Repository', :path => '../'
     pod 'Mocker', '~> 2.5.5'
@@ -101,10 +109,6 @@ abstract_target 'SharedPods' do
 
   target 'All' do
     pod 'Decele', :path => '../'
-    pod 'Decele/Chuck', :path => '../'
-    pod 'Decele/Components', :path => '../'
-    pod 'Decele/Repository', :path => '../'
-    pod 'Decele/SwifterSwift', :path => '../'
 
     target 'AllTests' do
     end
