@@ -1,15 +1,15 @@
 PODS:
   - Alamofire (5.6.4)
-  - Decele (0.5.1):
-    - Decele/Chuck (= 0.5.1)
-    - Decele/Components (= 0.5.1)
-    - Decele/Contacts (= 0.5.1)
-    - Decele/Crypto (= 0.5.1)
-    - Decele/Fonts (= 0.5.1)
-    - Decele/Persistent (= 0.5.1)
-    - Decele/Repository (= 0.5.1)
-    - Decele/SwifterSwift (= 0.5.1)
-  - Decele/Chuck (0.5.1):
+  - Decele (0.5.2):
+    - Decele/Chuck (= 0.5.2)
+    - Decele/Components (= 0.5.2)
+    - Decele/Contacts (= 0.5.2)
+    - Decele/Crypto (= 0.5.2)
+    - Decele/Fonts (= 0.5.2)
+    - Decele/Persistent (= 0.5.2)
+    - Decele/Repository (= 0.5.2)
+    - Decele/SwifterSwift (= 0.5.2)
+  - Decele/Chuck (0.5.2):
     - Decele/Components/NameClass
     - Decele/SwifterSwift/Foundation/Bundle
     - Decele/SwifterSwift/Foundation/Data
@@ -26,36 +26,36 @@ PODS:
     - Decele/SwifterSwift/UIKit/UITableView
     - Decele/SwifterSwift/UIKit/UIView
     - SnapKit (~> 5.6.0)
-  - Decele/Components (0.5.1):
-    - Decele/Components/Button (= 0.5.1)
-    - Decele/Components/FloatingPanel (= 0.5.1)
-    - Decele/Components/NameClass (= 0.5.1)
-    - Decele/Components/NibView (= 0.5.1)
-    - Decele/Components/SideMenu (= 0.5.1)
-    - Decele/Components/TextField (= 0.5.1)
+  - Decele/Components (0.5.2):
+    - Decele/Components/Button (= 0.5.2)
+    - Decele/Components/FloatingPanel (= 0.5.2)
+    - Decele/Components/NameClass (= 0.5.2)
+    - Decele/Components/NibView (= 0.5.2)
+    - Decele/Components/SideMenu (= 0.5.2)
+    - Decele/Components/TextField (= 0.5.2)
     - Decele/SwifterSwift/UIKit/UITableView
-  - Decele/Components/Button (0.5.1):
+  - Decele/Components/Button (0.5.2):
     - Decele/SwifterSwift/UIKit/UITableView
     - SnapKit (~> 5.6.0)
-  - Decele/Components/FloatingPanel (0.5.1):
+  - Decele/Components/FloatingPanel (0.5.2):
     - Decele/Components/NibView
     - Decele/SwifterSwift/UIKit/UITableView
     - FloatingPanel (~> 2.6.2)
-  - Decele/Components/NameClass (0.5.1):
+  - Decele/Components/NameClass (0.5.2):
     - Decele/SwifterSwift/UIKit/UITableView
-  - Decele/Components/NibView (0.5.1):
+  - Decele/Components/NibView (0.5.2):
     - Decele/Components/NameClass
     - Decele/SwifterSwift/SwiftStdlib/Array
     - Decele/SwifterSwift/UIKit/UITableView
     - SnapKit (~> 5.6.0)
-  - Decele/Components/SideMenu (0.5.1):
+  - Decele/Components/SideMenu (0.5.2):
     - Decele/Components/NameClass
     - Decele/SwifterSwift/SwiftStdlib/Array
     - Decele/SwifterSwift/SwiftStdlib/Character
     - Decele/SwifterSwift/SwiftStdlib/SignedNumeric
     - Decele/SwifterSwift/UIKit/UITableView
     - SideMenu (~> 6.5.0)
-  - Decele/Components/TextField (0.5.1):
+  - Decele/Components/TextField (0.5.2):
     - Decele/Components/Button
     - Decele/Components/NameClass
     - Decele/SwifterSwift/SwiftStdlib/Character
@@ -64,352 +64,353 @@ PODS:
     - Decele/SwifterSwift/UIKit/UITableView
     - Decele/SwifterSwift/UIKit/UIView
     - SnapKit (~> 5.6.0)
-  - Decele/Contacts (0.5.1)
-  - Decele/Crypto (0.5.1):
+  - Decele/Contacts (0.5.2)
+  - Decele/Crypto (0.5.2):
     - Decele/SwifterSwift/SwiftStdlib/Decodable
     - Decele/SwifterSwift/SwiftStdlib/Encodable
     - Decele/SwifterSwift/SwiftStdlib/String
-  - Decele/Fonts (0.5.1):
-    - Decele/Fonts/BootstrapIcons (= 0.5.1)
-    - Decele/Fonts/FontawesomeBrands (= 0.5.1)
-    - Decele/Fonts/FontawesomeFree (= 0.5.1)
-    - Decele/Fonts/MaterialIcons (= 0.5.1)
-    - Decele/Fonts/Tools (= 0.5.1)
-  - Decele/Fonts/BootstrapIcons (0.5.1):
+  - Decele/Fonts (0.5.2):
+    - Decele/Fonts/BootstrapIcons (= 0.5.2)
+    - Decele/Fonts/FontawesomeBrands (= 0.5.2)
+    - Decele/Fonts/FontawesomeFree (= 0.5.2)
+    - Decele/Fonts/MaterialIcons (= 0.5.2)
+    - Decele/Fonts/Tools (= 0.5.2)
+  - Decele/Fonts/BootstrapIcons (0.5.2):
     - Decele/Fonts/Tools
-  - Decele/Fonts/FontawesomeBrands (0.5.1):
+  - Decele/Fonts/FontawesomeBrands (0.5.2):
     - Decele/Fonts/Tools
-  - Decele/Fonts/FontawesomeFree (0.5.1):
+  - Decele/Fonts/FontawesomeFree (0.5.2):
     - Decele/Fonts/Tools
-  - Decele/Fonts/MaterialIcons (0.5.1):
+  - Decele/Fonts/MaterialIcons (0.5.2):
     - Decele/Fonts/Tools
-  - Decele/Fonts/Tools (0.5.1):
+  - Decele/Fonts/Tools (0.5.2):
     - Decele/SwifterSwift/SwiftStdlib/String
-  - Decele/Persistent (0.5.1):
+    - Decele/SwifterSwift/UIKit/UIView
+  - Decele/Persistent (0.5.2):
     - Decele/SwifterSwift/SwiftStdlib/Decodable
     - Decele/SwifterSwift/SwiftStdlib/Encodable
     - Decele/SwifterSwift/SwiftStdlib/StringProtocol
     - SwiftKeychainWrapper (~> 4.0.1)
-  - Decele/Repository (0.5.1):
+  - Decele/Repository (0.5.2):
     - Alamofire (~> 5.6.4)
     - Decele/SwifterSwift/Foundation/Data
     - Decele/SwifterSwift/SwiftStdlib/Encodable
     - Decele/SwifterSwift/SwiftStdlib/StringProtocol
-  - Decele/SwifterSwift (0.5.1):
-    - Decele/SwifterSwift/AppKit (= 0.5.1)
-    - Decele/SwifterSwift/CoreAnimation (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics (= 0.5.1)
-    - Decele/SwifterSwift/CoreLocation (= 0.5.1)
-    - Decele/SwifterSwift/CryptoKit (= 0.5.1)
-    - Decele/SwifterSwift/Dispatch (= 0.5.1)
-    - Decele/SwifterSwift/Foundation (= 0.5.1)
-    - Decele/SwifterSwift/HealthKit (= 0.5.1)
-    - Decele/SwifterSwift/MapKit (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit (= 0.5.1)
-    - Decele/SwifterSwift/Shared (= 0.5.1)
-    - Decele/SwifterSwift/SpriteKit (= 0.5.1)
-    - Decele/SwifterSwift/StoreKit (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib (= 0.5.1)
-    - Decele/SwifterSwift/UIKit (= 0.5.1)
-    - Decele/SwifterSwift/WebKit (= 0.5.1)
-  - Decele/SwifterSwift/AppKit (0.5.1):
-    - Decele/SwifterSwift/AppKit/NSColor (= 0.5.1)
-    - Decele/SwifterSwift/AppKit/NSImage (= 0.5.1)
-    - Decele/SwifterSwift/AppKit/NSView (= 0.5.1)
-  - Decele/SwifterSwift/AppKit/NSColor (0.5.1)
-  - Decele/SwifterSwift/AppKit/NSImage (0.5.1)
-  - Decele/SwifterSwift/AppKit/NSView (0.5.1)
-  - Decele/SwifterSwift/CoreAnimation (0.5.1):
-    - Decele/SwifterSwift/CoreAnimation/CAGradientLayer (= 0.5.1)
-    - Decele/SwifterSwift/CoreAnimation/CATransform3D (= 0.5.1)
-  - Decele/SwifterSwift/CoreAnimation/CAGradientLayer (0.5.1):
+  - Decele/SwifterSwift (0.5.2):
+    - Decele/SwifterSwift/AppKit (= 0.5.2)
+    - Decele/SwifterSwift/CoreAnimation (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics (= 0.5.2)
+    - Decele/SwifterSwift/CoreLocation (= 0.5.2)
+    - Decele/SwifterSwift/CryptoKit (= 0.5.2)
+    - Decele/SwifterSwift/Dispatch (= 0.5.2)
+    - Decele/SwifterSwift/Foundation (= 0.5.2)
+    - Decele/SwifterSwift/HealthKit (= 0.5.2)
+    - Decele/SwifterSwift/MapKit (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit (= 0.5.2)
+    - Decele/SwifterSwift/Shared (= 0.5.2)
+    - Decele/SwifterSwift/SpriteKit (= 0.5.2)
+    - Decele/SwifterSwift/StoreKit (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib (= 0.5.2)
+    - Decele/SwifterSwift/UIKit (= 0.5.2)
+    - Decele/SwifterSwift/WebKit (= 0.5.2)
+  - Decele/SwifterSwift/AppKit (0.5.2):
+    - Decele/SwifterSwift/AppKit/NSColor (= 0.5.2)
+    - Decele/SwifterSwift/AppKit/NSImage (= 0.5.2)
+    - Decele/SwifterSwift/AppKit/NSView (= 0.5.2)
+  - Decele/SwifterSwift/AppKit/NSColor (0.5.2)
+  - Decele/SwifterSwift/AppKit/NSImage (0.5.2)
+  - Decele/SwifterSwift/AppKit/NSView (0.5.2)
+  - Decele/SwifterSwift/CoreAnimation (0.5.2):
+    - Decele/SwifterSwift/CoreAnimation/CAGradientLayer (= 0.5.2)
+    - Decele/SwifterSwift/CoreAnimation/CATransform3D (= 0.5.2)
+  - Decele/SwifterSwift/CoreAnimation/CAGradientLayer (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreAnimation/CATransform3D (0.5.1)
-  - Decele/SwifterSwift/CoreGraphics (0.5.1):
-    - Decele/SwifterSwift/CoreGraphics/CGAffineTransform (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics/CGColor (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics/CGFloat (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics/CGPoint (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics/CGRect (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics/CGSize (= 0.5.1)
-    - Decele/SwifterSwift/CoreGraphics/CGVector (= 0.5.1)
+  - Decele/SwifterSwift/CoreAnimation/CATransform3D (0.5.2)
+  - Decele/SwifterSwift/CoreGraphics (0.5.2):
+    - Decele/SwifterSwift/CoreGraphics/CGAffineTransform (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics/CGColor (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics/CGFloat (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics/CGPoint (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics/CGRect (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics/CGSize (= 0.5.2)
+    - Decele/SwifterSwift/CoreGraphics/CGVector (= 0.5.2)
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGAffineTransform (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGAffineTransform (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGColor (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGColor (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGFloat (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGFloat (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGPoint (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGPoint (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGRect (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGRect (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGSize (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGSize (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreGraphics/CGVector (0.5.1):
+  - Decele/SwifterSwift/CoreGraphics/CGVector (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreLocation (0.5.1):
-    - Decele/SwifterSwift/CoreLocation/CLLocation (= 0.5.1)
-    - Decele/SwifterSwift/CoreLocation/CLLocationArray (= 0.5.1)
-    - Decele/SwifterSwift/CoreLocation/CLVisit (= 0.5.1)
+  - Decele/SwifterSwift/CoreLocation (0.5.2):
+    - Decele/SwifterSwift/CoreLocation/CLLocation (= 0.5.2)
+    - Decele/SwifterSwift/CoreLocation/CLLocationArray (= 0.5.2)
+    - Decele/SwifterSwift/CoreLocation/CLVisit (= 0.5.2)
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreLocation/CLLocation (0.5.1):
+  - Decele/SwifterSwift/CoreLocation/CLLocation (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreLocation/CLLocationArray (0.5.1):
+  - Decele/SwifterSwift/CoreLocation/CLLocationArray (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CoreLocation/CLVisit (0.5.1):
+  - Decele/SwifterSwift/CoreLocation/CLVisit (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/CryptoKit (0.5.1)
-  - Decele/SwifterSwift/Dispatch (0.5.1)
-  - Decele/SwifterSwift/Foundation (0.5.1):
-    - Decele/SwifterSwift/Foundation/Bundle (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/Calendar (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/Data (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/Date (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/FileManager (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/Locale (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/Measurement (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/NotificationCenter (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/NSAttributedString (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/NSPredicate (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/NSRegularExpression (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/URL (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/URLRequest (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/URLSession (= 0.5.1)
-    - Decele/SwifterSwift/Foundation/UserDefaults (= 0.5.1)
-  - Decele/SwifterSwift/Foundation/Bundle (0.5.1)
-  - Decele/SwifterSwift/Foundation/Calendar (0.5.1)
-  - Decele/SwifterSwift/Foundation/Data (0.5.1):
+  - Decele/SwifterSwift/CryptoKit (0.5.2)
+  - Decele/SwifterSwift/Dispatch (0.5.2)
+  - Decele/SwifterSwift/Foundation (0.5.2):
+    - Decele/SwifterSwift/Foundation/Bundle (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/Calendar (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/Data (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/Date (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/FileManager (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/Locale (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/Measurement (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/NotificationCenter (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/NSAttributedString (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/NSPredicate (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/NSRegularExpression (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/URL (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/URLRequest (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/URLSession (= 0.5.2)
+    - Decele/SwifterSwift/Foundation/UserDefaults (= 0.5.2)
+  - Decele/SwifterSwift/Foundation/Bundle (0.5.2)
+  - Decele/SwifterSwift/Foundation/Calendar (0.5.2)
+  - Decele/SwifterSwift/Foundation/Data (0.5.2):
     - Decele/SwifterSwift/SwiftStdlib/Decodable
-  - Decele/SwifterSwift/Foundation/Date (0.5.1)
-  - Decele/SwifterSwift/Foundation/FileManager (0.5.1)
-  - Decele/SwifterSwift/Foundation/Locale (0.5.1)
-  - Decele/SwifterSwift/Foundation/Measurement (0.5.1)
-  - Decele/SwifterSwift/Foundation/NotificationCenter (0.5.1)
-  - Decele/SwifterSwift/Foundation/NSAttributedString (0.5.1):
+  - Decele/SwifterSwift/Foundation/Date (0.5.2)
+  - Decele/SwifterSwift/Foundation/FileManager (0.5.2)
+  - Decele/SwifterSwift/Foundation/Locale (0.5.2)
+  - Decele/SwifterSwift/Foundation/Measurement (0.5.2)
+  - Decele/SwifterSwift/Foundation/NotificationCenter (0.5.2)
+  - Decele/SwifterSwift/Foundation/NSAttributedString (0.5.2):
     - Decele/SwifterSwift/Shared/Color
     - Decele/SwifterSwift/Shared/Font
-  - Decele/SwifterSwift/Foundation/NSPredicate (0.5.1)
-  - Decele/SwifterSwift/Foundation/NSRegularExpression (0.5.1)
-  - Decele/SwifterSwift/Foundation/URL (0.5.1)
-  - Decele/SwifterSwift/Foundation/URLRequest (0.5.1)
-  - Decele/SwifterSwift/Foundation/URLSession (0.5.1)
-  - Decele/SwifterSwift/Foundation/UserDefaults (0.5.1)
-  - Decele/SwifterSwift/HealthKit (0.5.1)
-  - Decele/SwifterSwift/MapKit (0.5.1):
-    - Decele/SwifterSwift/MapKit/MKMapView (= 0.5.1)
-    - Decele/SwifterSwift/MapKit/MKMultiPoint (= 0.5.1)
-    - Decele/SwifterSwift/MapKit/MKPolyline (= 0.5.1)
-  - Decele/SwifterSwift/MapKit/MKMapView (0.5.1):
+  - Decele/SwifterSwift/Foundation/NSPredicate (0.5.2)
+  - Decele/SwifterSwift/Foundation/NSRegularExpression (0.5.2)
+  - Decele/SwifterSwift/Foundation/URL (0.5.2)
+  - Decele/SwifterSwift/Foundation/URLRequest (0.5.2)
+  - Decele/SwifterSwift/Foundation/URLSession (0.5.2)
+  - Decele/SwifterSwift/Foundation/UserDefaults (0.5.2)
+  - Decele/SwifterSwift/HealthKit (0.5.2)
+  - Decele/SwifterSwift/MapKit (0.5.2):
+    - Decele/SwifterSwift/MapKit/MKMapView (= 0.5.2)
+    - Decele/SwifterSwift/MapKit/MKMultiPoint (= 0.5.2)
+    - Decele/SwifterSwift/MapKit/MKPolyline (= 0.5.2)
+  - Decele/SwifterSwift/MapKit/MKMapView (0.5.2):
     - Decele/SwifterSwift/Shared/EdgeInsets
-  - Decele/SwifterSwift/MapKit/MKMultiPoint (0.5.1)
-  - Decele/SwifterSwift/MapKit/MKPolyline (0.5.1)
-  - Decele/SwifterSwift/SceneKit (0.5.1):
-    - Decele/SwifterSwift/SceneKit/SCNBox (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNCapsule (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNCone (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNCylinder (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNGeometry (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNMaterial (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNPlane (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNShape (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNSphere (= 0.5.1)
-    - Decele/SwifterSwift/SceneKit/SCNVector3 (= 0.5.1)
-  - Decele/SwifterSwift/SceneKit/SCNBox (0.5.1):
+  - Decele/SwifterSwift/MapKit/MKMultiPoint (0.5.2)
+  - Decele/SwifterSwift/MapKit/MKPolyline (0.5.2)
+  - Decele/SwifterSwift/SceneKit (0.5.2):
+    - Decele/SwifterSwift/SceneKit/SCNBox (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNCapsule (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNCone (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNCylinder (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNGeometry (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNMaterial (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNPlane (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNShape (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNSphere (= 0.5.2)
+    - Decele/SwifterSwift/SceneKit/SCNVector3 (= 0.5.2)
+  - Decele/SwifterSwift/SceneKit/SCNBox (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNCapsule (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNCapsule (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNCone (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNCone (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNCylinder (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNCylinder (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNGeometry (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNGeometry (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNVector3
-  - Decele/SwifterSwift/SceneKit/SCNMaterial (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNMaterial (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNPlane (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNPlane (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNShape (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNShape (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNSphere (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNSphere (0.5.2):
     - Decele/SwifterSwift/SceneKit/SCNMaterial
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/SceneKit/SCNVector3 (0.5.1)
-  - Decele/SwifterSwift/Shared (0.5.1):
-    - Decele/SwifterSwift/Shared/Color (= 0.5.1)
-    - Decele/SwifterSwift/Shared/EdgeInsets (= 0.5.1)
-    - Decele/SwifterSwift/Shared/Font (= 0.5.1)
-  - Decele/SwifterSwift/Shared/Color (0.5.1)
-  - Decele/SwifterSwift/Shared/EdgeInsets (0.5.1)
-  - Decele/SwifterSwift/Shared/Font (0.5.1)
-  - Decele/SwifterSwift/SpriteKit (0.5.1):
-    - Decele/SwifterSwift/SpriteKit/SKNode (= 0.5.1)
-    - Decele/SwifterSwift/SpriteKit/SKSpriteNode (= 0.5.1)
-  - Decele/SwifterSwift/SpriteKit/SKNode (0.5.1)
-  - Decele/SwifterSwift/SpriteKit/SKSpriteNode (0.5.1)
-  - Decele/SwifterSwift/StoreKit (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib (0.5.1):
-    - Decele/SwifterSwift/SwiftStdlib/Array (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/BidirectionalCollection (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/BinaryFloatingPoint (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/BinaryInteger (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Bool (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Character (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Collection (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Comparable (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Decodable (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/DefaultStringInterpolation (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Dictionary (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Double (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Encodable (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Float (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/FloatingPoint (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Int (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/KeyedDecodingContainer (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/MutableCollection (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Optional (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/RangeReplaceableCollection (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/Sequence (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/SignedInteger (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/SignedNumeric (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/String (= 0.5.1)
-    - Decele/SwifterSwift/SwiftStdlib/StringProtocol (= 0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Array (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/BidirectionalCollection (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/BinaryFloatingPoint (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/BinaryInteger (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Bool (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Character (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Collection (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Comparable (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Decodable (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/DefaultStringInterpolation (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Dictionary (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Double (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Encodable (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Float (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/FloatingPoint (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Int (0.5.1):
+  - Decele/SwifterSwift/SceneKit/SCNVector3 (0.5.2)
+  - Decele/SwifterSwift/Shared (0.5.2):
+    - Decele/SwifterSwift/Shared/Color (= 0.5.2)
+    - Decele/SwifterSwift/Shared/EdgeInsets (= 0.5.2)
+    - Decele/SwifterSwift/Shared/Font (= 0.5.2)
+  - Decele/SwifterSwift/Shared/Color (0.5.2)
+  - Decele/SwifterSwift/Shared/EdgeInsets (0.5.2)
+  - Decele/SwifterSwift/Shared/Font (0.5.2)
+  - Decele/SwifterSwift/SpriteKit (0.5.2):
+    - Decele/SwifterSwift/SpriteKit/SKNode (= 0.5.2)
+    - Decele/SwifterSwift/SpriteKit/SKSpriteNode (= 0.5.2)
+  - Decele/SwifterSwift/SpriteKit/SKNode (0.5.2)
+  - Decele/SwifterSwift/SpriteKit/SKSpriteNode (0.5.2)
+  - Decele/SwifterSwift/StoreKit (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib (0.5.2):
+    - Decele/SwifterSwift/SwiftStdlib/Array (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/BidirectionalCollection (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/BinaryFloatingPoint (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/BinaryInteger (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Bool (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Character (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Collection (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Comparable (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Decodable (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/DefaultStringInterpolation (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Dictionary (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Double (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Encodable (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Float (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/FloatingPoint (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Int (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/KeyedDecodingContainer (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/MutableCollection (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Optional (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/RangeReplaceableCollection (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/Sequence (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/SignedInteger (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/SignedNumeric (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/String (= 0.5.2)
+    - Decele/SwifterSwift/SwiftStdlib/StringProtocol (= 0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Array (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/BidirectionalCollection (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/BinaryFloatingPoint (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/BinaryInteger (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Bool (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Character (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Collection (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Comparable (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Decodable (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/DefaultStringInterpolation (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Dictionary (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Double (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Encodable (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Float (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/FloatingPoint (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Int (0.5.2):
     - Decele/SwifterSwift/SwiftStdlib/SignedInteger
-  - Decele/SwifterSwift/SwiftStdlib/KeyedDecodingContainer (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/MutableCollection (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Optional (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/RangeReplaceableCollection (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/Sequence (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/SignedInteger (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/SignedNumeric (0.5.1)
-  - Decele/SwifterSwift/SwiftStdlib/String (0.5.1):
+  - Decele/SwifterSwift/SwiftStdlib/KeyedDecodingContainer (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/MutableCollection (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Optional (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/RangeReplaceableCollection (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/Sequence (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/SignedInteger (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/SignedNumeric (0.5.2)
+  - Decele/SwifterSwift/SwiftStdlib/String (0.5.2):
     - Decele/SwifterSwift/Shared/Color
     - Decele/SwifterSwift/Shared/Font
-  - Decele/SwifterSwift/SwiftStdlib/StringProtocol (0.5.1)
-  - Decele/SwifterSwift/UIKit (0.5.1):
+  - Decele/SwifterSwift/SwiftStdlib/StringProtocol (0.5.2)
+  - Decele/SwifterSwift/UIKit (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-    - Decele/SwifterSwift/UIKit/UIActivity (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIAlertController (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIApplication (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIBarButtonItem (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIBezierPath (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIButton (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UICollectionView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIColor (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIDatePicker (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIFont (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIGestureRecognizer (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIImage (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIImageView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UILabel (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UILayoutPriority (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UINavigationBar (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UINavigationController (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UINavigationItem (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIRefreshControl (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIScrollView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UISearchBar (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UISegmentedControl (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UISlider (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIStackView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIStoryboard (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UISwitch (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UITabBar (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UITableView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UITextField (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UITextView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIView (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIViewController (= 0.5.1)
-    - Decele/SwifterSwift/UIKit/UIWindow (= 0.5.1)
-  - Decele/SwifterSwift/UIKit/UIActivity (0.5.1):
+    - Decele/SwifterSwift/UIKit/UIActivity (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIAlertController (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIApplication (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIBarButtonItem (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIBezierPath (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIButton (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UICollectionView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIColor (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIDatePicker (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIFont (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIGestureRecognizer (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIImage (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIImageView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UILabel (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UILayoutPriority (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UINavigationBar (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UINavigationController (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UINavigationItem (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIRefreshControl (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIScrollView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UISearchBar (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UISegmentedControl (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UISlider (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIStackView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIStoryboard (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UISwitch (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UITabBar (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UITableView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UITextField (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UITextView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIView (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIViewController (= 0.5.2)
+    - Decele/SwifterSwift/UIKit/UIWindow (= 0.5.2)
+  - Decele/SwifterSwift/UIKit/UIActivity (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIAlertController (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIAlertController (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIApplication (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIApplication (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIBarButtonItem (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIBarButtonItem (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIBezierPath (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIBezierPath (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIButton (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIButton (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UICollectionView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UICollectionView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIColor (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIColor (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIDatePicker (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIDatePicker (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIFont (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIFont (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIGestureRecognizer (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIGestureRecognizer (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIImage (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIImage (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIImageView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIImageView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UILabel (0.5.1):
+  - Decele/SwifterSwift/UIKit/UILabel (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UILayoutPriority (0.5.1):
+  - Decele/SwifterSwift/UIKit/UILayoutPriority (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UINavigationBar (0.5.1):
+  - Decele/SwifterSwift/UIKit/UINavigationBar (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UINavigationController (0.5.1):
+  - Decele/SwifterSwift/UIKit/UINavigationController (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UINavigationItem (0.5.1):
+  - Decele/SwifterSwift/UIKit/UINavigationItem (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIRefreshControl (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIRefreshControl (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIScrollView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIScrollView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UISearchBar (0.5.1):
+  - Decele/SwifterSwift/UIKit/UISearchBar (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UISegmentedControl (0.5.1):
+  - Decele/SwifterSwift/UIKit/UISegmentedControl (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UISlider (0.5.1):
+  - Decele/SwifterSwift/UIKit/UISlider (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIStackView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIStackView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIStoryboard (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIStoryboard (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UISwitch (0.5.1):
+  - Decele/SwifterSwift/UIKit/UISwitch (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UITabBar (0.5.1):
+  - Decele/SwifterSwift/UIKit/UITabBar (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UITableView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UITableView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UITextField (0.5.1):
+  - Decele/SwifterSwift/UIKit/UITextField (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UITextView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UITextView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIView (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIView (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIViewController (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIViewController (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/UIKit/UIWindow (0.5.1):
+  - Decele/SwifterSwift/UIKit/UIWindow (0.5.2):
     - Decele/SwifterSwift/Shared/Color
-  - Decele/SwifterSwift/WebKit (0.5.1)
+  - Decele/SwifterSwift/WebKit (0.5.2)
   - FloatingPanel (2.6.2)
   - Mocker (2.5.5)
   - R.swift (7.2.4)
@@ -423,7 +424,6 @@ DEPENDENCIES:
   - Decele/Components (from `../`)
   - Decele/Components/Button (from `../`)
   - Decele/Components/FloatingPanel (from `../`)
-  - Decele/Components/NameClass (from `../`)
   - Decele/Components/NibView (from `../`)
   - Decele/Components/SideMenu (from `../`)
   - Decele/Components/TextField (from `../`)
@@ -432,7 +432,6 @@ DEPENDENCIES:
   - Decele/Fonts (from `../`)
   - Decele/Persistent (from `../`)
   - Decele/Repository (from `../`)
-  - Decele/SwifterSwift/UIKit/UIView (from `../`)
   - Mocker (~> 2.5.5)
   - R.swift (from `https://github.com/MacKevinCE/R.swift.git`, commit `1701d96`)
 
@@ -459,7 +458,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
-  Decele: 650e3396c84aaebeb29ca5f6cc26cbd6f47a8a8c
+  Decele: 05dd8e4dfae4950fc3d07c1abc68b2f0225d626f
   FloatingPanel: 4c72e4f212b1cc26d6948b20e6b570d6d9639ca9
   Mocker: 8c731a8104962f246cadf2b02556218e9edc1390
   R.swift: 2877f295849bb44da301bbb27d66e76a5c9f401d
@@ -467,6 +466,6 @@ SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
 
-PODFILE CHECKSUM: 46a17acde3800912e99a04e295b0dc7ba5b9dc8b
+PODFILE CHECKSUM: 4c3f360137a251ab213377bbec2c0b1638716273
 
 COCOAPODS: 1.12.1

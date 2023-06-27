@@ -6,7 +6,7 @@
 //
 
 // MARK: - BootstrapIcons
-public enum BootstrapIcons: String, FontName {
+public enum BootstrapIcons: String, FontNameOnly {
     case bi0Circle = "bi-0-circle"
     case bi0CircleFill = "bi-0-circle-fill"
     case bi0Square = "bi-0-square"

@@ -6,7 +6,7 @@
 //
 
 // MARK: - MaterialIcons
-public enum MaterialIcons: String, FontName {
+public enum MaterialIcons: String, FontNameMultiple {
     case mi10K = "mi-10k"
     case mi10Mp = "mi-10mp"
     case mi11Mp = "mi-11mp"

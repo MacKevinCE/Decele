@@ -6,7 +6,7 @@
 //
 
 // MARK: - FontawesomeFree
-public enum FontawesomeFree: String, FontName {
+public enum FontawesomeFree: String, FontNameMultiple {
     case faf0 = "faf-0"
     case faf1 = "faf-1"
     case faf2 = "faf-2"

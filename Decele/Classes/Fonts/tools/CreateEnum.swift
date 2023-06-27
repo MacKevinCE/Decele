@@ -18,11 +18,19 @@ func onlyFiltersAllowed(allStyles: [String], value: FontDicValue) -> [String] {
     }
 }
 
+func getFontName(_ allStyles: [String]) -> String? {
+    switch allStyles.count {
+    case 0: return nil
+    case 1: return "FontNameOnly"
+    default: return "FontNameMultiple"
+    }
+}
+
 @discardableResult
 func createEnum(importDecele: Bool, name: String, prefix: String, allStyles: [String], codepoints: String, pathEnum: String) -> Bool {
     guard let json = FileManager.default.contents(atPath: codepoints) else { return false }
     guard let fonts = try? JSONDecoder().decode(FontDic.self, from: json) else { return false }
-
+    guard let fontName = getFontName(allStyles) else { return false }
     var fontEnum = ""
 
     fontEnum += """
@@ -46,7 +54,7 @@ func createEnum(importDecele: Bool, name: String, prefix: String, allStyles: [St
     fontEnum += """
 
     // MARK: - \(name)
-    public enum \(name): String, FontName {
+    public enum \(name): String, \(fontName) {
 
     """
 

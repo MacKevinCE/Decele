@@ -17,38 +17,38 @@ public protocol FontName: CaseIterable {
     var rawValue: String { get }
 }
 
-public extension FontName {
-    func isSupported(style: FS) -> Bool {
-        self.supportedStyles.contains(where: { $0 == style })
+extension FontName {
+    private func isSupportedF(style: FS) -> Bool {
+        self.supportedStyles.contains(style)
     }
 
-    static func fontList(style: FS) -> [Self] {
+    static func fontListF(style: FS) -> [Self] {
         allCases.filter {
-            $0.isSupported(style: style)
+            $0.isSupportedF(style: style)
         }
     }
 
-    static func font(ofSize fontSize: CGFloat, style: FS) -> UIFont {
+    static func fontF(ofSize fontSize: CGFloat, style: FS) -> UIFont {
         style.loadFont()
         let getFontNames = style.getFontNames()
         return UIFont(name: getFontNames.postScriptName, size: fontSize)!
     }
 
-    private static func string(name: Self) -> String {
+    private static func stringF(name: Self) -> String {
         let toIndex = name.unicode.index(name.unicode.startIndex, offsetBy: 1)
         return String(name.unicode[name.unicode.startIndex ..< toIndex])
     }
 
-    private static func string(code: String) -> String? {
+    private static func stringF(code: String) -> String? {
         guard let name = Self(rawValue: code) else {
             return nil
         }
 
-        return self.string(name: name)
+        return self.stringF(name: name)
     }
 
-    static func image(name: Self, style: Self.FS, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
-        guard name.isSupported(style: style) else { return nil }
+    static func imageF(name: Self, style: FS, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
+        guard name.isSupportedF(style: style) else { return nil }
         // Prevent application crash when passing size where width or height is set equal to or less than zero, by clipping width and height to a minimum of 1 pixel.
         var size = size
         if size.width <= 0 { size.width = 1 }
@@ -62,8 +62,8 @@ public extension FontName {
         // stroke width expects a whole number percentage of the font size
         let strokeWidth: CGFloat = fontSize == 0 ? 0 : (-100 * borderWidth / fontSize)
 
-        let attributedString = NSAttributedString(string: string(name: name), attributes: [
-            NSAttributedString.Key.font: font(ofSize: fontSize, style: style),
+        let attributedString = NSAttributedString(string: stringF(name: name), attributes: [
+            NSAttributedString.Key.font: fontF(ofSize: fontSize, style: style),
             NSAttributedString.Key.foregroundColor: textColor,
             NSAttributedString.Key.backgroundColor: backgroundColor,
             NSAttributedString.Key.paragraphStyle: paragraph,
@@ -78,8 +78,62 @@ public extension FontName {
         return image!
     }
 
-    static func image(code: String, style: Self.FS, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
+    static func imageF(code: String, style: FS, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
         guard let name = Self(rawValue: code) else { return nil }
-        return image(name: name, style: style, textColor: textColor, size: size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
+        return imageF(name: name, style: style, textColor: textColor, size: size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
+    }
+}
+
+// MARK: - FontNameMultiple
+public protocol FontNameMultiple: FontName {}
+public extension FontNameMultiple {
+    static func fontList(style: FS) -> [Self] {
+        fontListF(style: style)
+    }
+
+    static func font(ofSize fontSize: CGFloat, style: FS) -> UIFont {
+        Self.fontF(ofSize: fontSize, style: style)
+    }
+
+    static func image(name: Self, style: FS, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
+        Self.imageF(name: name, style: style, textColor: textColor, size: size, borderWidth: borderWidth, borderColor: borderColor)
+    }
+
+    static func image(code: String, style: FS, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
+        Self.imageF(code: code, style: style, textColor: textColor, size: size, borderWidth: borderWidth, borderColor: borderColor)
+    }
+}
+
+// MARK: - FontNameOnly
+public protocol FontNameOnly: FontName {}
+public extension FontNameOnly {
+    static func fontList() -> [Self] {
+        let style = FS.allCases.first!
+        return Self.fontListF(style: style)
+    }
+
+    static func font(ofSize fontSize: CGFloat) -> UIFont {
+        let style = FS.allCases.first!
+        return Self.fontF(ofSize: fontSize, style: style)
+    }
+
+    static func image(name: Self, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
+        let style = FS.allCases.first!
+        return Self.imageF(name: name, style: style, textColor: textColor, size: size, borderWidth: borderWidth, borderColor: borderColor)
+    }
+
+    static func image(code: String, textColor: UIColor, size: CGSize, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) -> UIImage? {
+        let style = FS.allCases.first!
+        return Self.imageF(code: code, style: style, textColor: textColor, size: size, borderWidth: borderWidth, borderColor: borderColor)
+    }
+}
+
+public extension UIImageView {
+    func image<FNM: FontNameMultiple>(name: FNM, style: FNM.FS, textColor: UIColor, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) {
+        image = FNM.image(name: name, style: style, textColor: textColor, size: self.size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
+    }
+
+    func image<FNO: FontNameOnly>(name: FNO, textColor: UIColor, backgroundColor: UIColor = .clear, borderWidth: CGFloat = 0, borderColor: UIColor = .clear) {
+        image = FNO.image(name: name, textColor: textColor, size: self.size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
     }
 }

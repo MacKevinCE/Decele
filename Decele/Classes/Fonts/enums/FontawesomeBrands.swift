@@ -6,7 +6,7 @@
 //
 
 // MARK: - FontawesomeBrands
-public enum FontawesomeBrands: String, FontName {
+public enum FontawesomeBrands: String, FontNameOnly {
     case fab42Group = "fab-42-group"
     case fab500Px = "fab-500px"
     case fabAccessibleIcon = "fab-accessible-icon"

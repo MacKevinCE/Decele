@@ -31,14 +31,14 @@ class ViewController: UIViewController {
         titleLabel.text = "Holaa@"
         titleLabel.font = FontawesomeFree.font(ofSize: 50, style: .regular)
 
-        bootstrapIcons.image = BootstrapIcons.image(name: .bi3CircleFill, style: .regular, textColor: .blue, size: bootstrapIcons.size)
-        fontawesomeBrands.image = FontawesomeBrands.image(name: .fabVk, style: .brands, textColor: .red, size: fontawesomeBrands.size)
-        fontawesomeFreeSolid.image = FontawesomeFree.image(name: .fafCopyright, style: .solid, textColor: .red, size: fontawesomeFreeSolid.size)
-        fontawesomeFreeRegular.image = FontawesomeFree.image(name: .fafCopyright, style: .regular, textColor: .red, size: fontawesomeFreeRegular.size)
-        materialIconsOutlined.image = MaterialIcons.image(name: .miRocketLaunch, style: .outlined, textColor: .red, size: materialIconsOutlined.size)
-        materialIconsFilled.image = MaterialIcons.image(name: .miRocketLaunch, style: .filled, textColor: .red, size: materialIconsFilled.size)
-        materialIconsSharp.image = MaterialIcons.image(name: .miRocketLaunch, style: .sharp, textColor: .red, size: materialIconsSharp.size)
-        materialIconsRounded.image = MaterialIcons.image(name: .miRocketLaunch, style: .rounded, textColor: .red, size: materialIconsRounded.size)
+        bootstrapIcons.image(name: BootstrapIcons.bi3CircleFill, textColor: .blue)
+        fontawesomeBrands.image(name: FontawesomeBrands.fabVk, textColor: .red)
+        fontawesomeFreeSolid.image(name: FontawesomeFree.fafCopyright, style: .solid, textColor: .red)
+        fontawesomeFreeRegular.image(name: FontawesomeFree.fafCopyright, style: .regular, textColor: .red)
+        materialIconsOutlined.image(name: MaterialIcons.miRocketLaunch, style: .outlined, textColor: .red)
+        materialIconsFilled.image(name: MaterialIcons.miRocketLaunch, style: .filled, textColor: .red)
+        materialIconsSharp.image(name: MaterialIcons.miRocketLaunch, style: .sharp, textColor: .red)
+        materialIconsRounded.image(name: MaterialIcons.miRocketLaunch, style: .rounded, textColor: .red)
     }
 
     override func didReceiveMemoryWarning() {

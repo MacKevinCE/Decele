@@ -49,13 +49,6 @@ abstract_target 'SharedPods' do
     end
   end
 
-  target 'NameClass' do
-    pod 'Decele/Components/NameClass', :path => '../'
-    
-    target 'NameClassTests' do
-    end
-  end
-
   target 'NibView' do
     pod 'Decele/Components/NibView', :path => '../'
     
