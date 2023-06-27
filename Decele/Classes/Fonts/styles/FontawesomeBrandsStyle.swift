@@ -9,10 +9,6 @@
 public enum FontawesomeBrandsStyle: String, FontStyle {
     case brands
 
-    public static var name: String { "FontawesomeBrands" }
-
-    public static var prefix: String { "fab" }
-
     public static var tag: String { "6.4.0" }
 
     public var fontFilePath: String {

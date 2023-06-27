@@ -93,7 +93,6 @@ abstract_target 'SharedPods' do
 
   target 'Fonts' do
     pod 'Decele/Fonts', :path => '../'
-    pod 'Decele/SwifterSwift/UIKit/UIView', :path => '../'
     
     target 'FontsTests' do
     end

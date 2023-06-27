@@ -10,6 +10,7 @@ import Foundation
 
 // MARK: - Argument
 enum Argument: String, CaseIterable {
+    case importDecele
     case nameEnum
     case prefix
     case allStyles
@@ -36,12 +37,14 @@ enum Argument: String, CaseIterable {
 
 if
     let nameEnum = Argument.nameEnum.value,
-    let prefix = Argument.prefix.value,
     let allStyles = Argument.allStyles.value?.split(separator: ",").map({ String($0).trimmingCharacters(in: .whitespacesAndNewlines) }),
     let inputPath = Argument.inputPath.value,
     let outputPath = Argument.outputPath.value
 {
-    if createEnum(name: nameEnum, prefix: prefix, allStyles: allStyles, codepoints: inputPath, pathEnum: outputPath) {
+    let importDecele = (Argument.importDecele.value ?? "true").bool ?? false
+
+    let prefix = Argument.prefix.value ?? ""
+    if createEnum(importDecele: importDecele, name: nameEnum, prefix: prefix, allStyles: allStyles, codepoints: inputPath, pathEnum: outputPath) {
         print("Se creó correctamente el archivo")
     } else {
         print("Error en los parámetros de entrada")
@@ -50,4 +53,4 @@ if
     print("Se requieren dos parámetros de entrada: \(Argument.allCases.map(\.rawValue).joined(separator: ", "))")
 }
 
-exit(1)
+exit(0)

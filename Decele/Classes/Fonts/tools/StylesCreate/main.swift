@@ -9,21 +9,10 @@ import Foundation
 
 // MARK: - FontStyle
 extension FontStyle {
-    static func addPrefix(name: String) -> String {
-        StylesTools.addPrefix(prefix, name)
-    }
-
-    static func hasStylesAllowed(value: FontDicValue) -> Bool {
-        StylesTools.hasStylesAllowed(allStyles: allCases.map(\.rawValue), value: value)
-    }
-
-    static func onlyFiltersAllowed(styles: [String]) -> [String] {
-        StylesTools.onlyFiltersAllowed(allStyles: allCases.map(\.rawValue), styles: styles)
-    }
-
     @discardableResult
-    static func createEnum(codepoints: String, pathEnum: String) -> Bool {
-        StylesTools.createEnum(
+    static func createEnum(name: String, prefix: String, codepoints: String, pathEnum: String) -> Bool {
+        StylesCreate.createEnum(
+            importDecele: false,
             name: name,
             prefix: prefix,
             allStyles: allCases.map(\.rawValue),
@@ -34,27 +23,35 @@ extension FontStyle {
 }
 
 func filePath(path: String) -> String {
-    #file.replacingOccurrences(of: "/Decele/Classes/Fonts/tools/main.swift", with: path)
+    #file.replacingOccurrences(of: "/Decele/Classes/Fonts/tools/StylesCreate/main.swift", with: path)
 }
 
 BootstrapIconsStyle.createEnum(
+    name: "BootstrapIcons",
+    prefix: "bi",
     codepoints: filePath(path: "/FontLibraries/BootstrapIcons/font/bootstrap-icons.json"),
-    pathEnum: "\(filePath(path: "/Decele/Classes/Fonts/enums/"))\(BootstrapIconsStyle.name).swift"
+    pathEnum: filePath(path: "/Decele/Classes/Fonts/enums/BootstrapIcons.swift")
 )
 
 MaterialIconsStyle.createEnum(
+    name: "MaterialIcons",
+    prefix: "mi",
     codepoints: filePath(path: "/FontLibraries/MaterialIcons/_data/codepoints.json"),
-    pathEnum: "\(filePath(path: "/Decele/Classes/Fonts/enums/"))\(MaterialIconsStyle.name).swift"
+    pathEnum: filePath(path: "/Decele/Classes/Fonts/enums/MaterialIcons.swift")
 )
 
 FontawesomeFreeStyle.createEnum(
+    name: "FontawesomeFree",
+    prefix: "faf",
     codepoints: filePath(path: "/FontLibraries/FontawesomeFree/metadata/icons.json"),
-    pathEnum: "\(filePath(path: "/Decele/Classes/Fonts/enums/"))\(FontawesomeFreeStyle.name).swift"
+    pathEnum: filePath(path: "/Decele/Classes/Fonts/enums/FontawesomeFree.swift")
 )
 
 FontawesomeBrandsStyle.createEnum(
+    name: "FontawesomeBrands",
+    prefix: "fab",
     codepoints: filePath(path: "/FontLibraries/FontawesomeFree/metadata/icons.json"),
-    pathEnum: "\(filePath(path: "/Decele/Classes/Fonts/enums/"))\(FontawesomeBrandsStyle.name).swift"
+    pathEnum: filePath(path: "/Decele/Classes/Fonts/enums/FontawesomeBrands.swift")
 )
 
 exit(1)

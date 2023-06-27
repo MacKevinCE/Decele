@@ -10,14 +10,13 @@ import Alamofire
 import Decele
 import Mocker
 
-extension URLConvertible where Self == String {
-    static func authVersion() -> URLConvertible { Self.baseURLTo("auth/version") }
-    static func authLogin() -> URLConvertible { Self.baseURLTo("auth/login") }
+extension String {
+    static let authVersion = Self.baseURLTo("auth/version")
+    static let authLogin = Self.baseURLTo("auth/login")
 }
 
 public let AFM: Session = {
     RepositorySetting.shared = RepositorySetting(baseURL: "http://localhost:3000")
-
     let configuration = URLSessionConfiguration.af.default
     configuration.protocolClasses = [MockingURLProtocol.self]
     return Session(configuration: configuration)

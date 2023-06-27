@@ -17,7 +17,8 @@ final class VersionTestCase: XCTestCase {
     var cancellables = Set<AnyCancellable>()
 
     override func setUpWithError() throws {
-        var mock = Mock(url: .authVersion(), data: [.get: .versionJson])
+        RepositorySetting.shared = RepositorySetting(baseURL: "http://localhost:3000")
+        var mock = Mock(url: String.authVersion, data: [.get: .versionJson])
         mock.delay = .seconds(1)
         mock.register()
     }

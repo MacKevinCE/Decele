@@ -12,10 +12,6 @@ public enum MaterialIconsStyle: String, FontStyle {
     case rounded
     case sharp
     
-    public static var name: String { "MaterialIcons" }
-
-    public static var prefix: String { "mi" }
-    
     public static var tag: String { "v1.13.8" }
 
     public var fontFilePath: String {

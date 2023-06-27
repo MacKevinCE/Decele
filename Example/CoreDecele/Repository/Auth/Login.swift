@@ -22,6 +22,6 @@ public struct LoginRequest: RepositoryResponse {
     public var dataRequest: DataRequest
 
     public init() {
-        dataRequest = AFM.request(.authLogin())
+        dataRequest = AFM.request(String.authLogin)
     }
 }

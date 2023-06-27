@@ -21,6 +21,6 @@ public struct VersionRequest: RepositoryDecodable {
     public var dataRequest: DataRequest
 
     public init() {
-        dataRequest = AFM.request(.authVersion())
+        dataRequest = AFM.request(String.authVersion)
     }
 }

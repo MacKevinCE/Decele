@@ -11,8 +11,7 @@ import UIKit
 
 // MARK: - ViewController
 class ViewController: UIViewController {
-    
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
 
     @IBOutlet var bootstrapIcons: UIImageView!
     @IBOutlet var fontawesomeBrands: UIImageView!
@@ -25,18 +24,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setupView()
+    }
+
+    func setupView() {
         titleLabel.text = "Holaa@"
         titleLabel.font = FontawesomeFree.font(ofSize: 50, style: .regular)
-        
-        bootstrapIcons.image = BootstrapIcons.image(name: .biAlarm, style: .regular, textColor: .red, size: bootstrapIcons.size)
+
+        bootstrapIcons.image = BootstrapIcons.image(name: .bi3CircleFill, style: .regular, textColor: .blue, size: bootstrapIcons.size)
         fontawesomeBrands.image = FontawesomeBrands.image(name: .fabVk, style: .brands, textColor: .red, size: fontawesomeBrands.size)
         fontawesomeFreeSolid.image = FontawesomeFree.image(name: .fafCopyright, style: .solid, textColor: .red, size: fontawesomeFreeSolid.size)
         fontawesomeFreeRegular.image = FontawesomeFree.image(name: .fafCopyright, style: .regular, textColor: .red, size: fontawesomeFreeRegular.size)
-        materialIconsOutlined.image = MaterialIcons.image(name: .miRocket_Launch, style: .outlined, textColor: .red, size: materialIconsOutlined.size)
-        materialIconsFilled.image = MaterialIcons.image(name: .miRocket_Launch, style: .filled, textColor: .red, size: materialIconsFilled.size)
-        materialIconsSharp.image = MaterialIcons.image(name: .miRocket_Launch, style: .sharp, textColor: .red, size: materialIconsSharp.size)
-        materialIconsRounded.image = MaterialIcons.image(name: .miRocket_Launch, style: .rounded, textColor: .red, size: materialIconsRounded.size)
+        materialIconsOutlined.image = MaterialIcons.image(name: .miRocketLaunch, style: .outlined, textColor: .red, size: materialIconsOutlined.size)
+        materialIconsFilled.image = MaterialIcons.image(name: .miRocketLaunch, style: .filled, textColor: .red, size: materialIconsFilled.size)
+        materialIconsSharp.image = MaterialIcons.image(name: .miRocketLaunch, style: .sharp, textColor: .red, size: materialIconsSharp.size)
+        materialIconsRounded.image = MaterialIcons.image(name: .miRocketLaunch, style: .rounded, textColor: .red, size: materialIconsRounded.size)
     }
 
     override func didReceiveMemoryWarning() {

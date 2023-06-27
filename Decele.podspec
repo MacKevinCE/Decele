@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Decele'
-    s.version          = '0.5.0'
+    s.version          = '0.5.1'
     s.summary          = 'The library provides a complete solution for log management, data storage, network requests, and graphical components in iOS applications.'
     s.description      = <<-DESC
     This library provides a complete solution for log management, persistent data storage, network requests, and graphical components in iOS applications. It includes a log visualization system for services and prints, the ability to save data in UserDefaults and Keychain, a system for making requests to endpoints using Alamofire, and a variety of graphical components such as FloatingPanel, SideMenu, Buttons, among others to facilitate the design of views.
@@ -139,7 +139,8 @@ Pod::Spec.new do |s|
         sp.subspec 'Tools' do |spp|
             spp.source_files = 'Decele/Classes/Fonts/*.swift'
             spp.dependency 'Decele/SwifterSwift/SwiftStdlib/String'
-            spp.preserve_paths = "Decele/Classes/Fonts/FontsTools"
+            spp.dependency 'Decele/SwifterSwift/UIKit/UIView'
+            spp.preserve_paths = "FontsTools"
         end
 
         # BootstrapIcons

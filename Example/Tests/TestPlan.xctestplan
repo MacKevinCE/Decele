@@ -71,13 +71,6 @@
     {
       "target" : {
         "containerPath" : "container:Decele.xcodeproj",
-        "identifier" : "649266E92A388BD5003D49EF",
-        "name" : "NameClassTests"
-      }
-    },
-    {
-      "target" : {
-        "containerPath" : "container:Decele.xcodeproj",
         "identifier" : "649266F52A388BDF003D49EF",
         "name" : "NibViewTests"
       }

@@ -6,7 +6,6 @@
 //  Copyright © 2023 CocoaPods. All rights reserved.
 //
 
-import RswiftResources
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

@@ -9,10 +9,6 @@
 public enum BootstrapIconsStyle: String, FontStyle {
     case regular
 
-    public static var name: String { "BootstrapIcons" }
-
-    public static var prefix: String { "bi" }
-
     public static var tag: String { "v1.10.5" }
 
     public var fontFilePath: String {

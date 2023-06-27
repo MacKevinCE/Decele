@@ -11,16 +11,35 @@ import Foundation
 // MARK: - FontStyle
 extension FontStyle {
     private func fontURL() -> URL? {
-        let bundle = Bundle(for: FontSetting.self)
-
         let withExtension = fontFilePath.pathExtension
         let forResource = fontFilePath.deletingPathExtension
+
+        // If this project principal
+        if let fontURL = Bundle.main.url(forResource: forResource, withExtension: withExtension) {
+            return fontURL
+        }
+
+        if let fontURL = Bundle.main.url(forResource: forResource, withExtension: withExtension, subdirectory: "\(Self.name).bundle") {
+            return fontURL
+        }
+
+        #if SWIFT_PACKAGE
+            if let fontURL = Bundle.module.url(forResource: fontName, withExtension: "otf") {
+                return fontURL
+            }
+
+            if let fontURL = Bundle.module.url(forResource: fontName, withExtension: "otf", subdirectory: "\(Self.name).bundle") {
+                return fontURL
+            }
+        #endif
+
+        // If this framework is added using CocoaPods, resources is placed under a subdirectory
+        let bundle = Bundle(for: FontSetting.self)
 
         if let fontURL = bundle.url(forResource: forResource, withExtension: withExtension) {
             return fontURL
         }
 
-        // If this framework is added using CocoaPods, resources is placed under a subdirectory
         if let fontURL = bundle.url(forResource: forResource, withExtension: withExtension, subdirectory: "\(Self.name).bundle") {
             return fontURL
         }
